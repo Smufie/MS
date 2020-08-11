@@ -3,8 +3,12 @@ var mainSectionElement = document.getElementById("main-section");
 var classChanged = false;
 var header = document.getElementById("main-header");
 var headerBlinked = false;
-//debugger;
-menuButton4.onclick = function() {
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    console.log("DOM zostal wczytany.");
+});
+
+menuButton4.addEventListener("click", function() {
     if (!classChanged) {
         mainSectionElement.classList.add("red");
         document.getElementsByClassName("article-in-main-section")[2].innerHTML = "<p>I'm changing!</p>";
@@ -16,4 +20,4 @@ menuButton4.onclick = function() {
         classChanged = !classChanged;
     }
 
-};
+});
