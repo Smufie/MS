@@ -1,25 +1,25 @@
-#MailSender
-Java and JS code for MailSender.
+#MailSender  
+Java and JS code for MailSender.  
 
-TODO and DONE List:
+TODO and DONE List:  
 
-1.codecademy, css dinner
-
-2.JS site life cycle	DONE 11.08 (4)
-3.Biblioteka JQuerry
-4.DOM Tree 	DONE 11.08 (3)
-
-5.Hello Roman, blog/yt; nafrontendzie.pl; yt googlechrome
-
-6.XML HTTP request (w3c)
-7.JQuery metody ajax
-8.JS polifils, transpilation.
-
-9.GitHub	DONE 11.08 (1)
-10.Trello/Slack	DONE 11.08 (2)
-11.XAMPP
-12.HTTP requesty, status codes
-
+1.codecademy, css dinner  
+  
+2.JS site life cycle	DONE 11.08 (4)  
+3.Biblioteka JQuerry  
+4.DOM Tree 	DONE 11.08 (3)  
+  
+5.Hello Roman, blog/yt; nafrontendzie.pl; yt googlechrome  
+  
+6.XML HTTP request (w3c)  
+7.JQuery metody ajax  
+8.JS polifils, transpilation.  
+  
+9.GitHub	DONE 11.08 (1)  
+10.Trello/Slack	DONE 11.08 (2)  
+11.XAMPP  
+12.HTTP requesty, status codes  
+  
 Pytania:
 1. Różnice między DOM Eventami a EventListnerami.
 2. Czy da się zobaczyć drzewo DOM pod F12 w przeglądarce? (Chodzi o graficzną reprezentacje drzewa, np. graf)
