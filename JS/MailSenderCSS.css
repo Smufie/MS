@@ -4,9 +4,25 @@ html {
 
   h1 {
     color: rgb(52, 105, 204);
-    text-align: center;
+    
   }
   
+  #main-header {
+    width: 100%;
+    animation: blink 1s linear 0s infinite, fadeIn 1.5s ease-out forwards;
+  }
+
+  @keyframes blink {
+    0% {color: rgb(52, 105, 204);}
+    50% {color: rgb(0, 172, 224);}
+    100% {color: rgb(52, 105, 204);}
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0.0; margin-left: 0px;}
+    to {opacity: 1.0; margin-left: 44%;}
+  }
+
   p {
     font-size: 1.5em;
   }
@@ -54,8 +70,4 @@ html {
       background-color: rgba(100, 148, 237, 0.3);
       width: 32.6%;
 
-  }
-
-  .blinker {
-    color: rgba(39, 162, 211, 0.966);
   }
