@@ -55,3 +55,7 @@ html {
       width: 32.6%;
 
   }
+
+  .blinker {
+    color: rgba(39, 162, 211, 0.966);
+  }
