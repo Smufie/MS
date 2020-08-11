@@ -1,0 +1,16 @@
+1. codecademy, css dinner 
+
+2. JS site life cycle
+3. Biblioteka JQuerry
+4. Drzewo DOM
+
+5. Hello Roman, blog/yt; nafrontendzie.pl; yt googlechrome
+
+6. XML HTTP request (w3c)
+7. JQuery metody ajax
+8. JS polifils, transpilation. 
+
+9. GitHub
+10. Trello/Slack
+11. XAMPP
+12. HTTP requesty, status codes

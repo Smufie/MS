@@ -1,0 +1,57 @@
+html {
+    font-family: Helvetica;
+  }
+
+  h1 {
+    color: rgb(52, 105, 204);
+    text-align: center;
+  }
+  
+  p {
+    font-size: 1.5em;
+  }
+
+  body {
+      background-color: linen;
+  }
+  
+  .red {
+    color: red;
+  }
+
+  .menu {
+      display: flex;
+      height: 50px;
+      width: 100%;
+      flex-direction: row;
+      background-color: dimgray;
+
+  }
+
+  .menu-link {
+        display: block;
+        flex-basis: 10%;
+        padding-top: 15px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+
+  }
+
+  .menu-link:hover {
+    background-color: gray;
+    color: whitesmoke;
+  }
+
+  #main-section {
+    display: flex;
+    height: 400px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #main-section .article-in-main-section {
+      background-color: rgba(100, 148, 237, 0.3);
+      width: 32.6%;
+
+  }
