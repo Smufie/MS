@@ -24,7 +24,7 @@ public class CommandDispatcher {
 		fillMapWithHandlers();
 	}
 		
-	public void executeCommand(String commandString, CommandContext context) throws IOException {
+	public void dispatchCommand(String commandString, CommandContext context) throws IOException {
 		saver.SaveCommandHistory(commandString);
 		Command command = new Command(commandString);
 		String commandId = command.getId();

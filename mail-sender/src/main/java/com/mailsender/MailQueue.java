@@ -1,18 +1,17 @@
 package com.mailsender;
 
 import java.util.ArrayList;
+import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import com.mailsender.handlers.SendCommandHandler;
-
 public class MailQueue implements Queuer {
 	
-	private static final Logger logger = LogManager.getLogger(SendCommandHandler.class);
+	private static final Logger logger = LogManager.getLogger(MailQueue.class);
 	
-	private ConcurrentLinkedQueue<Client> interesants = new ConcurrentLinkedQueue<Client>();
+	private static Queue<Client> interesants = new ConcurrentLinkedQueue<Client>();
 	
 	public void handleQueue(String message, ClientRepository clientCollection) throws InterruptedException {
 		

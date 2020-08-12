@@ -11,7 +11,7 @@ public class NewCommandListenerImp implements NewCommandListener {
 	
 	public void onNewCommand(String commandLine, CommandContext context) throws IOException {
 
-		dispatcher.executeCommand(commandLine, context);
+		dispatcher.dispatchCommand(commandLine, context);
 
 	}
 

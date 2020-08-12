@@ -32,7 +32,8 @@ public class FileInDirectoryCommandProvider implements CommandProvider {
 		this.listener = listener;
 		setupWatchService();
 	}
-		public void setupWatchService() throws IOException {
+	
+	public void setupWatchService() throws IOException {
 		
 		watcher = FileSystems.getDefault().newWatchService();
 		keyMap = new HashMap<WatchKey, Path>();
@@ -40,7 +41,6 @@ public class FileInDirectoryCommandProvider implements CommandProvider {
 		keyMap.put(path.register(watcher, 
 				StandardWatchEventKinds.ENTRY_CREATE
 				), path);
-		
 	}
 
 	public void start(CommandContext context) throws IOException, InterruptedException {

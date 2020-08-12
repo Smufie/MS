@@ -2,12 +2,13 @@ package com.mailsender;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Client {
 	private String name;
 	private String mail;
 	private Date lastMessage;
-	private ArrayList <String> interest = new ArrayList<String>();
+	private List <String> interest = new ArrayList<String>();
 	
 	
 	
@@ -39,7 +40,7 @@ public class Client {
 		return interest.get(index);
 	}
 	
-	public ArrayList<String> getInterest() {
+	public List<String> getInterest() {
 		return interest;
 	}
 

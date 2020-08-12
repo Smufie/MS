@@ -3,24 +3,33 @@ html {
   }
 
   h1 {
-    color: rgb(52, 105, 204);
-    
+    font-size: 1.3em;
+    color: whitesmoke;
+    font-style: italic;
   }
   
+  #header-space {
+    background-color: dimgray;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   #main-header {
-    width: 100%;
-    animation: blink 1s linear 0s infinite, fadeIn 1.5s ease-out forwards;
+    animation: blink 3s linear 0s infinite, headerFadeIn 1.0s ease-out forwards;
+    
   }
 
   @keyframes blink {
-    0% {color: rgb(52, 105, 204);}
-    50% {color: rgb(0, 172, 224);}
-    100% {color: rgb(52, 105, 204);}
+    0% {color: whitesmoke;}
+    10% {color: rgb(164, 174, 177);}
+    20% {color: whitesmoke;}
   }
 
-  @keyframes fadeIn {
-    from {opacity: 0.0; margin-left: 0px;}
-    to {opacity: 1.0; margin-left: 44%;}
+  @keyframes headerFadeIn {
+    from {opacity: 0.0; margin-left: -100px;}
+    to {opacity: 1.0; margin-left: 0px;}
   }
 
   p {
@@ -28,40 +37,80 @@ html {
   }
 
   body {
-      background-color: linen;
+      background-color: aliceblue;
   }
   
   .red {
     color: red;
   }
 
-  .menu {
-      display: flex;
-      height: 50px;
-      width: 100%;
-      flex-direction: row;
-      background-color: dimgray;
 
-  }
+.menu * { 
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
 
-  .menu-link {
-        display: block;
-        flex-basis: 10%;
-        padding-top: 15px;
-        color: white;
-        text-align: center;
-        text-decoration: none;
+.menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 50px;
+  color: whitesmoke;
+  font-weight: bold;
+}
 
-  }
+.menu-link {
+  background-color: dimgray;
+}
 
-  .menu-link:hover {
-    background-color: gray;
-    color: whitesmoke;
-  }
+.menu-link:hover {
+  transition: 0.6s;
+  background-color: rgb(139, 139, 139);
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+}
+
+.menu ul li {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dropdown li {
+  display: none;
+  opacity: 1.0;
+  background-color: rgb(139, 139, 139);
+}
+
+.dropdown li:hover {
+  transition: 0.6s;
+  background-color: rgb(173, 173, 173);
+}
+
+#menu-add:hover .dropdown li,#menu-delete:hover .dropdown li {
+  display: block;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0.0;}
+  to {opacity: 0.8;}
+}
 
   #main-section {
     display: flex;
-    height: 400px;
+    height: 550px;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -70,4 +119,9 @@ html {
       background-color: rgba(100, 148, 237, 0.3);
       width: 32.6%;
 
+  }
+
+  #blank-space {
+    background-color: dimgray;
+    height: 50px;
   }

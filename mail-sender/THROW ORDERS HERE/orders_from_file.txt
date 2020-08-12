@@ -19,5 +19,5 @@
 /addclient Lonely Loner;lonelyloner@dispostable.com
 /addinterest lonelyloner@dispostable.com;loneliness
 
-/send sport;Jutro twoj stary ma wyscig.
-/send sport;Jutro twoj stary ma wyscig.
+/send sport;Test message.
+/send music;Test message.

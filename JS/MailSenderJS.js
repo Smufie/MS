@@ -1,4 +1,4 @@
-var menuButton4 = document.getElementById("menu-link-4");
+var menuButton4 = document.getElementById("menu-clickme");
 var mainSectionElement = document.getElementById("main-section");
 var classChanged = false;
 var header = document.getElementById("main-header");

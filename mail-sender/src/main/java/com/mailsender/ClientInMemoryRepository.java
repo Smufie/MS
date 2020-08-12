@@ -1,6 +1,7 @@
 package com.mailsender;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -9,15 +10,14 @@ public class ClientInMemoryRepository implements ClientRepository {
 	
 	private static final Logger logger = LogManager.getLogger(ClientInMemoryRepository.class);
 	
-	//TODO: ZMIEN NA LISTE
-	private ArrayList<Client> allClientsData = new ArrayList<Client>();
+	private List<Client> allClientsData = new ArrayList<Client>();
 	
 	
 	public ClientInMemoryRepository() {
 		allClientsData.add(new Client("", ""));
 	}
 	
-	public ArrayList<Client> getAllClientsData() {
+	public List<Client> getAllClientsData() {
 		return allClientsData;
 	}
 

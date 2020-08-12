@@ -35,6 +35,7 @@ public class Application  {
 	
 	public static void main(String[] args) throws IOException, InterruptedException {
 		logger.warn("Application start.");
+		Application app = new Application();
 		FileInDirectoryCommandProvider commandProvider = new FileInDirectoryCommandProvider(
 				"C:\\Users\\Jan\\eclipse-workspace\\mail-sender\\THROW ORDERS HERE", listener);
 		commandProvider.start(context);
