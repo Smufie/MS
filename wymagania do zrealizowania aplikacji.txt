@@ -1,0 +1,13 @@
+System do masowej wysyłki maili:
+  -ma umożliwiać przechowywanie informacji o odbiorcach imie nazw email i ich zainteresowanie np. sport
+  -ma umożliwiać dodawanie odbiorców, edycje ich danych (identyfikacja po emailu)
+  -system musi umożliwiać grupową wysyłkę emaili (tytul i tresc) do osob ktore maja konkretne zainteresowania
+  -tresc emaila i jego tytul musi miec mozliwosc wstawienia zmiennych takich jak imie i nazwisko
+  -do wysylania emaili uzywane sa konta google z jednego konta google nie mozna wysylac maili czesciej niz 50ms ze wzgledu na spam,
+nie nalezy wysylac maili do tego samego odbiorcy czesciej niz 10s
+  -komendy do systemu moga przychodzic z roznych zrodel, folder(pliki), rest api (webservice w oparciu o JSON), (komendy addclient, deleteclient, ..., sendmail)
+  -aplikacja przeglądarkowa która pozwoli na przeglądanie historii komend, jakim kanałem, kiedy i jak brzmiała
+  -aplikacja przeglądarkowa która pozwoli na dodanie nowej komendy
+  -usługa rest(webservice w oparciu o JSON) do przesylania komend do systemu
+  -usluga ma byc wysoce dostepna, ma byc gotowy na przetwarzanie duzej ilosci danych
+  -aplikacja wysylajaca ma miec swoj front monitorujący, pokazywac grubosc kolejki, statusy itd.
