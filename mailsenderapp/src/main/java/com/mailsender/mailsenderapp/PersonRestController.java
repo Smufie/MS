@@ -34,7 +34,13 @@ public class PersonRestController {
 	}
 	
 	@PostMapping("/person/add")
-	public Person addPerson(@RequestBody Person newPerson) {
+	public int addPerson(@RequestBody PersonDto newPerson) {
 		return persons.addPerson(newPerson);
 	}
+	
+	@PostMapping("/person/edit")
+	public void editPerson(@RequestBody PersonDto newPersonData) {
+		persons.editPerson(newPersonData);
+	}
+	
 }

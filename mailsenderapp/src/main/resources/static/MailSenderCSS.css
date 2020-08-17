@@ -37,7 +37,7 @@ html {
   }
 
   body {
-      background-color: aliceblue;
+      background-color: dimgray;
   }
   
   .red {
@@ -115,13 +115,7 @@ html {
     justify-content: space-between;
   }
 
-  #main-section .article-in-main-section {
-      background-color: rgba(100, 148, 237, 0.3);
-      width: 49%;
-
-  }
-
-  #blank-space {
+  .blank-space {
     background-color: dimgray;
     height: 50px;
   }
@@ -130,9 +124,56 @@ html {
   }
 
   .article-in-main-section * {
-    padding-left: 10px;
+    padding: 0px 10px;
   }
 
-  #output {
+  .article-in-main-section {
+    background-color: rgb(200, 219, 255);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    flex-basis: 33%;
     overflow: auto;
+    border-radius: 15px;
+  }
+
+  .article-in-main-section h2{
+    flex-basis: 100%;
+  }
+
+  .information-returned {
+    margin: 5px 0px;
+  }
+
+  #person-table {
+    margin: 0 5%;
+    flex-basis: 90%;
+    border-collapse: collapse;
+  }
+
+  #person-table td,#person-table th {
+    padding: 5px;
+    text-align: left;
+    border-width: 1px;
+    border-color: rgb(200, 219, 255);
+    border-style: solid;
+  }
+
+  #person-table tr:nth-child(even) {
+    background-color: rgb(150, 150, 150);
+  }
+
+  #person-table tr {
+    background-color: rgb(139, 139, 139);
+  }
+
+  #person-table tr:hover {
+    transition: 0.6s;
+    background-color: rgb(173, 173, 173);
+  }
+  
+  #person-table th {
+    background-color: dimgray;
+    color: whitesmoke;
   }
