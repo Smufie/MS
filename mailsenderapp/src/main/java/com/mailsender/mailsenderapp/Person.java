@@ -1,11 +1,9 @@
 package com.mailsender.mailsenderapp;
 
-import com.fasterxml.jackson.annotation.JsonSetter;
-
 class Person {
 
-	static private int idCounter = 0;
-	private final int id;
+	static private Integer idCounter = 0;
+	private Integer id;
 	private String name;
 
 	public Person() {
@@ -17,7 +15,7 @@ class Person {
 		id = idCounter++;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -25,8 +23,11 @@ class Person {
 		return name;
 	}
 
-	@JsonSetter
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 }

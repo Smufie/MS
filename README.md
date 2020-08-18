@@ -13,11 +13,11 @@ TODO and DONE List:
 9. Biblioteka JQuery TODO 12.08
 10. JQuery metody ajax TODO 12.08
 11. JS Fetch
+12. Web components
+
 
 W międzyczasie:  
 -codecademy, css dinner  
 -Hello Roman, blog/yt; nafrontendzie.pl; yt googlechrome
 
 Pytania:
-1. 36: document.getElementById("output").appendChild(informationReturned) działa, a mainSection.lastChild.appendChild(informationReturned) nie działa
-2. Sposoby na efektywne dzielenie kodu

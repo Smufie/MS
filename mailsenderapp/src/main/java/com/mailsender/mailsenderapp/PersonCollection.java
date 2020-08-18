@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PersonCollection {
 	
-	private List<Person> persons = new ArrayList<>();;
+	private List<Person> persons = new ArrayList<>();
 	
 	@Autowired
 	public PersonCollection() {
@@ -24,15 +24,24 @@ public class PersonCollection {
 	}
 
 	public Person getPersonById(int id) {
-		try {
-			return persons.get(id);
-		} catch (IndexOutOfBoundsException e) {
-			return null;
+		for (Person person : persons) {
+			if (id == person.getId()) {
+				return person;
+			}
 		}
+		return null;
 	}
 
-	public Person addPerson(Person newPerson) {
-		persons.add(newPerson);
-		return newPerson;
+	public int addPerson(PersonDto newPerson) {
+		Person person = new Person(newPerson.getName());
+		persons.add(person);
+		return person.getId();
+	}
+
+	public void editPerson(PersonDto newPersonData) {
+		Person personById = getPersonById(newPersonData.getId());
+		if (personById != null) {
+			personById.setName(newPersonData.getName());
+		}
 	}
 }
