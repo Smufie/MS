@@ -36,6 +36,9 @@ tomcat
 .classpath
 .project
 
+#
+node_modules/
+
 # NetBeans specific
 nbproject/private/
 build/
