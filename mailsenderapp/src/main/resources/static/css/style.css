@@ -37,21 +37,16 @@ html {
   }
 
   body {
-      background-color: dimgray;
-  }
-  
-  .red {
-    color: red;
+      background-color: rgb(128, 128, 128);
   }
 
-
-.menu * { 
+#menu * { 
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-.menu a {
+#menu a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,12 +65,12 @@ html {
   background-color: rgb(139, 139, 139);
 }
 
-.menu ul {
+#menu ul {
   list-style: none;
   display: flex;
 }
 
-.menu ul li {
+#menu ul li {
   position: relative;
   width: 100%;
 }
@@ -176,4 +171,9 @@ html {
   #person-table th {
     background-color: dimgray;
     color: whitesmoke;
+  }
+
+  #name-input {
+    padding: 0px;
+    margin: 0px 10px;
   }

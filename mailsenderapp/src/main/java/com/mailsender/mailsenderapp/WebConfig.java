@@ -14,5 +14,4 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/").setViewName("index.html");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
-
 }
