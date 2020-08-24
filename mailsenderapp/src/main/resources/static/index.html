@@ -7,79 +7,69 @@
 <body>  
 
     <div id="menu">
-        <ul>
-            <li id="menu-add"><a class= "menu-link" href="#">Add</a>
-            <ul class="dropdown">
-                <li><a class= "dropdown-menu-link" id="menu-add-user" href="#">User</a></li>
-                <li><a class= "dropdown-menu-link" id="menu-add-interest" href="#">Interest</a></li>
-            </ul>
-            </li>
-            <li id="menu-send"><a class= "menu-link" href="#">Send</a></li>
-            <li id="menu-delete"><a class= "menu-link" href="#">Delete</a>
-            <ul class="dropdown">
-                <li><a class= "dropdown-menu-link" id="menu-delete-user" href="#">User</a></li>
-                <li><a class= "dropdown-menu-link" id="menu-delete-interest" href="#">Interest</a></li>
-            </ul>
-            </li>
-        
-            <li><a class= "menu-link" href="#">Monitoring</a></li>
-            <li class="blank-space"></li>
-            <li class="blank-space"></li>
-            <li class="blank-space"></li>
-            <li id="header-space"><a class= "main-site-link" href="http://localhost:8080/"><h1 id="main-header">MailSender</h1></a></li>
-        </ul>
+        <!-- menu injection -->
     </div>
 
-    <!-- <script id = "menu-template" type = "text/x-handlebars-template">
-    <ul>
-        {{#each menu}}
-            <li {{#if blankspace}} class="blank-space" {{else}} id="{{menuId}}" {{/if}}>
-            {{#switch is}}
-                {{#case "menu-link"}}
-                    <a class= "menu-link" href="{{hyperlink}}">{{menuLinkName}}
-                    {{#if dropdown}}
-                        <ul class="dropdown">
-                            <li><a class= "dropdown-menu-link" id="menu-delete-user" href="#">User</a></li>
-                            <li><a class= "dropdown-menu-link" id="menu-delete-interest" href="#">Interest</a></li>
-                        </ul>
-                    {{/if}}
-                    </a>
-                {{/case}}
+    <script id = "menu-template" type = "text/x-handlebars-template">
+        <ul>
+            {{#each menu}}
+                <li {{#if blankspace}} class="blank-space" {{else}} id="{{menuId}}" {{/if}}>
+                {{#switch is}}
+                    {{#case "menu-link"}}
+                        <a class= "menu-link" href="{{hyperlink}}">{{menuLinkName}}</a>
+                        {{#if dropdown}}
+                            <ul class="dropdown">
+                                <li><a class= "dropdown-menu-link" id="menu-delete-user" href="#">User</a></li>
+                                <li><a class= "dropdown-menu-link" id="menu-delete-interest" href="#">Interest</a></li>
+                            </ul>
+                        {{/if}}
+                    {{/case}}
             
-                {{#case "header-space"}}
-                    <a class= "main-site-link" href="http://localhost:8080/"><h1 id="main-header">MailSender</h1></a>
-                {{/case}}
-            </li>
-            {{/switch}}
-        {{/each}}
-    </ul>
-    </script> -->
-    
-    
-    <section id="main-section">
-        <article id="input" class="article-in-main-section">
-            <h2>Input</h2>
-            <!-- <label>Type your name:</label> -->
-            <!-- <input type="text" id="name-input" name="first-name" placeholder="eg. John"> -->
-        </article>
+                    {{#case "header-space"}}
+                        <a class= "main-site-link" href="http://localhost:8080/"><h1 id="main-header">MailSender</h1></a>
+                    {{/case}}
+                </li>
+                {{/switch}}
+            {{/each}}
+        </ul>
+    </script>
 
-        <article id="output" class="article-in-main-section">
-            <h2>Output</h2>
-        </article>
-        
-        <article id="persons" class="article-in-main-section">
-            <h2>Persons</h2>
-            
-            <table id="person-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-            </table>
-        </article>
+    <section id="main-section">
+        <!-- main section injection -->
     </section>
+
+    <script id = "main-section-template" type = "text/x-handlebars-template">
+        {{#each main-section}}
+            <article  id="{{articleId}}" class="article-in-main-section">
+                <h2>{{article-header}}</h2>
+                {{#if isPersons}}
+                    <div id = 'table-space'>
+                        
+                    </div>
+                {{/if}}
+           </article>
+        {{/each}}
+    </script>
+
+    <script id = "table-template" type = "text/x-handlebars-template">
+        <table id="person-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each persons}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{name}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+
     <script type="module" type="text/javascript" src="dist/main.js"></script>  
 </body>
 </html>

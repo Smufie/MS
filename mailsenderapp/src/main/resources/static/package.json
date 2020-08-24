@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "start": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "server": "webpack-dev-server --inline --hot"
   },
   "keywords": [],
   "author": "",
@@ -13,9 +15,10 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "babel-loader": "^8.1.0",
-    "babel-preset-env": "^1.7.0",
     "css-loader": "^4.2.1",
     "file-loader": "^6.0.0",
-    "style-loader": "^1.2.1"
+    "handlebars": "^4.7.6",
+    "style-loader": "^1.2.1",
+    "webpack-dev-server": "^3.11.0"
   }
 }

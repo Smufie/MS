@@ -17,9 +17,3 @@ export function establishAddHttpRequest() {
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     return xhr;
 }
-
-export function establishMenuDataHttpRequest() {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", 'http://localhost:8080/menudata');
-    return xhr;
-}

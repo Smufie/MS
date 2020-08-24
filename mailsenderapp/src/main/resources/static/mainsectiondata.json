@@ -1,0 +1,21 @@
+{
+    "main-section": [
+        {
+            "articleId": "input",
+            "article-header": "Input",
+            "isPersons": false
+        },
+    
+        {
+            "articleId": "output",
+            "article-header": "Output",
+            "isPersons": false
+        },
+    
+        {
+            "articleId": "persons",
+            "article-header": "Persons",
+            "isPersons": true
+        }
+    ]
+}

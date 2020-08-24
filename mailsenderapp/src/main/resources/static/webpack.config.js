@@ -3,8 +3,7 @@ module.exports = {
     output: {
       publicPath: './'
     },
-    mode: 'development',
-
+    devtool: "source-map",
     module: {
 			rules: [
 				{
@@ -16,12 +15,12 @@ module.exports = {
 						}
 					},
 					exclude: /(node_modules|bower_components)/
-        },
+        		},
         
 				{
 					test: /\.css$/,
-          loader: 'css-loader',
-        },
+          			loader: 'css-loader',
+        		},
         
 				{
 					test: /\.(png|jpg|gif)$/,

@@ -37,7 +37,7 @@ html {
   }
 
   body {
-      background-color: rgb(128, 128, 128);
+      background-color: dimgray;
   }
 
 #menu * { 
@@ -141,9 +141,16 @@ html {
     margin: 5px 0px;
   }
 
+  #table-space {
+    display: flex;
+    flex-basis: 100%;
+  }
+
   #person-table {
-    margin: 0 5%;
+    table-layout: auto; 
+    width: 100%;
     flex-basis: 90%;
+    margin: 0 5%;
     border-collapse: collapse;
   }
 

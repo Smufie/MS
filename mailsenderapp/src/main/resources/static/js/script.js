@@ -1,15 +1,25 @@
+import { NameInputComponent } from "./components/NameInputComponent.js"
+import { MenuComponent } from "./components/MenuComponent.js"
+import { MainSectionContainer } from './components/MainSectionContainer.js';
 import { getPersonList } from './allPersonsGetter.js';
-import { nameInput } from "./components/nameInputComponent.js"
-import { getMenu } from "./getMenuDataHandler.js"
+import { SubmitButtonListener } from "./SubmitButtonListener.js";
 
+
+window.addEventListener('DOMContentLoaded', function () {
+    setupView();
+});
 
 window.addEventListener('load', function () {
-    getPersonList();  //imported
-    getMenu();
+    setupListeners();
 });
-const inputContainer = document.getElementById('input');
-let nameInputComp = new nameInput();
-inputContainer.appendChild(nameInputComp);
 
+function setupView() {
+    new MenuComponent();
+    new MainSectionContainer();
+    new NameInputComponent();
+    getPersonList();
+}
 
-
+function setupListeners() {
+    new SubmitButtonListener();
+}
