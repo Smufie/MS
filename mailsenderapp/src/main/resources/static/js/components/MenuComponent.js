@@ -1,4 +1,4 @@
-import menudata from '../../menudata.json'
+import menudata from '../../menudata.json';
 const Handlebars = require('handlebars');
 
 export class MenuComponent {    
