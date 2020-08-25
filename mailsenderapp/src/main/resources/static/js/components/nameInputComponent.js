@@ -1,33 +1,33 @@
-export class NameInputComponent {
+export default class NameInputComponent {
     constructor() {
-        let nameInputComp = document.createElement('div');
-        nameInputComp.appendChild(this.createNameInputLabel());
-        nameInputComp.appendChild(this.createNameInputTextField());
-        nameInputComp.appendChild(this.createNameInputSubmitButton());
+        const nameInputComp = document.createElement('div');
+        nameInputComp.appendChild(createNameInputLabel());
+        nameInputComp.appendChild(createNameInputTextField());
+        nameInputComp.appendChild(createNameInputSubmitButton());
         const inputContainer = document.getElementById('input');
         inputContainer.appendChild(nameInputComp);
     }
+}
 
-    createNameInputLabel() {
-        let nameInputLabel = document.createElement('label');
-        nameInputLabel.innerHTML = 'Type your name:';
-        return nameInputLabel;
-    }
+function createNameInputLabel() {
+    const nameInputLabel = document.createElement('label');
+    nameInputLabel.innerHTML = 'Type your name:';
+    return nameInputLabel;
+}
 
-    createNameInputTextField() {
-        let textFieldInput = document.createElement('input');
-        textFieldInput.type = 'text';
-        textFieldInput.id = 'name-input';
-        textFieldInput.name = 'first-name';
-        textFieldInput.placeholder = 'eg. John';
-        return textFieldInput;
-    }
+function createNameInputTextField() {
+    const textFieldInput = document.createElement('input');
+    textFieldInput.type = 'text';
+    textFieldInput.id = 'name-input';
+    textFieldInput.name = 'first-name';
+    textFieldInput.placeholder = 'eg. John';
+    return textFieldInput;
+}
 
-    createNameInputSubmitButton(){
-        let submitButton = document.createElement('input');
-        submitButton.type='submit';
-        submitButton.id='submit-button';
-        submitButton.value = 'Submit';
-        return submitButton;
-    }
+function createNameInputSubmitButton() {
+    const submitButton = document.createElement('input');
+    submitButton.type = 'submit';
+    submitButton.id = 'submit-button';
+    submitButton.value = 'Submit';
+    return submitButton;
 }

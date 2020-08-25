@@ -1,21 +1,23 @@
-import { handleAddResponse as handleResponse } from './reponseHandler.js'
-import { establishAddHttpRequest as establishHttpRequest } from './httpRequestEstablisher.js'
-import { PersonData } from './PersonData.js'
+import { handleAddResponse as handleResponse } from './reponseHandler';
+import { establishAddHttpRequest as establishHttpRequest } from './httpRequestEstablisher';
+import PersonData from './PersonData';
+import getPersonList from './allPersonsGetter';
 
-export class SubmitButtonListener {
+export default class SubmitButtonListener {
     constructor() {
         const submitButton = document.getElementById('submit-button');
-        submitButton.addEventListener('click', this.addPerson);
+        submitButton.addEventListener('click', addPerson);
     }
+}
 
-    addPerson() {
-        const nameInputField = document.getElementById('name-input');
-        const newPersonData = new PersonData(nameInputField.value);
-        let xhr = establishHttpRequest();
-        xhr.onreadystatechange = function() {
-            handleResponse(xhr, newPersonData);
-        };
-        xhr.send(JSON.stringify(newPersonData));
-        nameInputField.value = '';
-    }
+function addPerson() {
+    const nameInputField = document.getElementById('name-input');
+    const newPersonData = new PersonData(nameInputField.value);
+    const xhr = establishHttpRequest();
+    xhr.onreadystatechange = () => {
+        handleResponse(xhr, newPersonData);
+        getPersonList();
+    };
+    xhr.send(JSON.stringify(newPersonData));
+    nameInputField.value = '';
 }

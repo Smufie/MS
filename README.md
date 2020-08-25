@@ -15,11 +15,13 @@ TODO and DONE List:
 11. JS Fetch TODO
 12. Web components TODO
 13. LiveReload DONE 16.08
-14. NPM czyli node package manager
+14. NPM czyli node package manager DONE
 15. webpack TODO
-16. HTML data-* Attribute TODO
+16. HTML data-* Attribute DONE
 17. JS require
-
+18. Destrukturyzacja
+19. ESlint i webpack
+20. Preprocesory CSS, less/scss/sass postCSS
 
 W międzyczasie:  
 -codecademy, css dinner  
