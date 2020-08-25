@@ -1,15 +1,17 @@
-import { NameInputComponent } from "./components/NameInputComponent.js"
-import { MenuComponent } from "./components/MenuComponent.js"
-import { MainSectionContainer } from './components/MainSectionContainer.js';
-import { getPersonList } from './allPersonsGetter.js';
-import { SubmitButtonListener } from "./SubmitButtonListener.js";
+/* eslint-disable no-new */
+//  TODO ^
+import NameInputComponent from './components/NameInputComponent';
+import MenuComponent from './components/MenuComponent';
+import MainSectionContainer from './components/MainSectionContainer';
+import getPersonList from './allPersonsGetter';
+import SubmitButtonListener from './SubmitButtonListener';
+import '../css/style.css';
 
-
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', () => {
     setupView();
 });
 
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
     setupListeners();
 });
 

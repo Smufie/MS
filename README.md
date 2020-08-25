@@ -19,7 +19,9 @@ TODO and DONE List:
 15. webpack TODO
 16. HTML data-* Attribute DONE
 17. JS require
-
+18. Destrukturyzacja
+19. ESlint i webpack
+20. Preprocesory CSS, less/scss/sass postCSS
 
 W międzyczasie:  
 -codecademy, css dinner  

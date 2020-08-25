@@ -1,12 +1,10 @@
-import mainSectionData from '../../mainsectiondata.json'
-const Handlebars = require('handlebars');
+import mainSectionData from '../../mainsectiondata.json';
+import compiledTemplate from '../../templates/mainSectionTemplate.hbs';
 
-export class MainSectionContainer {    
+export default class MainSectionContainer {
     constructor() {
-        let rawTemplate = document.getElementById('main-section-template').innerHTML;
-        let compiledTemplate = Handlebars.compile(rawTemplate);
-        let generatedHTML = compiledTemplate(mainSectionData);
-        let menuContainer = document.getElementById('main-section');
+        const generatedHTML = compiledTemplate(mainSectionData);
+        const menuContainer = document.getElementById('main-section');
         menuContainer.innerHTML = generatedHTML;
     }
 }

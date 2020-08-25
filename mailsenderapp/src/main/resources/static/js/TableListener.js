@@ -1,28 +1,48 @@
-import { editPerson } from './editPersonHandler.js';
+import { handleEditResponse as handleResponse } from './reponseHandler';
+import { establishPersonEditHttpRequest as establishHttpRequest } from './httpRequestEstablisher';
+import PersonData from './PersonData';
+// eslint-disable-next-line import/no-cycle
+import getPersonList from './allPersonsGetter'; //  TODO
 
-export class TableListener {
+export default class TableListener {
     constructor() {
-        this.setNameCellsProperties();
+        setNameCellsProperties();
     }
+}
 
-    setNameCellsProperties() {
-        let personsTable = document.getElementById('person-table');
-        for (let i = 1; i < personsTable.rows.length; i++) {
-            let nameCell = personsTable.rows[i].cells[1];
-            nameCell.class = "name-cell";
-            nameCell.contentEditable = 'true';
-            this.addNameCellListener(nameCell);
-            nameCell.setAttribute('data-person-id', personsTable.rows[i].cells[0].innerHTML);
-        }
+function setNameCellsProperties() {
+    const personsTable = document.getElementById('person-table');
+    for (let i = 1; i < personsTable.rows.length; i += 1) {
+        const nameCell = personsTable.rows[i].cells[1];
+        nameCell.class = 'name-cell';
+        nameCell.contentEditable = 'true';
+        addNameCellListener(nameCell);
+        nameCell.setAttribute(
+            'data-person-id',
+            personsTable.rows[i].cells[0].innerHTML
+        );
     }
-    
-    addNameCellListener(nameCell) {
-        nameCell.addEventListener("keypress", this.enterClicked)
+}
+
+function addNameCellListener(nameCell) {
+    nameCell.addEventListener('keypress', enterClicked);
+}
+
+function enterClicked(event) {
+    if (event.key === 'Enter') {
+        editPerson(event);
     }
-    
-    enterClicked(event) {
-        if (event.key === 'Enter') {
-            editPerson(event);
-        }
-    }
+}
+
+function editPerson(event) {
+    const newPersonData = new PersonData(
+        event.target.textContent,
+        event.target.getAttribute('data-person-id')
+    );
+    const xhr = establishHttpRequest();
+    xhr.onreadystatechange = () => {
+        handleResponse(xhr, newPersonData);
+        getPersonList();
+    };
+    xhr.send(JSON.stringify(newPersonData));
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- External css -->
+
+    <%= htmlWebpackPlugin.options.contextPath %> <% for (var css in
+    htmlWebpackPlugin.files.css) { %>
+    <link
+      rel="stylesheet"
+      property="stylesheet"
+      href="<%= htmlWebpackPlugin.files.css[css] %>"
+    />
+    <% } %>
+  </head>
+
+  <body>
+    <div id="menu">
+      <!-- menu injection -->
+    </div>
+
+  <section id="main-section">
+      <!-- main section injection -->
+  </section>
+
+    <!-- External libs -->
+
+    <!-- App -->
+    <%= htmlWebpackPlugin.files.webpackManifest %>
+    <%=htmlWebpackPlugin.files.webpackChunkManifest%> <% for (var chunk in
+    htmlWebpackPlugin.files.chunks) { %>
+    <script
+      charset="utf-8"
+      type="application/javascript"
+      src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"
+      defer
+    ></script>
+    <% } %>
+  </body>
+</html>
