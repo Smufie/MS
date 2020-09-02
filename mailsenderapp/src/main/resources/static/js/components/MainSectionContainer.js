@@ -1,10 +1,13 @@
-import mainSectionData from '../../mainsectiondata.json';
+import mainSectionData from '../../templates/mainsectiondata.json';
 import compiledTemplate from '../../templates/mainSectionTemplate.hbs';
 
 export default class MainSectionContainer {
     constructor() {
-        const generatedHTML = compiledTemplate(mainSectionData);
+        this.generatedHTML = compiledTemplate(mainSectionData);
+    }
+
+    inject() {
         const menuContainer = document.getElementById('main-section');
-        menuContainer.innerHTML = generatedHTML;
+        menuContainer.innerHTML = this.generatedHTML;
     }
 }

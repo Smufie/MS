@@ -32,16 +32,19 @@ public class PersonCollection {
 		return null;
 	}
 
-	public int addPerson(PersonDto newPerson) {
+	public Person addPerson(PersonDto newPerson) {
 		Person person = new Person(newPerson.getName());
 		persons.add(person);
-		return person.getId();
+		return person;
 	}
 
-	public void editPerson(PersonDto newPersonData) {
+	public Person editPerson(PersonDto newPersonData) {
 		Person personById = getPersonById(newPersonData.getId());
 		if (personById != null) {
 			personById.setName(newPersonData.getName());
+			return personById;
+		} else {
+			return null;
 		}
 	}
 }

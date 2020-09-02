@@ -1,17 +1,20 @@
 export default class NameInputComponent {
     constructor() {
-        const nameInputComp = document.createElement('div');
-        nameInputComp.appendChild(createNameInputLabel());
-        nameInputComp.appendChild(createNameInputTextField());
-        nameInputComp.appendChild(createNameInputSubmitButton());
+        this.nameInputComp = document.createElement('div');
+        this.nameInputComp.appendChild(createNameInputLabel());
+        this.nameInputComp.appendChild(createNameInputTextField());
+        this.nameInputComp.appendChild(createNameInputSubmitButton());
+    }
+
+    inject() {
         const inputContainer = document.getElementById('input');
-        inputContainer.appendChild(nameInputComp);
+        inputContainer.appendChild(this.nameInputComp);
     }
 }
 
 function createNameInputLabel() {
     const nameInputLabel = document.createElement('label');
-    nameInputLabel.innerHTML = 'Type your name:';
+    nameInputLabel.innerHTML = 'Username:';
     return nameInputLabel;
 }
 
@@ -28,6 +31,7 @@ function createNameInputSubmitButton() {
     const submitButton = document.createElement('input');
     submitButton.type = 'submit';
     submitButton.id = 'submit-button';
+    submitButton.className = 'button';
     submitButton.value = 'Submit';
     return submitButton;
 }

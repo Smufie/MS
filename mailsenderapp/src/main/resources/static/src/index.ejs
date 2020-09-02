@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <title>MailSenderDev</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,500;1,800&display=swap"
+            rel="stylesheet"
+        />
 
-    <!-- External css -->
+        <!-- External css -->
 
-    <%= htmlWebpackPlugin.options.contextPath %> <% for (var css in
-    htmlWebpackPlugin.files.css) { %>
-    <link
-      rel="stylesheet"
-      property="stylesheet"
-      href="<%= htmlWebpackPlugin.files.css[css] %>"
-    />
-    <% } %>
-  </head>
+        <%= htmlWebpackPlugin.options.contextPath %> <% for (var css in
+        htmlWebpackPlugin.files.css) { %>
+        <link
+            rel="stylesheet"
+            property="stylesheet"
+            href="<%= htmlWebpackPlugin.files.css[css] %>"
+        />
+        <% } %>
+    </head>
 
-  <body>
-    <div id="menu">
-      <!-- menu injection -->
-    </div>
+    <body>
+        <div id="menu">
+            <!-- menu injection -->
+        </div>
 
-  <section id="main-section">
-      <!-- main section injection -->
-  </section>
+        <div id="separator"></div>
 
-    <!-- External libs -->
+        <section id="main-section">
+            <!-- main section injection -->
+        </section>
 
-    <!-- App -->
-    <%= htmlWebpackPlugin.files.webpackManifest %>
-    <%=htmlWebpackPlugin.files.webpackChunkManifest%> <% for (var chunk in
-    htmlWebpackPlugin.files.chunks) { %>
-    <script
-      charset="utf-8"
-      type="application/javascript"
-      src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"
-      defer
-    ></script>
-    <% } %>
-  </body>
+        <!-- External libs -->
+
+        <!-- App -->
+        <%= htmlWebpackPlugin.files.webpackManifest %>
+        <%=htmlWebpackPlugin.files.webpackChunkManifest%> <% for (var chunk in
+        htmlWebpackPlugin.files.chunks) { %>
+        <script
+            charset="utf-8"
+            type="application/javascript"
+            src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"
+            defer
+        ></script>
+        <% } %>
+    </body>
 </html>
