@@ -1,0 +1,23 @@
+<ul>
+    {{#each menu}}
+    <li {{#if blankspace}} class="blank-space" {{else}} id="{{menuId}}" {{/if}}>
+        {{#switch is}}
+        {{#case "menu-link"}}
+        <a class="menu-link" href="{{hyperlink}}">{{menuLinkName}}</a>
+        {{#if dropdown}}
+        <ul class="dropdown">
+            <li><a class="dropdown-menu-link" id="menu-delete-user" href="#">User</a></li>
+            <li><a class="dropdown-menu-link" id="menu-delete-interest" href="#">Interest</a></li>
+        </ul>
+        {{/if}}
+        {{/case}}
+
+        {{#case "header-space"}}
+        <a class="main-site-link">
+            <h1 id="main-header" header-content="MailSender"></h1>
+        </a>
+        {{/case}}
+    </li>
+    {{/switch}}
+    {{/each}}
+</ul>

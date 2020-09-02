@@ -1,0 +1,21 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": ["airbnb", "prettier"],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "react": true
+        },
+        "sourceType": "module"
+    },
+    "parser": "babel-eslint",
+    "rules": {
+        "no-use-before-define": [
+            "error",
+            { "functions": false, "classes": false }
+        ]
+    }
+}
