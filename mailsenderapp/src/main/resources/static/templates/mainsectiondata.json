@@ -2,19 +2,19 @@
     "main-section": [
         {
             "articleId": "input",
-            "article-header": "Input",
+            "article-header": "Add person",
             "isPersons": false
         },
-    
+
         {
             "articleId": "output",
-            "article-header": "Output",
+            "article-header": "Response from server",
             "isPersons": false
         },
-    
+
         {
             "articleId": "persons",
-            "article-header": "Persons",
+            "article-header": "Data preview",
             "isPersons": true
         }
     ]

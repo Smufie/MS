@@ -6,11 +6,12 @@
     "extends": ["airbnb", "prettier"],
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
+            "react": true
         },
         "sourceType": "module"
     },
-    "plugins": ["react"],
+    "parser": "babel-eslint",
     "rules": {
         "no-use-before-define": [
             "error",

@@ -21,13 +21,13 @@ public class PersonRestController {
 	}
 	
 	@PostMapping("/person/add")
-	public int addPerson(@RequestBody PersonDto newPerson) {
+	public Person addPerson(@RequestBody PersonDto newPerson) {
 		return persons.addPerson(newPerson);
 	}
 	
 	@PostMapping("/person/edit")
-	public void editPerson(@RequestBody PersonDto newPersonData) {
-		persons.editPerson(newPersonData);
+	public Person editPerson(@RequestBody PersonDto newPersonData) {
+		return persons.editPerson(newPersonData);
 	}
 	
 }
