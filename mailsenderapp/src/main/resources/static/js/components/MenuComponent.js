@@ -1,4 +1,4 @@
-import menudata from '../../templates/menudata.json';
+import menudata from '../../templates/template-datas/menu-data.json';
 import compiledTemplate from '../../templates/menuTemplate.hbs';
 
 export default class MenuComponent {

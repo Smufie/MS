@@ -1,0 +1,9 @@
+{
+    "isPerson": true,
+    "articleId": "add-input-section",
+    "article-header": "Add person",
+    "label": "Username:",
+    "button-id": "submit-button",
+    "button-value": "Add",
+    "placeholder-value": "eg. John"
+}

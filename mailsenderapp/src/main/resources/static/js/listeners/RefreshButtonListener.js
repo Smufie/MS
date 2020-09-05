@@ -1,5 +1,3 @@
-import FetchEstablisher from '../FetchEstablisher';
-
 export default class SubmitButtonListener {
     constructor() {
         this.submitButton = document.getElementById('refresh-button');
@@ -7,13 +5,8 @@ export default class SubmitButtonListener {
 
     listen(dataObserver) {
         this.submitButton.addEventListener('click', (event) => {
-            refresh(dataObserver);
+            window.fetchObserver.requestArrived('getpersons', dataObserver);
             event.target.blur();
         });
     }
-}
-
-function refresh(dataObserver) {
-    const fetchEstablisher = new FetchEstablisher();
-    fetchEstablisher.fetchPersons(dataObserver);
 }

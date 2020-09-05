@@ -1,6 +1,6 @@
 export function handleEditResponse(fetchResponse) {
     const informationReturned = document.createElement('P');
-    fetchResponse.then((data) => {
+    fetchResponse.json().then((data) => {
         informationReturned.className = 'information-returned';
         const { name = '', id = null } = data;
         informationReturned.innerHTML = `Person with id "${id}" successfully updated with name "${name}".\n`;
@@ -10,7 +10,7 @@ export function handleEditResponse(fetchResponse) {
 
 export function handleAddResponse(fetchResponse) {
     const informationReturned = document.createElement('P');
-    fetchResponse.then((data) => {
+    fetchResponse.json().then((data) => {
         informationReturned.className = 'information-returned';
         const { name = '', id = null } = data;
         informationReturned.innerHTML = `Person "${name}" successfully created with id ${id}. \n`;

@@ -1,16 +1,16 @@
 export default class DataObserver {
     constructor() {
-        this.listeners = [];
+        this.subscribers = [];
     }
 
     subscribe(subscriber) {
-        this.listeners.push(subscriber);
+        this.subscribers.push(subscriber);
     }
 
     dataArrived(personsData) {
-        personsData.then((data) => {
+        personsData.json().then((data) => {
             const wrapper = { persons: data };
-            this.listeners.forEach((e) => e.update(wrapper));
+            this.subscribers.forEach((e) => e.renderTo(wrapper));
         });
     }
 }

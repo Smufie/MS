@@ -2,27 +2,27 @@ import * as Handlebars from 'handlebars/runtime';
 import '../src/style.scss';
 import registerHandlebarsHelpers from './handlebarsHelpers';
 //  components
-import NameInputComponent from './components/NameInputComponent';
 import MenuComponent from './components/MenuComponent';
 import TableComponent from './components/TableComponent';
 //  containers
 import MainSectionContainer from './components/MainSectionContainer';
 //  listeners
-import SubmitButtonListener from './listeners/SubmitButtonListener';
 import RefreshButtonListener from './listeners/RefreshButtonListener';
-//  classes
+//  other
 import DataObserver from './DataObserver';
-import FetchEstablisher from './FetchEstablisher';
+import Router from './Router';
+import FetchObserver from './FetchObserver';
 
 registerHandlebarsHelpers(Handlebars);
+const dataObserver = new DataObserver();
+const fetchObserver = new FetchObserver();
+window.fetchObserver = fetchObserver; // TODO js event bus
 const menuComponent = new MenuComponent();
 const mainSectionContainer = new MainSectionContainer();
-const nameInputComponent = new NameInputComponent();
-const dataObserver = new DataObserver();
-const tableComponent = new TableComponent();
-const tableComponent2 = new TableComponent();
+const tableComponent = new TableComponent('table-space');
 
 window.addEventListener('DOMContentLoaded', () => {
+    window.location.hash = '';
     setupStaticView();
 });
 
@@ -34,19 +34,16 @@ window.addEventListener('load', () => {
 function setupStaticView() {
     menuComponent.inject();
     mainSectionContainer.inject();
-    nameInputComponent.inject();
 }
 
 function setupListeners() {
-    const submitButtonListener = new SubmitButtonListener();
-    submitButtonListener.listen();
+    const router = new Router();
     dataObserver.subscribe(tableComponent);
-    dataObserver.subscribe(tableComponent2);
     const refreshButtonListener = new RefreshButtonListener();
     refreshButtonListener.listen(dataObserver);
+    router.route();
 }
 
 function initializeTable() {
-    const fetchEstablisher = new FetchEstablisher();
-    fetchEstablisher.fetchPersons(dataObserver);
+    window.fetchObserver.requestArrived('getpersons', dataObserver);
 }

@@ -1,4 +1,4 @@
-import mainSectionData from '../../templates/mainsectiondata.json';
+import mainSectionData from '../../templates/template-datas/main-section-data.json';
 import compiledTemplate from '../../templates/mainSectionTemplate.hbs';
 
 export default class MainSectionContainer {

@@ -7,7 +7,7 @@ export default class FetchEstablisher {
         this.DEFAULT_ADRESS = 'http://localhost:8080';
     }
 
-    async fetchPersons(repository) {
+    async fetchPersons(observer) {
         await fetch(`${this.DEFAULT_ADRESS}/persons`, {
             method: 'GET',
             headers: {
@@ -20,7 +20,7 @@ export default class FetchEstablisher {
                         `Negative response from server. ("GET", ${response.status})`
                     );
                 } else {
-                    return repository.dataArrived(response.json());
+                    return observer.dataArrived(response);
                 }
             })
             .catch((error) => {
@@ -42,7 +42,7 @@ export default class FetchEstablisher {
                         `Negative response from server. ("POST", ${response.status})`
                     );
                 } else {
-                    return handleEditResponse(response.json()); // TODO
+                    return handleEditResponse(response);
                 }
             })
             .catch((error) => {
@@ -64,7 +64,7 @@ export default class FetchEstablisher {
                         `Negative response from server. ("POST", ${response.status})`
                     );
                 } else {
-                    handleAddResponse(response.json());
+                    handleAddResponse(response);
                 }
             })
             .catch((error) => {

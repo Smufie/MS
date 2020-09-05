@@ -2,7 +2,7 @@
     "main-section": [
         {
             "articleId": "input",
-            "article-header": "Add person",
+            "article-header": "",
             "isPersons": false
         },
 
