@@ -3,12 +3,12 @@
     <li {{#if blankspace}} class="blank-space" {{else}} id="{{menuId}}" {{/if}}>
         {{#switch is}}
         {{#case "menu-link"}}
-        <a class="menu-link" href="{{hyperlink}}">{{menuLinkName}}</a>
-        <!--TODO replace href -->
+        <a class="menu-link" data-href="{{hyperlink}}">{{menuLinkName}}</a>
         {{#if dropdown}}
         <ul class="dropdown">
             {{#each dropdown-link}}
-            <li><a class="dropdown-menu-link" id="{{dropdown-link-id}}" href="{{dropdown-href}}">{{dropdown-name}}</a>
+            <li><a class="dropdown-menu-link" id="{{dropdown-link-id}}"
+                    data-href="{{dropdown-href}}">{{dropdown-name}}</a>
             </li>
             {{/each}}
         </ul>

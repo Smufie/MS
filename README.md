@@ -28,17 +28,11 @@ TODO and DONE List:
 24. Promise.all, multipromise methods DONE 
 25. Virtual DOM DONE
 26. Routing (klasyczny, z entrypointami webpacka, kotwice z #, spa/spi) DONE
-27. Jest framework TODO
+27. JS event bus DONE
+28. Jest framework TODO
 
 W międzyczasie:  
 -codecademy, css dinner  
 -Hello Roman, blog/yt; nafrontendzie.pl; yt googlechrome
 
 Pytania:
-1. Czy w mojej sytuacji przekazanie fetchObservera (zależy mi na jednym w całym programie) do 
-new Router(observer) 
-=> new InputView(observer) 
-=> np.InputComponentsFactory.createAddPage(observer)  <- (tutaj przeniosłem observera)
-=> new AddInputComponent(observer)
-=> new AddButtonListener(observer)
-jest złą architekturą? Czy tracę na czymś więcej niż na czytelności kodu?

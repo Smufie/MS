@@ -22,7 +22,6 @@ const mainSectionContainer = new MainSectionContainer();
 const tableComponent = new TableComponent('table-space');
 
 window.addEventListener('DOMContentLoaded', () => {
-    window.location.hash = '';
     setupStaticView();
 });
 

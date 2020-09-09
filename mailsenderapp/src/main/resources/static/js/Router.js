@@ -7,6 +7,7 @@ export default class Router {
         window.onpopstate = () => {
             this.route();
         };
+        this.establishMenuRouting();
     }
 
     route() {
@@ -21,12 +22,23 @@ export default class Router {
         }
         this.view.routeChanged(this.routes[0]);
     }
+
+    establishMenuRouting() {
+        const links = document.getElementById('menu').getElementsByTagName('a');
+        for (let i = 0; i < links.length; i += 1) {
+            links[i].addEventListener('click', (event) => {
+                const hyperlink = event.target.getAttribute('data-href');
+                window.history.pushState(null, '', hyperlink);
+                this.route();
+            });
+        }
+    }
 }
 
 function createRoutes() {
     return [
         {
-            name: 'indexPage',
+            name: 'MailSender',
             url: '/',
             id: 0,
             wasCreated: true,
