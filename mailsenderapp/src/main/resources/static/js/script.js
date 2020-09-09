@@ -13,10 +13,12 @@ import DataObserver from './DataObserver';
 import Router from './Router';
 import FetchObserver from './FetchObserver';
 
+// TODO maven i node_modules
+
 registerHandlebarsHelpers(Handlebars);
 const dataObserver = new DataObserver();
 const fetchObserver = new FetchObserver();
-window.fetchObserver = fetchObserver; // TODO js event bus
+window.fetchObserver = fetchObserver;
 const menuComponent = new MenuComponent();
 const mainSectionContainer = new MainSectionContainer();
 const tableComponent = new TableComponent('table-space');

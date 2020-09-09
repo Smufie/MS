@@ -3,10 +3,20 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "jest": {
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+            "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+        },
+        "transform": {
+            "\\.hbs$": "jest-handlebars"
+        }
+    },
     "scripts": {
         "start": "webpack-dev-server --open --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js",
-        "problems": "eslint ./js"
+        "problems": "eslint ./js",
+        "test": "jest --coverage"
     },
     "keywords": [],
     "author": "",
@@ -40,9 +50,12 @@
         "webpack-merge": "^5.1.2"
     },
     "devDependencies": {
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
         "eslint": "^7.2.0",
         "eslint-config-airbnb": "^18.2.0",
         "eslint-plugin-import": "^2.21.2",
-        "eslint-plugin-jsx-a11y": "^6.3.0"
+        "eslint-plugin-jsx-a11y": "^6.3.0",
+        "jest": "^26.4.2",
+        "jest-handlebars": "^1.0.1"
     }
 }
