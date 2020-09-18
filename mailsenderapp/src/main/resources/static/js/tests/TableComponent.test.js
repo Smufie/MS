@@ -1,25 +1,40 @@
-/* eslint-disable no-undef */ //    TODO eslint i Jest
-// TODO given when then
-// TODO konwencja should
-import TableComponent from "../components/TableComponent";
+import TableComponent from '../components/TableComponent';
 
-describe("Table component tests", () => {
-  test("create component", () => {
-    const targetID = "table-space";
-    const table = new TableComponent(targetID);
+const TARGET_ID = 'table-space';
 
-    expect(table.targetID).toBe("table-space");
-  });
+describe('Table component tests', () => {
+    test('should create table', () => {
+        // given
+        // when
+        const table = new TableComponent();
+        // then
+        expect(table.tableSpace).toBe(null);
+    });
 
-  test("should render component", () => {
-    const targetID = "table-space";
-    const divElement = document.createElement("div");
-    divElement.id = targetID;
-    document.body.appendChild(divElement);
+    test('should render table', () => {
+        // given
+        const divElement = document.createElement('div');
+        divElement.id = TARGET_ID;
+        document.body.appendChild(divElement);
+        // when
+        const table = new TableComponent();
+        table.renderTo(TARGET_ID);
+        // then
+        expect(document.getElementById(TARGET_ID)).not.toBe(undefined);
+        expect(document.getElementById(TARGET_ID).innerHTML).toMatch(`<table id="person-table">`);
+    });
 
-    const table = new TableComponent(targetID);
-
-    table.renderTo(document.body);
-    expect(document.getElementById(targetID)).not.toBe(undefined); // TODO bibilioteka do asercji (chai)
-  });
+    test('should set name cell properties', () => {
+        // given
+        const nameCellId = 4;
+        const nameCell = document.createElement('tr');
+        // when
+        const table = new TableComponent();
+        const newNameCell = table.setNameCellProperties(nameCell, nameCellId);
+        // then
+        expect(newNameCell).not.toBe(undefined);
+        expect(newNameCell.class).toBe('name-cell');
+        expect(newNameCell.contentEditable).toBe('true');
+        expect(newNameCell.getAttribute('data-person-id')).toBe('4');
+    });
 });

@@ -2,7 +2,7 @@
 import inputData from '../../templates/template-datas/send-input-data.json';
 import compiledTemplate from '../../templates/inputTemplate.hbs';
 
-export default class AddInputComponent {
+export default class SendInputComponent {
     constructor() {
         this.generatedHTML = compiledTemplate(inputData);
     }

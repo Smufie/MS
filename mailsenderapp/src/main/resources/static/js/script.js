@@ -3,11 +3,11 @@ import '../src/style.scss';
 import registerHandlebarsHelpers from './handlebarsHelpers';
 //  components
 import MenuComponent from './components/MenuComponent';
-import TableComponent from './components/TableComponent';
+import TableComponent from './components/table/TableComponent';
 //  containers
 import MainSectionContainer from './components/MainSectionContainer';
 //  listeners
-import RefreshButtonListener from './listeners/RefreshButtonListener';
+import RefreshButtonListener from './components/table/RefreshButtonListener';
 //  other
 import DataObserver from './DataObserver';
 import Router from './Router';
@@ -38,10 +38,10 @@ function setupStaticView() {
 }
 
 function setupListeners() {
-    const router = new Router();
     dataObserver.subscribe(tableComponent);
     const refreshButtonListener = new RefreshButtonListener();
     refreshButtonListener.listen(dataObserver);
+    const router = new Router();
     router.route();
 }
 

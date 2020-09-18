@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
-import inputData from '../../templates/template-datas/add-person-input-data.json';
-import compiledTemplate from '../../templates/inputTemplate.hbs';
-import AddButtonListener from '../listeners/AddButtonListener';
+import inputData from '../../../templates/template-datas/add-person-input-data.json';
+import compiledTemplate from '../../../templates/inputTemplate.hbs';
+import AddButtonListener from './AddButtonListener';
 
 export default class AddInputComponent {
     constructor() {

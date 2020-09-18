@@ -38,6 +38,7 @@ tomcat
 
 #
 node_modules/
+coverage/
 
 # NetBeans specific
 nbproject/private/

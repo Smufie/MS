@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2020": true
+        "es2020": true,
+        "jest": true
     },
     "extends": ["airbnb", "prettier"],
     "parserOptions": {
@@ -13,9 +14,6 @@
     },
     "parser": "babel-eslint",
     "rules": {
-        "no-use-before-define": [
-            "error",
-            { "functions": false, "classes": false }
-        ]
+        "no-use-before-define": ["error", { "functions": false, "classes": false }]
     }
 }

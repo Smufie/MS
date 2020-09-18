@@ -36,3 +36,5 @@ W międzyczasie:
 -Hello Roman, blog/yt; nafrontendzie.pl; yt googlechrome
 
 Pytania:
+1. Mock i stub, nie do końca rozumiem różnicy. Mock jest predefiniowany jako 'abstrakcyjna klasa' a stub nie?
+2. Before i after - do testowania kodu asynchronicznego
