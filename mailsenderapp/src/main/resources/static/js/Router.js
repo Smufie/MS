@@ -21,6 +21,7 @@ export default class Router {
     establishMenuRouting() {
         const links = document.getElementById('menu').getElementsByTagName('a');
         links.forEach((link) => {
+            // TODO link.forEach is not a function
             link.addEventListener('click', (event) => {
                 this.changeURL(event);
             });
@@ -31,5 +32,6 @@ export default class Router {
         const hyperlink = event.target.getAttribute('data-href');
         window.history.pushState(null, '', hyperlink);
         this.route();
+        return hyperlink;
     }
 }

@@ -1,9 +1,0 @@
-{
-    "isPerson": true,
-    "articleId": "delete-input-section",
-    "article-header": "Delete person",
-    "label": "Username:",
-    "button-id": "delete-button",
-    "button-value": "Delete",
-    "placeholder-value": "eg. John"
-}

@@ -1,4 +1,4 @@
-export default class SubmitButtonListener {
+export default class RefreshButtonListener {
     constructor() {
         this.submitButton = document.getElementById('refresh-button');
     }
