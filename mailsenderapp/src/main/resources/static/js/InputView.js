@@ -1,4 +1,4 @@
-import PageFactory from './PageFactory';
+import ViewFactory from './components/views/ViewFactory';
 
 const INPUT_ARTICLE_INDEX = 0;
 
@@ -8,7 +8,7 @@ const DELETE_PAGE_ID = '/deleteuser';
 
 export default class InputView {
     constructor() {
-        this.factory = new PageFactory();
+        this.factory = new ViewFactory();
         this.views = this.fillViews();
         this.inputArticle = document.getElementById('main-section').getElementsByTagName('article')[
             INPUT_ARTICLE_INDEX
@@ -17,9 +17,9 @@ export default class InputView {
 
     fillViews() {
         const views = new Map();
-        views.set(ADD_PAGE_ID, (route) => this.factory.getDeletePage(route));
-        views.set(SEND_PAGE_ID, (route) => this.factory.getSendPage(route));
-        views.set(DELETE_PAGE_ID, (route) => this.factory.getDeletePage(route));
+        views.set(ADD_PAGE_ID, (route) => this.factory.getAddPersonView(route));
+        views.set(SEND_PAGE_ID, (route) => this.factory.getSendView(route));
+        views.set(DELETE_PAGE_ID, (route) => this.factory.getDeletePersonView(route));
         return views;
     }
 
@@ -43,7 +43,7 @@ export default class InputView {
             wasNotRoutedToDefault = true;
             return wasNotRoutedToDefault;
         }
-        const currentPage = this.factory.getDefaultPage();
+        const currentPage = this.factory.getDefaultView();
         this.renderPage(currentPage);
         document.title = 'MailSender';
         return wasNotRoutedToDefault;

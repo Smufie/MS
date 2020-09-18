@@ -1,8 +1,4 @@
 {
-    "isSend": true,
-    "articleId": "send-input-section",
-    "article-header": "Send message",
-    "label": "Select interest from list: ",
     "button-id": "send-button",
     "button-value": "Send",
     "interest": [
