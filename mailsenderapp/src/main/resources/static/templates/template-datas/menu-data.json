@@ -1,0 +1,83 @@
+{
+    "menu": [
+        {
+            "blankspace": false,
+            "menuId": "menu-send",
+            "is": "menu-link",
+            "hyperlink": "/send",
+            "menuLinkName": "Send",
+            "dropdown": false
+        },
+
+        {
+            "blankspace": false,
+            "menuId": "menu-add",
+            "is": "menu-link",
+            "hyperlink": "/adduser",
+            "menuLinkName": "Add",
+            "dropdown": true,
+            "dropdown-link": [
+                {
+                    "dropdown-link-id": "dropdown-add-user",
+                    "dropdown-href": "/adduser",
+                    "dropdown-name": "User"
+                },
+
+                {
+                    "dropdown-link-id": "dropdown-add-interest",
+                    "dropdown-href": "/addinterest",
+                    "dropdown-name": "Interest"
+                }
+            ]
+        },
+
+        {
+            "blankspace": false,
+            "menuId": "menu-delete",
+            "is": "menu-link",
+            "hyperlink": "/deleteuser",
+            "menuLinkName": "Delete",
+            "dropdown": true,
+            "dropdown-link": [
+                {
+                    "dropdown-link-id": "dropdown-delete-user",
+                    "dropdown-href": "/deleteuser",
+                    "dropdown-name": "User"
+                },
+
+                {
+                    "dropdown-link-id": "dropdown-delete-interest",
+                    "dropdown-href": "/deleteinterest",
+                    "dropdown-name": "Interest"
+                }
+            ]
+        },
+
+        {
+            "blankspace": false,
+            "menuId": "menu-monitoring",
+            "is": "menu-link",
+            "hyperlink": "/monitor",
+            "menuLinkName": "Monitoring",
+            "dropdown": false
+        },
+
+        {
+            "blankspace": true
+        },
+
+        {
+            "blankspace": true
+        },
+
+        {
+            "blankspace": true
+        },
+
+        {
+            "blankspace": false,
+            "menuId": "header-space",
+            "is": "header-space"
+        }
+    ]
+}

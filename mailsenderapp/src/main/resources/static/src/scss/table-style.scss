@@ -1,0 +1,35 @@
+#table-space {
+    display: flex;
+    flex-basis: 100%;
+    padding: 0;
+}
+
+#person-table {
+    table-layout: auto;
+    flex-basis: 100%;
+    margin: 0 5%;
+    border-collapse: collapse;
+    td,
+    th {
+        padding: 5px;
+        text-align: left;
+        border-width: 1px;
+        border-color: $main-section-blue;
+        border-style: solid;
+    }
+    tr:nth-child(even) {
+        background-color: $grey-3;
+    }
+    tr {
+        background-color: $grey-2;
+        &:hover {
+            transition: 0.6s;
+            background-color: $grey-4;
+        }
+    }
+    th {
+        background-color: $grey-1;
+        color: whitesmoke;
+        font-weight: normal;
+    }
+}

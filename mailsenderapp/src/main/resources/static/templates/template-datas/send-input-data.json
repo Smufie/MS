@@ -1,0 +1,24 @@
+{
+    "isSend": true,
+    "articleId": "send-input-section",
+    "article-header": "Send message",
+    "label": "Select interest from list: ",
+    "button-id": "send-button",
+    "button-value": "Send",
+    "interest": [
+        {
+            "interest-value": "sport",
+            "interest-name": "Sport"
+        },
+
+        {
+            "interest-value": "music",
+            "interest-name": "Music"
+        },
+
+        {
+            "interest-value": "programming",
+            "interest-name": "Programming"
+        }
+    ]
+}

@@ -36,6 +36,10 @@ tomcat
 .classpath
 .project
 
+#
+node_modules/
+coverage/
+
 # NetBeans specific
 nbproject/private/
 build/
@@ -45,6 +49,8 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 
+# logger
+*.log
 
 # OS
 .DS_Store

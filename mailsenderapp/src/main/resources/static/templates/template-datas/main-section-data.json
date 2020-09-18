@@ -1,0 +1,21 @@
+{
+    "main-section": [
+        {
+            "articleId": "input",
+            "article-header": "",
+            "isPersons": false
+        },
+
+        {
+            "articleId": "output",
+            "article-header": "Response from server",
+            "isPersons": false
+        },
+
+        {
+            "articleId": "persons",
+            "article-header": "Data preview",
+            "isPersons": true
+        }
+    ]
+}

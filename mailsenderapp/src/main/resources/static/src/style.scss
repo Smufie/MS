@@ -1,0 +1,28 @@
+@import './scss/colors.scss';
+@import './scss/main-section-style';
+@import './scss/table-style';
+@import './scss/menu-style.scss';
+
+html {
+    font-family: 'Poppins', sans-serif;
+}
+
+input,
+select {
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-size: 1em;
+}
+
+body {
+    background-color: $grey-1;
+}
+
+#main-section {
+    display: flex;
+    height: 550px;
+    flex-direction: row;
+    justify-content: space-between;
+}
