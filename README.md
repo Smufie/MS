@@ -29,7 +29,7 @@ TODO and DONE List:
 25. Virtual DOM DONE
 26. Routing (klasyczny, z entrypointami webpacka, kotwice z #, spa/spi) DONE
 27. JS event bus DONE
-28. Jest framework TODO
+28. Jest framework DONE
 
 W międzyczasie:  
 -codecademy, css dinner  
