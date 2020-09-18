@@ -23,7 +23,6 @@ describe('router tests', () => {
     });
 
     test('should route to default', () => {
-        // TODO window.location.pathname = '/'
         // given
         // when
         // then

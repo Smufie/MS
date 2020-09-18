@@ -1,4 +1,4 @@
-import PersonData from '../../PersonData';
+import PersonData from '../../../PersonData';
 
 export default class AddButtonListener {
     constructor() {

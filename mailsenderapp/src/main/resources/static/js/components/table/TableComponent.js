@@ -10,15 +10,15 @@ export default class TableComponent {
     renderTo(targetID) {
         this.tableSpace = document.getElementById(targetID);
         this.tableSpace.innerHTML = getHTML();
-        this.listen();
-    }
-
-    listen() {
-        // TODO TableListener
-        this.listener = new TableListener();
+        this.listener = listen();
+        return this.tableSpace.innerHTML;
     }
 }
 
 function getHTML(tableData) {
     return compiledTemplate(tableData);
+}
+
+function listen() {
+    return new TableListener();
 }

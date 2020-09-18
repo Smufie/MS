@@ -5,7 +5,7 @@ import registerHandlebarsHelpers from './handlebarsHelpers';
 import MenuComponent from './components/MenuComponent';
 import TableComponent from './components/table/TableComponent';
 //  containers
-import MainSectionContainer from './components/MainSectionContainer';
+import MainSectionContainer from './containers/MainSectionContainer';
 //  listeners
 import RefreshButtonListener from './components/table/RefreshButtonListener';
 //  other
