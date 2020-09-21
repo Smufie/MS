@@ -1,43 +1,18 @@
+import routesData from '../routes.json';
+
 export default class RouteCollection {
     constructor() {
-        this.routes = createRoutes();
+        this.routes = routesData;
     }
 
     getRoute(pathName) {
-        let result = this.routes[0];
-        result = this.routes.filter((route) => {
+        const result = this.routes.filter((route) => {
             return route.url === pathName;
         });
-        // TODO filter
-        return result;
+        const arrayIsEmpty = result.length === 0;
+        if (arrayIsEmpty) {
+            return this.routes[0];
+        }
+        return result[0];
     }
-}
-
-function createRoutes() {
-    return [
-        // TODO json
-        {
-            name: 'MailSender',
-            url: '/',
-            title: 'MailSender',
-        },
-
-        {
-            name: 'Add',
-            url: '/adduser',
-            title: 'MailSender | Add user',
-        },
-
-        {
-            name: 'Send',
-            url: '/send',
-            title: 'MailSender | Send',
-        },
-
-        {
-            name: 'Delete',
-            url: '/deleteuser',
-            title: 'MailSender | Delete user',
-        },
-    ];
 }

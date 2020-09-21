@@ -8,13 +8,16 @@ export default class SendView {
         this.input = new SendInputComponent();
     }
 
-    attachInputToContainer() {
-        document.getElementById('input-content-space').innerHTML += this.input.generatedHTML;
-    }
-
     renderTo(target) {
         target.innerHTML = this.container.generatedHTML;
         target.id = this.container.id;
-        this.attachInputToContainer();
+        attachInputToContainer(this.input);
+        return target.innerHTML;
     }
+}
+
+function attachInputToContainer(input) {
+    const contentSpace = document.getElementById('input-content-space');
+    contentSpace.innerHTML += input.generatedHTML;
+    return contentSpace.innerHTML;
 }

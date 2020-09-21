@@ -36,18 +36,20 @@ export default class InputView {
     }
 
     routeChanged(route) {
-        let wasNotRoutedToDefault = false;
-        const currentPageCreator = this.views.get(route.url);
-        if (currentPageCreator !== undefined) {
-            const currentPage = currentPageCreator();
-            this.renderPage(currentPage);
+        const currentViewCreator = this.views.get(route.url);
+        if (currentViewCreator !== undefined) {
+            this.routeToExistingView(currentViewCreator);
             document.title = route.title;
-            wasNotRoutedToDefault = true;
-            return wasNotRoutedToDefault;
+            return true;
         }
-        const currentPage = this.factory.getDefaultView();
+        const currentPage = ViewFactory.getDefaultView();
         this.renderPage(currentPage);
         document.title = 'MailSender';
-        return wasNotRoutedToDefault;
+        return false;
+    }
+
+    routeToExistingView(currentPageCreator) {
+        const currentPage = currentPageCreator();
+        this.renderPage(currentPage);
     }
 }

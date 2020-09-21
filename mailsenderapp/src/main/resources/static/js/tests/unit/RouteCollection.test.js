@@ -1,6 +1,6 @@
 import RouteCollection from '../../RouteCollection';
 
-describe.only('route collection tests', () => {
+describe('route collection tests', () => {
     test('should return correct route', () => {
         // given
         const url = '/adduser';

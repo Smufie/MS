@@ -9,16 +9,13 @@ export default class TableComponent {
 
     renderTo(targetID) {
         this.tableSpace = document.getElementById(targetID);
-        this.tableSpace.innerHTML = getHTML();
-        this.listener = listen();
+        this.tableSpace.innerHTML = setHTML();
+        this.listener = new TableListener();
+        this.listener.listen();
         return this.tableSpace.innerHTML;
     }
 }
 
-function getHTML(tableData) {
+function setHTML(tableData) {
     return compiledTemplate(tableData);
-}
-
-function listen() {
-    return new TableListener();
 }

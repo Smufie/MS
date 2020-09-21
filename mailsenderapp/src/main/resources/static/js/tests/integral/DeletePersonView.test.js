@@ -2,7 +2,7 @@ import DeletePersonView from '../../components/views/deletepersonview/DeletePers
 import componentData from '../../../templates/template-datas/input-template-datas/delete-person-input-data.json';
 import containerData from '../../../templates/template-datas/input-template-datas/input-containers-data.json';
 
-describe.skip('delete view tests', () => {
+describe('delete view tests', () => {
     test('should render delete person view to target', () => {
         // given
         const view = new DeletePersonView();
@@ -16,6 +16,8 @@ describe.skip('delete view tests', () => {
         expect(contentSpace.getElementsByTagName('label')[0].innerHTML).toBe(
             containerData.deleteperson.label
         );
-        expect(contentSpace.getElementById(componentData.buttonId)).not.toBe(undefined);
+        const button = contentSpace.getElementsByTagName('input')[1];
+        expect(button).not.toBe(undefined);
+        expect(button.value).toBe(componentData.buttonValue);
     });
 });

@@ -14,8 +14,8 @@ export default class AddButtonListener {
 
 function addButtonClicked(event) {
     const nameInputField = document.getElementById('name-input');
-    const newPersonData = new PersonData(nameInputField.value);
-    window.fetchObserver.requestArrived('addperson', newPersonData);
     nameInputField.value = '';
     event.target.blur();
+    const newPersonData = new PersonData(nameInputField.value);
+    window.fetchObserver.requestArrived('addperson', newPersonData);
 }

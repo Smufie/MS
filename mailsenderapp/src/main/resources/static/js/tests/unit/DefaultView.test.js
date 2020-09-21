@@ -5,7 +5,6 @@ const defaultView = inputData.default;
 
 describe('default view tests', () => {
     test('should create add input component', () => {
-        // TODO toBeInstanceOf
         // when
         const view = new DefaultView();
         // then

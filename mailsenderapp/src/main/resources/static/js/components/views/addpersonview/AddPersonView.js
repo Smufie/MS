@@ -9,22 +9,22 @@ export default class AddPersonView {
         this.input = new AddInputComponent();
     }
 
-    attachInputToContainer() {
-        const contentSpace = document.getElementById('input-content-space');
-        contentSpace.innerHTML += this.input.generatedHTML;
-        return contentSpace.innerHTML;
-    }
-
-    renderTo(article) {
-        article.innerHTML = this.container.generatedHTML;
-        article.id = this.container.id;
-        this.attachInputToContainer();
+    renderTo(target) {
+        target.innerHTML = this.container.generatedHTML;
+        target.id = this.container.id;
+        attachInputToContainer(this.input);
         listenAddButton();
-        return article.innerHTML;
+        return target.innerHTML;
     }
 }
 
 function listenAddButton() {
     const addButtonListener = new AddButtonListener();
     addButtonListener.listen();
+}
+
+function attachInputToContainer(input) {
+    const contentSpace = document.getElementById('input-content-space');
+    contentSpace.innerHTML += input.generatedHTML;
+    return contentSpace.innerHTML;
 }

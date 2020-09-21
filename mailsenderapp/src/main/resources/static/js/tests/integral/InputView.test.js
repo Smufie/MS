@@ -9,60 +9,66 @@ beforeAll(() => {
     document.body.appendChild(testDiv);
 });
 
-describe('input view unit tests', () => {
-    test('should initialize views', () => {
-        // given
-        const view = new InputView();
-        // when
-        const views = view.initViews();
-        // then
-        expect(views.size).toBe(3);
-        expect(views.get('something random')).toBe(undefined);
-        expect(views.get('/adduser')).not.toBe(undefined);
-        expect(views.get('/deleteuser')).not.toBe(undefined);
-        expect(views.get('/send')).not.toBe(undefined);
-    });
-
-    test('should route to add person view', () => {
+describe('input view integral tests', () => {
+    test('should display add person view', () => {
         // given
         const addRoute = {
             name: 'Add',
             url: '/adduser',
         };
-        // when
         const view = new InputView();
+        // when
         const wasRouted = view.routeChanged(addRoute);
         // then
+        const contentSpace = document.getElementById('input-content-space');
+        expect(contentSpace).not.toBe(undefined);
+
         expect(wasRouted).toBe(true);
+
+        const container = document.getElementById('add-input-section');
+        expect(container.getElementsByTagName('input').length).toBe(2);
     });
 
-    test('should route to send view', () => {
+    test('should display send view', () => {
         // given
         const sendRoute = {
             name: 'Send',
             url: '/send',
         };
-        // when
         const view = new InputView();
+        // when
         const wasRouted = view.routeChanged(sendRoute);
         // then
+        const contentSpace = document.getElementById('input-content-space');
+        expect(contentSpace).not.toBe(undefined);
+
         expect(wasRouted).toBe(true);
+
+        const container = document.getElementById('send-input-section');
+        expect(container.getElementsByTagName('textarea').length).toBe(1);
+        expect(container.getElementsByTagName('input').length).toBe(1);
     });
 
-    test('should route to delete person view', () => {
+    test('should display delete person view', () => {
         // given
         const deleteRoute = {
             name: 'Delete',
             url: '/deleteuser',
         };
-        // when
         const view = new InputView();
+        // when
         const wasRouted = view.routeChanged(deleteRoute);
         // then
+        const contentSpace = document.getElementById('input-content-space');
+        expect(contentSpace).not.toBe(undefined);
+
         expect(wasRouted).toBe(true);
+
+        const container = document.getElementById('delete-input-section');
+        expect(container.getElementsByTagName('input').length).toBe(2);
     });
 
-    test('should route to default view', () => {
+    test('should display default view', () => {
         // given
         const notExistingRoute = {
             name: 'idontexist',
@@ -73,13 +79,8 @@ describe('input view unit tests', () => {
         const wasRouted = view.routeChanged(notExistingRoute);
         // then
         expect(wasRouted).toBe(false);
-    });
 
-    test('should clear page', () => {
-        // when
-        const view = new InputView();
-        view.clearPage();
-        // then
-        expect(view.inputArticle.innerHTML).toBe('');
+        const container = document.getElementById('default-section');
+        expect(container.getElementsByTagName('input').length).toBe(0);
     });
 });

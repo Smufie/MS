@@ -1,0 +1,25 @@
+[
+    {
+        "name": "MailSender",
+        "url": "/",
+        "title": "MailSender"
+    },
+
+    {
+        "name": "Add",
+        "url": "/adduser",
+        "title": "MailSender | Add user"
+    },
+
+    {
+        "name": "Send",
+        "url": "/send",
+        "title": "MailSender | Send"
+    },
+
+    {
+        "name": "Delete",
+        "url": "/deleteuser",
+        "title": "MailSender | Delete user"
+    }
+]

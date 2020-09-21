@@ -16,9 +16,7 @@ export default class FetchEstablisher {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(
-                        `Negative response from server. ("GET", ${response.status})`
-                    );
+                    throw new Error(`Negative response from server. ("GET", ${response.status})`);
                 } else {
                     return observer.dataArrived(response);
                 }
@@ -38,9 +36,7 @@ export default class FetchEstablisher {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(
-                        `Negative response from server. ("POST", ${response.status})`
-                    );
+                    throw new Error(`Negative response from server. ("POST", ${response.status})`);
                 } else {
                     return handleEditResponse(response);
                 }
@@ -60,9 +56,7 @@ export default class FetchEstablisher {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(
-                        `Negative response from server. ("POST", ${response.status})`
-                    );
+                    throw new Error(`Negative response from server. ("POST", ${response.status})`);
                 } else {
                     handleAddResponse(response);
                 }

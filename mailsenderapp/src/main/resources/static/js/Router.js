@@ -21,7 +21,6 @@ export default class Router {
     establishMenuRouting() {
         const links = document.getElementById('menu').getElementsByTagName('a');
         links.forEach((link) => {
-            // TODO link.forEach is not a function
             link.addEventListener('click', (event) => {
                 this.changeURL(event);
             });

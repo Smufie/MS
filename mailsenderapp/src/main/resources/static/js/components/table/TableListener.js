@@ -2,10 +2,6 @@ import PersonData from '../../PersonData';
 
 /* eslint-disable class-methods-use-this */
 export default class TableListener {
-    constructor() {
-        this.listen();
-    }
-
     listen() {
         const personsTable = document.getElementById('person-table');
         const { length, ...rows } = personsTable.rows;
