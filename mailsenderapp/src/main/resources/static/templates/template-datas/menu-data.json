@@ -16,17 +16,17 @@
             "hyperlink": "/adduser",
             "menuLinkName": "Add",
             "dropdown": true,
-            "dropdown-link": [
+            "dropdownLinks": [
                 {
-                    "dropdown-link-id": "dropdown-add-user",
-                    "dropdown-href": "/adduser",
-                    "dropdown-name": "User"
+                    "dropdownLinkId": "dropdown-add-user",
+                    "dropdownUrl": "/adduser",
+                    "dropdownName": "User"
                 },
 
                 {
-                    "dropdown-link-id": "dropdown-add-interest",
-                    "dropdown-href": "/addinterest",
-                    "dropdown-name": "Interest"
+                    "dropdownLinkId": "dropdown-add-interest",
+                    "dropdownUrl": "/addinterest",
+                    "dropdownName": "Interest"
                 }
             ]
         },
@@ -38,17 +38,17 @@
             "hyperlink": "/deleteuser",
             "menuLinkName": "Delete",
             "dropdown": true,
-            "dropdown-link": [
+            "dropdownLinks": [
                 {
-                    "dropdown-link-id": "dropdown-delete-user",
-                    "dropdown-href": "/deleteuser",
-                    "dropdown-name": "User"
+                    "dropdownLinkId": "dropdown-delete-user",
+                    "dropdownUrl": "/deleteuser",
+                    "dropdownName": "User"
                 },
 
                 {
-                    "dropdown-link-id": "dropdown-delete-interest",
-                    "dropdown-href": "/deleteinterest",
-                    "dropdown-name": "Interest"
+                    "dropdownLinkId": "dropdown-delete-interest",
+                    "dropdownUrl": "/deleteinterest",
+                    "dropdownName": "Interest"
                 }
             ]
         },

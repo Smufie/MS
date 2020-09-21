@@ -6,9 +6,9 @@
         <a class="menu-link" data-href="{{hyperlink}}">{{menuLinkName}}</a>
         {{#if dropdown}}
         <ul class="dropdown">
-            {{#each dropdown-link}}
-            <li><a class="dropdown-menu-link" id="{{dropdown-link-id}}"
-                    data-href="{{dropdown-href}}">{{dropdown-name}}</a>
+            {{#each dropdownLinks}}
+            <li><a class="dropdown-menu-link" id="{{dropdownLinkId}}"
+                    data-href="{{dropdownUrl}}">{{dropdownName}}</a>
             </li>
             {{/each}}
         </ul>

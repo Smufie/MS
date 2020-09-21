@@ -4,33 +4,19 @@ import SendView from './sendview/SendView';
 import DefaultView from './DefaultView';
 
 export default class ViewFactory {
-    constructor() {
-        this.pages = new Map();
-        this.pages.set('/', new DefaultView());
+    static getDefaultView() {
+        return new DefaultView();
     }
 
-    getDefaultView() {
-        return this.pages.get('/');
+    static getDeletePersonView() {
+        return new DeletePersonView();
     }
 
-    getDeletePersonView(route) {
-        if (!route.wasCreated) {
-            this.pages.set(route.url, new DeletePersonView());
-        }
-        return this.pages.get(route.url);
+    static getSendView() {
+        return new SendView();
     }
 
-    getSendView(route) {
-        if (!route.wasCreated) {
-            this.pages.set(route.url, new SendView());
-        }
-        return this.pages.get(route.url);
-    }
-
-    getAddPersonView(route) {
-        if (!route.wasCreated) {
-            this.pages.set(route.url, new AddPersonView());
-        }
-        return this.pages.get(route.url);
+    static getAddPersonView() {
+        return new AddPersonView();
     }
 }

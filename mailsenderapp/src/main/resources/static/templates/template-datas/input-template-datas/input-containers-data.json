@@ -1,25 +1,25 @@
 {
     "default": {
         "articleId": "default-section",
-        "article-header": "Let's get started",
+        "articleHeader": "Let's get started",
         "label": "Welcome to MailSender! Choose action above and start sending."
     },
 
     "addperson": {
         "articleId": "add-input-section",
-        "article-header": "Add person",
+        "articleHeader": "Add person",
         "label": "Username:"
     },
 
     "deleteperson": {
         "articleId": "delete-input-section",
-        "article-header": "Delete person",
+        "articleHeader": "Delete person",
         "label": "Username:"
     },
 
     "send": {
         "articleId": "send-input-section",
-        "article-header": "Send message",
+        "articleHeader": "Send message",
         "label": "Select interest from list: "
     }
 }

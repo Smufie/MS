@@ -1,5 +1,5 @@
 {
-    "button-id": "delete-button",
-    "button-value": "Delete",
-    "placeholder-value": "eg. John"
+    "buttonId": "delete-button",
+    "buttonValue": "Delete",
+    "placeholderValue": "eg. John"
 }

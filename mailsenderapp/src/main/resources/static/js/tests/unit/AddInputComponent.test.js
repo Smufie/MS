@@ -1,29 +1,28 @@
-import AddInputComponent from '../components/AddInputComponent';
-import AddButtonListener from '../listeners/AddButtonListener';
-
-jest.mock('../listeners/AddButtonListener');
-
-beforeEach(() => {
-    AddButtonListener.mockClear();
-});
+import AddInputComponent from '../../components/views/addpersonview/AddInputComponent';
+import inputData from '../../../templates/template-datas/input-template-datas/add-person-input-data.json';
 
 describe('add input component tests', () => {
     test('should create add input component', () => {
         // when
         const addInput = new AddInputComponent();
         // then
-        expect(addInput.generatedHTML).toMatch(`"submit-button"`);
+        expect(addInput.generatedHTML).not.toBe(undefined);
     });
 
-    test('should render input component to target', () => {
+    test('should contain proper component', () => {
         // given
-        const articleElement = document.createElement('article');
-        document.body.appendChild(articleElement);
-        // when
         const addInput = new AddInputComponent();
-        addInput.renderTo(articleElement);
+        // when
+        document.body.innerHTML = addInput.generatedHTML;
         // then
-        expect(document.getElementsByTagName('article')[0].innerHTML).toMatch(`"submit-button"`);
-        expect(AddButtonListener).toHaveBeenCalledTimes(1);
+        const result = document.getElementsByTagName('input');
+
+        expect(result).not.toBe(undefined);
+        expect(result.length).toBe(2);
+        expect(result[0].type).toBe('text');
+        expect(result[1].type).toBe('submit');
+        expect(result[0].placeholder).toBe(inputData.placeholderValue);
+        expect(result[1].id).toBe(inputData.buttonId);
+        expect(result[1].value).toBe(inputData.buttonValue);
     });
 });

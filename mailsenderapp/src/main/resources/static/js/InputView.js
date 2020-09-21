@@ -1,5 +1,7 @@
 import ViewFactory from './components/views/ViewFactory';
 
+// TODO Already made views control
+
 const INPUT_ARTICLE_INDEX = 0;
 
 const ADD_PAGE_ID = '/adduser';
@@ -8,18 +10,18 @@ const DELETE_PAGE_ID = '/deleteuser';
 
 export default class InputView {
     constructor() {
-        this.factory = new ViewFactory();
-        this.views = this.fillViews();
+        this.views = this.initViews();
         this.inputArticle = document.getElementById('main-section').getElementsByTagName('article')[
             INPUT_ARTICLE_INDEX
         ];
     }
 
-    fillViews() {
+    // eslint-disable-next-line class-methods-use-this
+    initViews() {
         const views = new Map();
-        views.set(ADD_PAGE_ID, (route) => this.factory.getAddPersonView(route));
-        views.set(SEND_PAGE_ID, (route) => this.factory.getSendView(route));
-        views.set(DELETE_PAGE_ID, (route) => this.factory.getDeletePersonView(route));
+        views.set(ADD_PAGE_ID, () => ViewFactory.getAddPersonView());
+        views.set(SEND_PAGE_ID, () => ViewFactory.getSendView());
+        views.set(DELETE_PAGE_ID, () => ViewFactory.getDeletePersonView());
         return views;
     }
 

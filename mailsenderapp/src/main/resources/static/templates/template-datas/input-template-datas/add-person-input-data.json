@@ -1,5 +1,5 @@
 {
-    "button-id": "submit-button",
-    "button-value": "Add",
-    "placeholder-value": "eg. John"
+    "buttonId": "submit-button",
+    "buttonValue": "Add",
+    "placeholderValue": "eg. John"
 }
