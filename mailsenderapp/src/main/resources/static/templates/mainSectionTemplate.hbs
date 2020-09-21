@@ -1,8 +1,8 @@
-{{#each main-section}}
+{{#each articles}}
 <article id="{{articleId}}" class="article-in-main-section">
-    
+
     <h2>
-        {{article-header}}
+        {{articleHeader}}
         {{#if isPersons}}<input type="submit" id="refresh-button" class="button" value="Refresh">{{/if}}
     </h2>
     {{#if isPersons}}

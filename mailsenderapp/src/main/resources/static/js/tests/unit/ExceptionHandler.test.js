@@ -1,4 +1,4 @@
-import ExceptionHandler from '../ExceptionHandler';
+import ExceptionHandler from '../../ExceptionHandler';
 
 describe('exception handler tests', () => {
     test('should display error', () => {

@@ -1,22 +1,27 @@
-import DeleteInputComponent from '../components/DeleteInputComponent';
+import DeleteInputComponent from '../../components/views/deletepersonview/DeleteInputComponent';
+import inputData from '../../../templates/template-datas/input-template-datas/delete-person-input-data.json';
 
 describe('delete input component tests', () => {
     test('should create delete input component', () => {
-        // given
         // when
         const deleteInput = new DeleteInputComponent();
         // then
-        expect(deleteInput.generatedHTML).toMatch(`"delete-button"`);
+        expect(deleteInput.generatedHTML).not.toBe(undefined);
     });
 
-    test('should render input component to target', () => {
+    test('should contain proper component', () => {
         // given
-        const articleElement = document.createElement('article');
-        document.body.appendChild(articleElement);
-        // when
         const deleteInput = new DeleteInputComponent();
-        deleteInput.renderTo(articleElement);
+        // when
+        document.body.innerHTML = deleteInput.generatedHTML;
+        const inputs = document.getElementsByTagName('input');
         // then
-        expect(document.getElementsByTagName('article')[0].innerHTML).toMatch(`"delete-button"`);
+        expect(inputs).not.toBe(undefined);
+        expect(inputs.length).toBe(2);
+        expect(inputs[0].type).toBe('text');
+        expect(inputs[1].type).toBe('submit');
+        expect(inputs[0].placeholder).toBe(inputData.placeholderValue);
+        expect(inputs[1].id).toBe(inputData.buttonId);
+        expect(inputs[1].value).toBe(inputData.buttonValue);
     });
 });

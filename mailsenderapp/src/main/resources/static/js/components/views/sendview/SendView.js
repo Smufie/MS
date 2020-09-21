@@ -12,9 +12,9 @@ export default class SendView {
         document.getElementById('input-content-space').innerHTML += this.input.generatedHTML;
     }
 
-    renderTo(article) {
-        article.innerHTML = this.container.generatedHTML;
-        article.id = this.container.id;
+    renderTo(target) {
+        target.innerHTML = this.container.generatedHTML;
+        target.id = this.container.id;
         this.attachInputToContainer();
     }
 }

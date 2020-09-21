@@ -4,20 +4,18 @@ export default class RouteCollection {
     }
 
     getRoute(pathName) {
-        // TODO ?
-        // eslint-disable-next-line consistent-return
-        this.routes.forEach((route) => {
-            const routeExist = route.url === pathName;
-            if (routeExist) {
-                return route;
-            }
+        let result = this.routes[0];
+        result = this.routes.filter((route) => {
+            return route.url === pathName;
         });
-        return this.routes[0];
+        // TODO filter
+        return result;
     }
 }
 
 function createRoutes() {
     return [
+        // TODO json
         {
             name: 'MailSender',
             url: '/',

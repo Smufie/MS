@@ -8,13 +8,10 @@ export default class DeletePersonView {
         this.input = new DeleteInputComponent();
     }
 
-    attachInputToContainer() {
-        document.getElementById('input-content-space').innerHTML += this.input.generatedHTML;
-    }
-
     renderTo(article) {
+        // TODO refactor
         article.innerHTML = this.container.generatedHTML;
         article.id = this.container.id;
-        this.attachInputToContainer();
+        document.getElementById('input-content-space').innerHTML += this.input.generatedHTML;
     }
 }

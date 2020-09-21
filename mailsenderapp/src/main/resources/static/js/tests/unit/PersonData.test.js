@@ -1,4 +1,4 @@
-import PersonData from '../PersonData';
+import PersonData from '../../PersonData';
 
 describe('person data tests', () => {
     test('should create person data', () => {
