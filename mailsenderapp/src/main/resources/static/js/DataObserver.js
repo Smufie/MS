@@ -10,7 +10,7 @@ export default class DataObserver {
     dataArrived(personsData) {
         personsData.json().then((data) => {
             const wrapper = { persons: data };
-            this.subscribers.forEach((e) => e.renderTo(wrapper));
+            this.subscribers.forEach((e) => e.render(wrapper));
         });
     }
 }

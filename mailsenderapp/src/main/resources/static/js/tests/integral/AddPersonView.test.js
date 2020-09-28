@@ -16,7 +16,6 @@ describe('add view integral tests', () => {
         // when
         view.renderTo(document.body);
         // then
-        expect(document.body.innerHTML).not.toBe('');
         expect(document.body.id).toBe('add-input-section');
 
         const contentSpace = document.getElementById('input-content-space');

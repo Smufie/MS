@@ -1,6 +1,5 @@
 import PersonData from '../../PersonData';
 
-/* eslint-disable class-methods-use-this */
 export default class TableListener {
     listen() {
         const personsTable = document.getElementById('person-table');
@@ -9,10 +8,11 @@ export default class TableListener {
             const nameCellId = rows[i].cells[0].innerHTML;
             let nameCell = rows[i].cells[1];
             nameCell = this.setNameCellProperties(nameCell, nameCellId);
-            this.addNameCellListener(nameCell);
+            addNameCellListener(nameCell);
         }
     }
 
+    // eslint-disable-next-line class-methods-use-this
     setNameCellProperties(nameCell, nameCellId) {
         const newNameCell = nameCell;
         newNameCell.class = 'name-cell';
@@ -20,17 +20,17 @@ export default class TableListener {
         newNameCell.setAttribute('data-person-id', nameCellId);
         return newNameCell;
     }
+}
 
-    addNameCellListener(nameCell) {
-        nameCell.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                const newPersonData = new PersonData(
-                    event.target.textContent,
-                    event.target.getAttribute('data-person-id')
-                );
-                window.fetchObserver.requestArrived('editperson', newPersonData);
-                event.target.blur();
-            }
-        });
-    }
+function addNameCellListener(nameCell) {
+    nameCell.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+            const newPersonData = new PersonData(
+                event.target.textContent,
+                event.target.getAttribute('data-person-id')
+            );
+            window.fetchObserver.requestArrived('editperson', newPersonData);
+            event.target.blur();
+        }
+    });
 }

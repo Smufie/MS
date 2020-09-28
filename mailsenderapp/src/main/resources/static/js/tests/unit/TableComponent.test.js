@@ -10,9 +10,8 @@ describe('Table component tests', () => {
         document.body.appendChild(divElement);
         // when
         const table = new TableComponent();
-        table.renderTo(TARGET_ID);
+        table.render();
         // then
-        expect(document.getElementById(TARGET_ID)).not.toBe(undefined);
         expect(document.getElementById(TARGET_ID).innerHTML).toMatch(`<table id="person-table">`);
     });
 });

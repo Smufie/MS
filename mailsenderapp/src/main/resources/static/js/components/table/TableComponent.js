@@ -7,9 +7,9 @@ export default class TableComponent {
         this.listener = null;
     }
 
-    renderTo(targetID) {
-        this.tableSpace = document.getElementById(targetID);
-        this.tableSpace.innerHTML = setHTML();
+    render(data) {
+        this.tableSpace = document.getElementById('table-space');
+        this.tableSpace.innerHTML = setHTML(data);
         this.listener = new TableListener();
         this.listener.listen();
         return this.tableSpace.innerHTML;

@@ -2,13 +2,15 @@
     {{#each menu}}
     <li {{#if blankspace}} class="blank-space" {{else}} id="{{menuId}}" {{/if}}>
         {{#switch is}}
+
         {{#case "menu-link"}}
-        <a class="menu-link" data-href="{{hyperlink}}">{{menuLinkName}}</a>
+        <a class="menu-link" data-href="{{url}}">{{menuLinkName}}</a>
+
         {{#if dropdown}}
         <ul class="dropdown">
             {{#each dropdownLinks}}
-            <li><a class="dropdown-menu-link" id="{{dropdownLinkId}}"
-                    data-href="{{dropdownUrl}}">{{dropdownName}}</a>
+            <li>
+                <a class="dropdown-menu-link" data-href="{{dropdownUrl}}">{{dropdownName}}</a>
             </li>
             {{/each}}
         </ul>
@@ -16,7 +18,7 @@
         {{/case}}
 
         {{#case "header-space"}}
-        <a class="main-site-link">
+        <a class="main-site-link" data-href="{{url}}">
             <h1 id="main-header" header-content="MailSender"></h1>
         </a>
         {{/case}}

@@ -4,7 +4,7 @@
             "blankspace": false,
             "menuId": "menu-send",
             "is": "menu-link",
-            "hyperlink": "/send",
+            "url": "/send",
             "menuLinkName": "Send",
             "dropdown": false
         },
@@ -13,7 +13,7 @@
             "blankspace": false,
             "menuId": "menu-add",
             "is": "menu-link",
-            "hyperlink": "/adduser",
+            "url": "/adduser",
             "menuLinkName": "Add",
             "dropdown": true,
             "dropdownLinks": [
@@ -35,7 +35,7 @@
             "blankspace": false,
             "menuId": "menu-delete",
             "is": "menu-link",
-            "hyperlink": "/deleteuser",
+            "url": "/deleteuser",
             "menuLinkName": "Delete",
             "dropdown": true,
             "dropdownLinks": [
@@ -57,7 +57,7 @@
             "blankspace": false,
             "menuId": "menu-monitoring",
             "is": "menu-link",
-            "hyperlink": "/monitor",
+            "url": "/monitor",
             "menuLinkName": "Monitoring",
             "dropdown": false
         },
@@ -77,7 +77,8 @@
         {
             "blankspace": false,
             "menuId": "header-space",
-            "is": "header-space"
+            "is": "header-space",
+            "url": "/"
         }
     ]
 }

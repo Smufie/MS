@@ -20,7 +20,7 @@ export default class Router {
 
     establishMenuRouting() {
         const links = document.getElementById('menu').getElementsByTagName('a');
-        links.forEach((link) => {
+        Array.from(links).forEach((link) => {
             link.addEventListener('click', (event) => {
                 this.changeURL(event);
             });
