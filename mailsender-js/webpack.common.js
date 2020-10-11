@@ -16,7 +16,9 @@ module.exports = {
 
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(
+            'C:/Users/Jan/Desktop/infa/MailSender/mailsenderapp/src/main/resources/static'
+        ),
     },
 
     devtool: 'source-map',
@@ -65,12 +67,7 @@ module.exports = {
 
             {
                 test: /\.s(a|c)ss$/,
-                loader: [
-                    'style-loader',
-                    'css-loader',
-                    'resolve-url-loader',
-                    'sass-loader',
-                ],
+                loader: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
             },
 
             {

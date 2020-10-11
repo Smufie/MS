@@ -1,7 +1,9 @@
 #MailSender
 Java and JS code for MailSender.
 
-TODO and DONE List:
+TODO and DONE List
+
+Frontend:
 1. GitHub DONE 
 2. Trello/Slack DONE 
 3. DOM Tree DONE 
@@ -30,6 +32,21 @@ TODO and DONE List:
 26. Routing (klasyczny, z entrypointami webpacka, kotwice z #, spa/spi) DONE
 27. JS event bus DONE
 28. Jest framework DONE
+
+Backend:
+1. Springboot CRUD - JPA/Hibernate DONE
+2. Warstwy: kontroler, serwis, dao/repository. DONE 
+3. Czym jest Dto, encja, transakcja.
+4. Czym jest komenda a czym jest zapytanie. (command/querry) *(cqs i cqrs) DONE
+5. Testowanie JUnit/spock
+6. Architektura hexagonalna. hexagon, onion
+7. Heroku
+8. Graf z punktu widzenia biznesowego
+9. Baza danych
+10. Bazy relacyjne a no sql
+11. Powiązanie querry/command z transakcjami.
+12. Testowanie CRUD springboot
+13. Docker, postgres, wsl
 
 W międzyczasie:  
 -codecademy, css dinner  

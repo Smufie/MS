@@ -2,12 +2,12 @@ const puppeteer = require('puppeteer');
 
 let browser;
 let page;
-jest.setTimeout(30000);
+jest.setTimeout(15000);
 
 beforeAll(async () => {
     browser = await puppeteer.launch();
     page = await browser.newPage();
-    await page.goto('http://localhost:8080/adduser');
+    await page.goto('http://localhost:8080/');
 });
 
 afterAll(async () => {
