@@ -1,2 +1,5 @@
-<input type="text" id="name-input" name="first-name" placeholder="{{placeholderValue}}">
+{{#each textFields}}
+<label>{{label}}</label>
+<input type="text" id="{{inputId}}" name="first-name" placeholder="{{placeholderValue}}">
+{{/each}}
 <input type="submit" id="{{buttonId}}" class="button" value="{{buttonValue}}">

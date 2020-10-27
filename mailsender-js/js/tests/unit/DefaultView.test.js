@@ -19,6 +19,6 @@ describe('default view tests', () => {
         const contentSpace = document.getElementById('input-content-space');
         // then
         expect(contentSpace).not.toBe(undefined);
-        expect(contentSpace.getElementsByTagName('label')[0].innerHTML).toBe(defaultView.label);
+        expect(document.body.getElementsByTagName('p')[0].innerHTML).toBe(defaultView.label);
     });
 });

@@ -15,6 +15,7 @@ export default class FetchObserver {
 function initFetches(establisher) {
     const fetches = new Map();
     fetches.set('addperson', (newPerson) => establisher.fetchAdd(newPerson));
+    fetches.set('deleteperson', (personId) => establisher.fetchDelete(personId));
     fetches.set('getpersons', (observer) => establisher.fetchPersons(observer));
     fetches.set('editperson', (editedPerson) => establisher.fetchEdit(editedPerson));
     return fetches;

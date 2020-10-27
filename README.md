@@ -36,20 +36,36 @@ Frontend:
 Backend:
 1. Springboot CRUD - JPA/Hibernate DONE
 2. Warstwy: kontroler, serwis, dao/repository. DONE 
-3. Czym jest Dto, encja, transakcja.
+3. Czym jest Dto, encja, transakcja. DONE
 4. Czym jest komenda a czym jest zapytanie. (command/querry) *(cqs i cqrs) DONE
-5. Testowanie JUnit/spock
-6. Architektura hexagonalna. hexagon, onion
-7. Heroku
-8. Graf z punktu widzenia biznesowego
-9. Baza danych
-10. Bazy relacyjne a no sql
-11. Powiązanie querry/command z transakcjami.
-12. Testowanie CRUD springboot
-13. Docker, postgres, wsl
+5. Testowanie JUnit/spock DONE
+6. Architektura hexagonalna. hexagon, onion DONE
+7. Heroku DONE
+8. Graf z punktu widzenia biznesowego DONE
+9. Baza danych DONE
+10. Bazy relacyjne a no sql DONE
+11. Powiązanie querry/command z transakcjami. TODO (transakcje forRead i forEdit)*
+12. Testowanie CRUD springboot TODO
+13. Docker, postgres, wsl DONE
+14. RegEx DONE	
+15. Mail validations
+16. Generowanie id, SEQUENCE/IDENTITY/TABLE DONE 
+17. Separacja pakietowa DONE
+18. lombok DONE
+19. ModelMapper
+20. WebClient testy DONE
+21. Transakcje* DONE? Izolacja i propagacja.
+22. Adnotacje w springu i spring boocie DONE
+23. AutoConfig (np. baza danych)
+
+TODOsy w kodzie:
+1. Service
 
 W międzyczasie:  
 -codecademy, css dinner  
 -Hello Roman, blog/yt; nafrontendzie.pl; yt googlechrome
 
 Pytania:
+1. Punkt 11., czy to nie tak że transakcja po prostu składa się z querry i commandów/manipuluje przy ich pomocy?
+2. Co to Bean?
+3. Jak przechwycić wiadomość exceptiona w javie i wyswietlić na froncie?

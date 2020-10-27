@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import compiledTemplate from '../../../templates/tableTemplate.hbs';
 import TableListener from './TableListener';
 

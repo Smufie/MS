@@ -7,14 +7,12 @@
 
     "addperson": {
         "articleId": "add-input-section",
-        "articleHeader": "Add person",
-        "label": "Username:"
+        "articleHeader": "Add person"
     },
 
     "deleteperson": {
         "articleId": "delete-input-section",
-        "articleHeader": "Delete person",
-        "label": "Username:"
+        "articleHeader": "Delete person"
     },
 
     "send": {

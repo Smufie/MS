@@ -1,4 +1,4 @@
-import { handleAddResponse, handleEditResponse } from './responseHandler';
+import { handleAddResponse, handleEditResponse, handleDeleteResponse } from './responseHandler';
 import ExceptionHandler from './ExceptionHandler';
 
 export default class FetchEstablisher {
@@ -59,6 +59,25 @@ export default class FetchEstablisher {
                     throw new Error(`Negative response from server. ("POST", ${response.status})`);
                 } else {
                     handleAddResponse(response);
+                }
+            })
+            .catch((error) => {
+                ExceptionHandler.error(error);
+            });
+    }
+
+    async fetchDelete(personId) {
+        await fetch(`${this.DEFAULT_ADRESS}/person/delete/${personId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': this.DEFAULT_HEADER,
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Negative response from server. ("POST", ${response.status})`);
+                } else {
+                    handleDeleteResponse(response);
                 }
             })
             .catch((error) => {

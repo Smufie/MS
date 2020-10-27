@@ -272,9 +272,9 @@ danych<y:LabelModel>
           <y:Geometry height="103.79199999999997" width="129.604" x="1133.9916875000001" y="562.7673511029411"/>
           <y:Fill color="#FF3333" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="124.052734375" x="2.7756328124999072" y="27.844242187499958">Mail
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="56.01953125" x="36.79223437499991" y="27.844242187499958">Mail
 
-(unikalny identyfikator)<y:LabelModel>
+(unikalny)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -1009,7 +1009,6 @@ zainteresowanie)<y:LabelModel>
       </data>
     </edge>
     <edge id="e36" source="n33" target="n16">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>

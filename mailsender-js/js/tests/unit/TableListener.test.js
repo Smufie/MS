@@ -5,13 +5,14 @@ describe('table listener tests', () => {
         // given
         const nameCellId = 4;
         const nameCell = document.createElement('tr');
+        const type = 'test';
         // when
         const listener = new TableListener();
-        const newNameCell = listener.setNameCellProperties(nameCell, nameCellId);
+        const newNameCell = listener.setCellProperties(nameCell, nameCellId, type);
         // then
         expect(newNameCell).not.toBe(undefined);
-        expect(newNameCell.class).toBe('name-cell');
         expect(newNameCell.contentEditable).toBe('true');
         expect(newNameCell.getAttribute('data-person-id')).toBe('4');
+        expect(newNameCell.id).toBe(`${type}-${nameCellId}`);
     });
 });

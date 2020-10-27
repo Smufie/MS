@@ -18,11 +18,19 @@ describe('add input component tests', () => {
         const result = document.getElementsByTagName('input');
 
         expect(result).not.toBe(undefined);
-        expect(result.length).toBe(2);
+        expect(result.length).toBe(4);
+
         expect(result[0].type).toBe('text');
-        expect(result[1].type).toBe('submit');
-        expect(result[0].placeholder).toBe(inputData.placeholderValue);
-        expect(result[1].id).toBe(inputData.buttonId);
-        expect(result[1].value).toBe(inputData.buttonValue);
+        expect(result[0].placeholder).toBe(inputData.textFields[0].placeholderValue);
+
+        expect(result[1].type).toBe('text');
+        expect(result[1].placeholder).toBe(inputData.textFields[1].placeholderValue);
+
+        expect(result[2].type).toBe('text');
+        expect(result[2].placeholder).toBe(inputData.textFields[2].placeholderValue);
+
+        expect(result[3].type).toBe('submit');
+        expect(result[3].id).toBe(inputData.buttonId);
+        expect(result[3].value).toBe(inputData.buttonValue);
     });
 });

@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import InputContainerFactory from '../../../containers/InputContainerFactory';
+import DeleteButtonListener from './DeleteButtonListener';
 import DeleteInputComponent from './DeleteInputComponent';
 
 export default class DeletePersonView {
@@ -12,8 +13,14 @@ export default class DeletePersonView {
         target.innerHTML = this.container.generatedHTML;
         target.id = this.container.id;
         attachInputToContainer(this.input);
+        listenDeleteButton();
         return target.innerHTML;
     }
+}
+
+function listenDeleteButton() {
+    const deleteButtonListener = new DeleteButtonListener();
+    deleteButtonListener.listen();
 }
 
 function attachInputToContainer(input) {

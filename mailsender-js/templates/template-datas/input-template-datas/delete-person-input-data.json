@@ -1,5 +1,11 @@
 {
+    "textFields": [
+        {
+            "label": "Id:",
+            "placeholderValue": "eg. 1234",
+            "inputId": "id-input"
+        }
+    ],
     "buttonId": "delete-button",
-    "buttonValue": "Delete",
-    "placeholderValue": "eg. John"
+    "buttonValue": "Delete"
 }

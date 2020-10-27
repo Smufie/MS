@@ -8,24 +8,18 @@ beforeAll(async () => {
     browser = await puppeteer.launch();
     page = await browser.newPage();
     global.page = page;
-    await page.goto('http://localhost:8080/adduser');
+    await page.goto('http://localhost:8080/deleteuser');
 });
 
 afterAll(async () => {
     await browser.close();
 });
 
-describe('add person view tests', () => {
+describe.skip('delete person view tests', () => {
     test('should add person to table and display it after refresh', async () => {
         // given
-        await page.click('#name-input');
-        await page.type('#name-input', 'Johnny');
-        
-        await page.click('#mail-input');
-        await page.type('#mail-input', 'johnny@test.com');
-
-        await page.click('#interest-input');
-        await page.type('#interest-input', 'test');
+        await page.click('#id-input');
+        await page.type('#id-input', `${id}`);
 
         const tableSizeBefore = await page.$$eval(
             '#person-table tr',

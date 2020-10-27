@@ -13,7 +13,7 @@ describe('send view tests', () => {
         expect(document.body.id).toBe('send-input-section');
 
         const contentSpace = document.getElementById('input-content-space');
-        expect(contentSpace.getElementsByTagName('label')[0].innerHTML).toBe(
+        expect(document.body.getElementsByTagName('p')[0].innerHTML).toBe(
             containerData.send.label
         );
         expect(contentSpace.getElementsByTagName('option').length).toBe(3);

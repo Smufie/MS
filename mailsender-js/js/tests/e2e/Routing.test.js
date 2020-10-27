@@ -7,6 +7,7 @@ jest.setTimeout(15000);
 beforeAll(async () => {
     browser = await puppeteer.launch();
     page = await browser.newPage();
+    global.page = page;
     await page.goto('http://localhost:8080/');
 });
 

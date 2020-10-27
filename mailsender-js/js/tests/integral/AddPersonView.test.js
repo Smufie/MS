@@ -1,6 +1,5 @@
 import AddPersonView from '../../components/views/addpersonview/AddPersonView';
 import componentData from '../../../templates/template-datas/input-template-datas/add-person-input-data.json';
-import containerData from '../../../templates/template-datas/input-template-datas/input-containers-data.json';
 import FetchObserver from '../../FetchObserver';
 
 jest.mock('../../FetchObserver');
@@ -20,9 +19,9 @@ describe('add view integral tests', () => {
 
         const contentSpace = document.getElementById('input-content-space');
         expect(contentSpace.getElementsByTagName('label')[0].innerHTML).toBe(
-            containerData.addperson.label
+            componentData.textFields[0].label
         );
-        const button = contentSpace.getElementsByTagName('input')[1];
+        const button = contentSpace.getElementsByTagName('input')[3];
         expect(button.value).toBe(componentData.buttonValue);
     });
 

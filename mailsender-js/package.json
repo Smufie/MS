@@ -14,9 +14,7 @@
         },
         "globals": {
             "window": {
-                "observer": {
-                    
-                }
+                "observer": {}
             }
         }
     },
@@ -66,6 +64,7 @@
         "eslint-plugin-jsx-a11y": "^6.3.0",
         "jest": "^26.4.2",
         "jest-handlebars": "^1.0.1",
+        "jest-puppeteer-istanbul": "^0.5.3",
         "puppeteer": "^5.3.0"
     }
 }

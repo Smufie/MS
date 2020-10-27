@@ -17,9 +17,10 @@
         transition: 0.2s linear;
     }
     * {
-        margin-left: 10px;
+        margin: 5px;
     }
     label {
+        width: 25%;
         font-size: 1.1em;
     }
     select {
@@ -34,11 +35,16 @@
         flex-basis: 100%;
     }
 
-    #name-input {
+    input {
+        margin-right: 20%;
         padding: 0 3px;
-        margin: 0px 10px;
         font-size: 0.9em;
         border: 1px dimgray solid;
+    }
+
+    textarea {
+        height: 90px;
+        resize: vertical;
     }
 
     .button {

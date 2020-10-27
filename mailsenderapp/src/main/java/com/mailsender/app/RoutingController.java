@@ -1,4 +1,4 @@
-package com.mailsender.mailsenderapp;
+package com.mailsender.app;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

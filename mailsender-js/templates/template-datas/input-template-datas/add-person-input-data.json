@@ -1,5 +1,23 @@
 {
+    "textFields": [
+        {
+            "label": "Username:",
+            "placeholderValue": "eg. John Test",
+            "inputId": "name-input"
+        },
+
+        {
+            "label": "Mail:",
+            "placeholderValue": "eg. john@example.com",
+            "inputId": "mail-input"
+        },
+
+        {
+            "label": "Interest:",
+            "placeholderValue": "eg. sport music movies",
+            "inputId": "interest-input"
+        }
+    ],
     "buttonId": "submit-button",
-    "buttonValue": "Add",
-    "placeholderValue": "eg. John"
+    "buttonValue": "Add"
 }

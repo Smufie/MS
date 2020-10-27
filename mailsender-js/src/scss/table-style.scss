@@ -6,9 +6,10 @@
 
 #person-table {
     table-layout: auto;
-    flex-basis: 100%;
-    margin: 0 5%;
+    width: 100%;
+    margin: 0;
     border-collapse: collapse;
+    font-size: 0.9em;
     td,
     th {
         padding: 5px;

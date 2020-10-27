@@ -1,3 +1,4 @@
+import ExceptionHandler from '../../../ExceptionHandler';
 import PersonData from '../../../PersonData';
 
 export default class AddButtonListener {
@@ -14,8 +15,23 @@ export default class AddButtonListener {
 
 function addButtonClicked(event) {
     const nameInputField = document.getElementById('name-input');
-    event.target.blur();
-    const newPersonData = new PersonData(nameInputField.value);
+    const mailInputField = document.getElementById('mail-input');
+    const interestInputField = document.getElementById('interest-input');
+    const interests = Array.from(interestInputField.value.split(' '));
+    
+    if(validateEmail(mailInputField.value)) {
+        const newPersonData = new PersonData(nameInputField.value, mailInputField.value, interests);
+        window.fetchObserver.requestArrived('addperson', newPersonData);
+    } else {
+        ExceptionHandler.error('Error: Give a proper e-mail format.')
+    }
     nameInputField.value = '';
-    window.fetchObserver.requestArrived('addperson', newPersonData);
+    mailInputField.value = '';
+    interestInputField.value = '';
+    event.target.blur();
+}
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }

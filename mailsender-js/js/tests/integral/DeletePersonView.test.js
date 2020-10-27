@@ -1,6 +1,5 @@
 import DeletePersonView from '../../components/views/deletepersonview/DeletePersonView';
 import componentData from '../../../templates/template-datas/input-template-datas/delete-person-input-data.json';
-import containerData from '../../../templates/template-datas/input-template-datas/input-containers-data.json';
 
 describe('delete view tests', () => {
     test('should render delete person view to target', () => {
@@ -14,7 +13,7 @@ describe('delete view tests', () => {
         expect(document.body.id).toBe('delete-input-section');
 
         expect(contentSpace.getElementsByTagName('label')[0].innerHTML).toBe(
-            containerData.deleteperson.label
+            componentData.textFields[0].label,
         );
         const button = contentSpace.getElementsByTagName('input')[1];
         expect(button).not.toBe(undefined);

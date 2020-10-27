@@ -1,4 +1,4 @@
-package com.mailsender.mailsenderapp;
+package com.mailsender.app;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

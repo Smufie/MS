@@ -20,7 +20,7 @@ describe('delete input component tests', () => {
         expect(inputs.length).toBe(2);
         expect(inputs[0].type).toBe('text');
         expect(inputs[1].type).toBe('submit');
-        expect(inputs[0].placeholder).toBe(inputData.placeholderValue);
+        expect(inputs[0].placeholder).toBe(inputData.textFields[0].placeholderValue);
         expect(inputs[1].id).toBe(inputData.buttonId);
         expect(inputs[1].value).toBe(inputData.buttonValue);
     });
