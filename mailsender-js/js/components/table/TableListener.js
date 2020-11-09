@@ -1,4 +1,5 @@
 import PersonData from '../../PersonData';
+import InterestCheckboxDataExtractor from '../views/InterestCheckboxDataExtractor';
 
 // TODO Cell/Row class
 
@@ -45,6 +46,7 @@ function readNewPersonDataFromTable(nameCellId) {
     const nameCellValue = document.getElementById(`name-${nameCellId}`).innerHTML;
     const mailCellValue = document.getElementById(`mail-${nameCellId}`).innerHTML;
     const interestsCellValue = document.getElementById(`interests-${nameCellId}`).innerHTML;
-    const interestsArray = Array.from(interestsCellValue.split(','));
-    return new PersonData(nameCellValue, mailCellValue, interestsArray, nameCellId);
+    const interestsNamesArray = Array.from(interestsCellValue.split(' '));
+    const interestsIdsArray = InterestCheckboxDataExtractor.extractDataFromNames("interest-checkbox-space", interestsNamesArray)
+    return new PersonData(nameCellValue, mailCellValue, interestsIdsArray, nameCellId);
 }

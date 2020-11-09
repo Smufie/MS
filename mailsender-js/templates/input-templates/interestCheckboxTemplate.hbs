@@ -1,0 +1,8 @@
+<label>Interests:</label>
+{{#each interests}}
+<div class="checkbox-div">
+    <input type="checkbox" id="checkbox-{{interest_id}}" dataInterestId="{{interest_id}}" name="{{interest}}"
+        class="interest-checkbox">
+    <label class="interest-checkbox-label" for="checkbox-{{interest_id}}">{{interest}}</label>
+</div>
+{{/each}}

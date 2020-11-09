@@ -10,14 +10,23 @@
         "articleHeader": "Add person"
     },
 
+    "addinterest": {
+        "articleId": "add-input-section",
+        "articleHeader": "Add interest"
+    },
+
     "deleteperson": {
         "articleId": "delete-input-section",
         "articleHeader": "Delete person"
     },
 
+    "deleteinterest": {
+        "articleId": "delete-input-section",
+        "articleHeader": "Delete interest"
+    },
+
     "send": {
         "articleId": "send-input-section",
-        "articleHeader": "Send message",
-        "label": "Select interest from list: "
+        "articleHeader": "Send message"
     }
 }

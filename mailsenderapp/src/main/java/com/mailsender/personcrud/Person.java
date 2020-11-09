@@ -1,16 +1,19 @@
-package com.mailsender.person;
+package com.mailsender.personcrud;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.CollectionTable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -29,22 +32,18 @@ public class Person {
 	
 	@Column(name = "last_message")
 	private Date lastMessage;
+
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
+    @JoinTable(
+        name = "person_interest", 
+        joinColumns = { @JoinColumn(name = "person_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "interest_id") }
+    )
+    Set<Interest> interests = new HashSet<>();
 	
-	@ElementCollection
-	@CollectionTable(name="interests")
-	@Column(name = "interest")
-	private List <String> interests = new ArrayList<String>();
-	
-	public Person() {};
-	
-	public Person(String name, String mail, String[] interests) {
-		this.name = name;
-		this.mail = mail;
-		for (String interest : interests) {
-			this.interests.add(interest);
-		};
+	public Person() {
 		lastMessage = new Date(System.currentTimeMillis());
-	}
+	};
 	
 	public Date getLastMessage() {
 		return lastMessage;
@@ -73,24 +72,16 @@ public class Person {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-
-	public String getInterest(int index) {
-		return interests.get(index);
-	}
 	
-	public List<String> getInterest() {
+	public Set<Interest> getInterests() {
 		return interests;
 	}
 
-	public void setInterest(String[] interests) {
+	public void assignInterests(List<Interest> interests) {
 		this.interests.clear();
-		for (String interest : interests) {
+		for (Interest interest : interests) {
 			this.interests.add(interest);
 		}
-	}
-		
-	public void deleteInterest(int index) {
-		this.interests.remove(index);
 	}
 	
 	public void updateDate() {

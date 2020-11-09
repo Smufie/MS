@@ -14,7 +14,7 @@
 
         {
             "articleId": "persons",
-            "articleHeader": "Data preview",
+            "articleHeader": "Persons preview",
             "isPersons": true
         }
     ]

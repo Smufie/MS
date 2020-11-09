@@ -10,12 +10,6 @@
             "label": "Mail:",
             "placeholderValue": "eg. john@example.com",
             "inputId": "mail-input"
-        },
-
-        {
-            "label": "Interest:",
-            "placeholderValue": "eg. sport music movies",
-            "inputId": "interest-input"
         }
     ],
     "buttonId": "submit-button",

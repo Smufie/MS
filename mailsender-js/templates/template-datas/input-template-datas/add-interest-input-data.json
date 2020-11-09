@@ -1,0 +1,11 @@
+{
+    "textFields": [
+        {
+            "label": "Interest:",
+            "placeholderValue": "eg. History",
+            "inputId": "interest-input"
+        }
+    ],
+    "buttonId": "interest-submit-button",
+    "buttonValue": "Add Interest"
+}

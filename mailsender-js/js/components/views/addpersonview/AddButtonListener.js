@@ -1,5 +1,6 @@
 import ExceptionHandler from '../../../ExceptionHandler';
 import PersonData from '../../../PersonData';
+import InterestCheckboxDataExtractor from '../InterestCheckboxDataExtractor';
 
 export default class AddButtonListener {
     constructor() {
@@ -16,8 +17,7 @@ export default class AddButtonListener {
 function addButtonClicked(event) {
     const nameInputField = document.getElementById('name-input');
     const mailInputField = document.getElementById('mail-input');
-    const interestInputField = document.getElementById('interest-input');
-    const interests = Array.from(interestInputField.value.split(' '));
+    const interests = InterestCheckboxDataExtractor.extractDataFromChecked("interest-checkbox-space");
     
     if(validateEmail(mailInputField.value)) {
         const newPersonData = new PersonData(nameInputField.value, mailInputField.value, interests);
@@ -27,7 +27,6 @@ function addButtonClicked(event) {
     }
     nameInputField.value = '';
     mailInputField.value = '';
-    interestInputField.value = '';
     event.target.blur();
 }
 

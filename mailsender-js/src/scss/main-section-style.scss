@@ -55,7 +55,7 @@
         font-size: 0.9em;
         border: none;
         display: inline-block;
-        width: 75px;
+        width: 125px;
         height: 27px;
         cursor: pointer;
         &:hover {
@@ -78,7 +78,8 @@
     &:hover {
         background-color: $greengrey-4;
     }
-    #submit-button {
+    #submit-button,
+    #interest-submit-button {
         background-color: $button-green-1;
         &:hover {
             background-color: $button-green-2;
@@ -90,7 +91,8 @@
     &:hover {
         background-color: $redgrey-4;
     }
-    #delete-button {
+    #delete-button,
+    #interest-delete-button {
         background-color: $button-red-1;
         &:hover {
             background-color: $button-red-2;
@@ -119,6 +121,24 @@
     display: flex;
     flex-basis: 100%;
     flex-wrap: wrap;
+    #interest-checkbox-space {
+        display: flex;
+        flex-basis: 100%;
+        flex-wrap: wrap;
+        margin: 0;
+        .interest-checkbox {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin: 3%;
+        }
+        .interest-checkbox-label {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        .checkbox-div {
+            flex-basis: 25%;
+        }
+    }
 }
 
 #message-input {

@@ -57,6 +57,7 @@ Backend:
 21. Transakcje* DONE? Izolacja i propagacja.
 22. Adnotacje w springu i spring boocie DONE
 23. AutoConfig (np. baza danych)
+24. Analiza planu wykonania zapytania
 
 TODOsy w kodzie:
 1. Service

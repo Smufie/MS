@@ -16,13 +16,32 @@ export default class FetchEstablisher {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(`Negative response from server. ("GET", ${response.status})`);
+                    throw response;
                 } else {
                     return observer.dataArrived(response);
                 }
             })
             .catch((error) => {
-                ExceptionHandler.error(error);
+                ExceptionHandler.fetchError(error);
+            });
+    }
+
+    async fetchInterests(observer) {
+        await fetch(`${this.DEFAULT_ADRESS}/interests`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': this.DEFAULT_HEADER,
+            },
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw response;
+                } else {
+                    return observer.dataArrived(response);
+                }
+            })
+            .catch((error) => {
+                ExceptionHandler.fetchError(error);
             });
     }
 
@@ -36,13 +55,13 @@ export default class FetchEstablisher {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(`Negative response from server. ("POST", ${response.status})`);
+                    throw response;
                 } else {
                     return handleEditResponse(response);
                 }
             })
             .catch((error) => {
-                ExceptionHandler.error(error);
+                ExceptionHandler.fetchError(error);
             });
     }
 
@@ -56,13 +75,13 @@ export default class FetchEstablisher {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(`Negative response from server. ("POST", ${response.status})`);
+                    throw response;
                 } else {
                     handleAddResponse(response);
                 }
             })
             .catch((error) => {
-                ExceptionHandler.error(error);
+                ExceptionHandler.fetchError(error);
             });
     }
 
@@ -75,13 +94,13 @@ export default class FetchEstablisher {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(`Negative response from server. ("POST", ${response.status})`);
+                    throw response;
                 } else {
                     handleDeleteResponse(response);
                 }
             })
             .catch((error) => {
-                ExceptionHandler.error(error);
+                ExceptionHandler.fetchError(error);
             });
     }
 }

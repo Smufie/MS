@@ -1,0 +1,11 @@
+{
+    "textFields": [
+        {
+            "label": "Interest Id:",
+            "placeholderValue": "eg. 1234",
+            "inputId": "interest-id-input"
+        }
+    ],
+    "buttonId": "interest-delete-button",
+    "buttonValue": "Delete Interest"
+}

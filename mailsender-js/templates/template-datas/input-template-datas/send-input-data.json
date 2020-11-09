@@ -1,20 +1,4 @@
 {
     "buttonId": "send-button",
-    "buttonValue": "Send",
-    "interest": [
-        {
-            "interestValue": "sport",
-            "interestName": "Sport"
-        },
-
-        {
-            "interestValue": "music",
-            "interestName": "Music"
-        },
-
-        {
-            "interestValue": "programming",
-            "interestName": "Programming"
-        }
-    ]
+    "buttonValue": "Send"
 }

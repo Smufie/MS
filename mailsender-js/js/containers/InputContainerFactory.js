@@ -9,9 +9,21 @@ export default class InputContainerFactory {
         return new InputConatainer(generatedHTML, id);
     }
 
+    static getAddInterestContainer() {
+        const id = containerData.addinterest.articleId;
+        const generatedHTML = compiledTemplate(containerData.addinterest);
+        return new InputConatainer(generatedHTML, id);
+    }
+
     static getDeletePersonContainer() {
         const id = containerData.deleteperson.articleId;
         const generatedHTML = compiledTemplate(containerData.deleteperson);
+        return new InputConatainer(generatedHTML, id);
+    }
+
+    static getDeleteInterestContainer() {
+        const id = containerData.deleteinterest.articleId;
+        const generatedHTML = compiledTemplate(containerData.deleteinterest);
         return new InputConatainer(generatedHTML, id);
     }
 

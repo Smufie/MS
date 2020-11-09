@@ -1,12 +1,3 @@
-<form action="/action_page.php">
-    <select name="interest" id="select-interest">
-        {{#each interest}}
-        <option value="{{interestValue}}">{{interestName}}</option>
-        {{/each}}
-    </select>
-    <br><br>
-</form>
-
-<br>
 <textarea type="text" id="message-input" placeholder="Type your mail here!"></textarea>
+<div id="interest-checkbox-space"></div>
 <input type="submit" id="{{buttonId}}" class="button" value="{{buttonValue}}">

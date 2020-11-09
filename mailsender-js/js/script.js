@@ -9,14 +9,12 @@ import MainSectionContainer from './containers/MainSectionContainer';
 //  listeners
 import RefreshButtonListener from './components/table/RefreshButtonListener';
 //  other
-import DataObserver from './DataObserver';
+import PersonDataObserver from './PersonDataObserver';
 import Router from './Router';
 import FetchObserver from './FetchObserver';
 
-// TODO maven i node_modules
-
 registerHandlebarsHelpers(Handlebars);
-const dataObserver = new DataObserver();
+const personDataObserver = new PersonDataObserver();
 const fetchObserver = new FetchObserver();
 window.fetchObserver = fetchObserver;
 const menuComponent = new MenuComponent();
@@ -38,13 +36,13 @@ function setupStaticView() {
 }
 
 function setupListeners() {
-    dataObserver.subscribe(tableComponent);
+    personDataObserver.subscribe(tableComponent);
     const refreshButtonListener = new RefreshButtonListener();
-    refreshButtonListener.listen(dataObserver);
+    refreshButtonListener.listen(personDataObserver);
     const router = new Router();
     router.route();
 }
 
 function initializeTable() {
-    window.fetchObserver.requestArrived('getpersons', dataObserver);
+    window.fetchObserver.requestArrived('getpersons', personDataObserver);
 }

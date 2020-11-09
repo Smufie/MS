@@ -1,10 +1,12 @@
-package com.mailsender.person;
+package com.mailsender.personcrud;
 
-public class PersonDto {
+import java.util.List;
+
+class PersonDto {
 
 	private String name;
 	private String mail;
-	private String[] interests;
+	private List<Integer> interests;
 	private int id;	
 	
 	public PersonDto() {}
@@ -25,11 +27,11 @@ public class PersonDto {
 		this.mail = mail;
 	}
 
-	public String[] getInterests() {
+	public List<Integer> getInterests() {
 		return interests;
 	}
 
-	public void setInterests(String[] interests) {
+	public void setInterests(List<Integer> interests) {
 		this.interests = interests;
 	}
 

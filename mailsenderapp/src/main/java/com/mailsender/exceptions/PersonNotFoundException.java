@@ -1,10 +1,10 @@
 package com.mailsender.exceptions;
 
-public class ResourceNotFoundException extends Exception {
+public class PersonNotFoundException extends Exception {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public ResourceNotFoundException(String message) {
+	public PersonNotFoundException(String message) {
 		super(message);
 	}
 }

@@ -18,5 +18,6 @@ function initFetches(establisher) {
     fetches.set('deleteperson', (personId) => establisher.fetchDelete(personId));
     fetches.set('getpersons', (observer) => establisher.fetchPersons(observer));
     fetches.set('editperson', (editedPerson) => establisher.fetchEdit(editedPerson));
+    fetches.set('getinterests', (observer) => establisher.fetchInterests(observer));
     return fetches;
 }

@@ -12,6 +12,12 @@
     },
 
     {
+        "name": "Add Interest",
+        "url": "/addinterest",
+        "title": "MailSender | Add interest"
+    },
+
+    {
         "name": "Send",
         "url": "/send",
         "title": "MailSender | Send"
@@ -21,5 +27,11 @@
         "name": "Delete",
         "url": "/deleteuser",
         "title": "MailSender | Delete user"
+    },
+
+    {
+        "name": "Delete Interest",
+        "url": "/deleteinterest",
+        "title": "MailSender | Delete interest"
     }
 ]

@@ -1,4 +1,4 @@
-export default class DataObserver {
+export default class InterestDataObserver {
     constructor() {
         this.subscribers = [];
     }
@@ -7,9 +7,9 @@ export default class DataObserver {
         this.subscribers.push(subscriber);
     }
 
-    dataArrived(personsData) {
-        personsData.json().then((data) => {
-            const wrapper = { persons: data };
+    dataArrived(interestsData) {
+        interestsData.json().then((data) => {
+            const wrapper = { interests: data };
             this.subscribers.forEach((e) => e.render(wrapper));
         });
     }

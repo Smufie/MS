@@ -1,4 +1,4 @@
-package com.mailsender.app;
+package com.mailsender;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan({"com.mailsender"})
-@EntityScan("com.mailsender.person")
+@EntityScan("com.mailsender.personcrud")
 @EnableJpaRepositories("com.mailsender")
 public class App {
 
