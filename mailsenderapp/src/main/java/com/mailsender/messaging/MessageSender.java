@@ -1,14 +1,12 @@
 package com.mailsender.messaging;
 
-import java.util.List;
-
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
-import com.mailsender.personcrud.Person;
+import com.mailsender.personcrud.PersonDto;
 
 public interface MessageSender {
 
-	void sendMessageToRecipients(List<Person> persons, String message) throws AddressException, MessagingException;	
+	void sendMessageToRecipients(PersonDto person, String message) throws AddressException, MessagingException;	
 	
 }

@@ -4,12 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import com.mailsender.exceptions.InvalidMailException;
+
 class MailValidator {
 	
 	static final File forbiddenMailFile = new File("forbidden_mail_adresses.txt");
 	private static Scanner scan;
 	
-	static boolean validate(String mail) {
+	static boolean validate(String mail) throws InvalidMailException {
 		boolean isValid = true;
 		try {
 			scan = new Scanner(forbiddenMailFile);
@@ -20,7 +22,7 @@ class MailValidator {
 			String unvalidMail = scan.next();
 			if(mail.contains(unvalidMail)) {
 				isValid = false;
-				return isValid;
+				throw new InvalidMailException("Mail: " + mail + " is not available.");
 			}
 		}
 		scan.close();

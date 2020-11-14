@@ -4,8 +4,8 @@ Java and JS code for MailSender.
 TODO and DONE List
 
 Frontend:
-1. GitHub DONE 
-2. Trello/Slack DONE 
+1. GitHub DONE
+2. Trello/Slack DONE
 3. DOM Tree DONE 
 4. JS site life cycle DONE 
 5. HTTP requesty, status codes DONE 
@@ -15,7 +15,7 @@ Frontend:
 9. Biblioteka JQuery DONE 
 10. JQuery metody ajax DONE 
 11. JS Fetch DONE
-12. Web components TODO
+12. Web components DONE
 13. LiveReload DONE 
 14. NPM czyli node package manager DONE
 15. webpack DONE
@@ -24,9 +24,9 @@ Frontend:
 18. Destrukturyzacja DONE 
 19. ESlint i webpack DONE
 20. Preprocesory CSS, less/scss/sass postCSS DONE
-21. Java dodawnaie stringow w petli (cyfry od 1 do 1000) DONE
+21. Java dodawnaie stringow w petli (cyfry od 1 do 1000) DONE x
 22. Promise, await i async DONE
-23. Łańcuch promisów z przykładem TODO
+23. Łańcuch promisów z przykładem DONE
 24. Promise.all, multipromise methods DONE 
 25. Virtual DOM DONE
 26. Routing (klasyczny, z entrypointami webpacka, kotwice z #, spa/spi) DONE
@@ -48,25 +48,19 @@ Backend:
 12. Testowanie CRUD springboot TODO
 13. Docker, postgres, wsl DONE
 14. RegEx DONE	
-15. Mail validations
+15. Mail validations TODO
 16. Generowanie id, SEQUENCE/IDENTITY/TABLE DONE 
 17. Separacja pakietowa DONE
 18. lombok DONE
-19. ModelMapper
+19. ModelMapper DONE
 20. WebClient testy DONE
 21. Transakcje* DONE? Izolacja i propagacja.
 22. Adnotacje w springu i spring boocie DONE
 23. AutoConfig (np. baza danych)
 24. Analiza planu wykonania zapytania
 
-TODOsy w kodzie:
-1. Service
-
 W międzyczasie:  
 -codecademy, css dinner  
 -Hello Roman, blog/yt; nafrontendzie.pl; yt googlechrome
 
 Pytania:
-1. Punkt 11., czy to nie tak że transakcja po prostu składa się z querry i commandów/manipuluje przy ich pomocy?
-2. Co to Bean?
-3. Jak przechwycić wiadomość exceptiona w javie i wyswietlić na froncie?

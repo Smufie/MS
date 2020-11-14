@@ -1,5 +1,6 @@
 package com.mailsender.messaging;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -13,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mailsender.exceptions.PersonNotFoundException;
-import com.mailsender.personcrud.Person;
-import com.mailsender.personcrud.PersonService;
+import com.mailsender.personcrud.InterestDto;
+import com.mailsender.personcrud.PersonDto;
+import com.mailsender.personcrud.PersonRestController;
 
 @RestController
 @ComponentScan(basePackages = {"com.mailsender.personcrud", "com.mailsender.messaging"})
@@ -22,17 +24,26 @@ import com.mailsender.personcrud.PersonService;
 public class SendCommandRestController {
 	
 	@Autowired
-	private PersonService personService;
+	private PersonRestController personController;
 	
 	@Autowired
 	private SendCommandService sendCommandService;
 	
 	@PostMapping("/send")
-	public int sendMessageToRecipients(@RequestBody SendCommandDto sendCommand) throws PersonNotFoundException, AddressException, MessagingException {
-		// TODO service/controller
-		List<Person> persons =  personService.findByInterests(sendCommand.getInterests());
+	public int sendMessageToRecipients(@RequestBody SendCommandDto command) throws AddressException, MessagingException, PersonNotFoundException {
+		List <Integer> interestIds = new ArrayList<Integer>();
+		for (InterestDto interest : command.getInterests()) {
+			interestIds.add(interest.getInterest_id());
+		}
+		
+		List<PersonDto> persons =  personController.findByInterests(interestIds);
+		
+
 		int foundPersonsCounter = persons.size();
-		sendCommandService.sendMessageToRecipients(persons, sendCommand.getMessage());
+		while(!persons.isEmpty()) {
+			PersonDto person = persons.remove(0);
+			sendCommandService.sendMessageToRecipients(person, command.getMessage());
+		}
 		return foundPersonsCounter;
 	}
 }

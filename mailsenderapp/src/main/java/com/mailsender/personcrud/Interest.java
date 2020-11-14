@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "interests")
-public class Interest {
+class Interest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int interest_id;
@@ -41,6 +41,15 @@ public class Interest {
 
 	public int getInterest_id() {
 		return interest_id;
+	}
+	
+	public void setInterest_id(int interest_id) {
+		this.interest_id = interest_id;
+	}
+
+	public InterestDto translateToDto() {
+		InterestDto dto = new InterestDto(this.interest, this.interest_id);
+		return dto;
 	}
 }
 	

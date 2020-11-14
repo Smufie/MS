@@ -5,6 +5,15 @@ describe('fetch observer tests', () => {
         // when
         const observer = new FetchObserver();
         // then
-        expect(observer.fetches.size > 3).toBe(true);
+        expect(observer.fetches.size > 4).toBe(true);
+    });
+
+    test('should return request', () => {
+        // given
+        const observer = new FetchObserver();
+        // when
+        const request = observer.getRequest("getpersons");
+        // then
+        expect(request).not.toBe(undefined);
     });
 });

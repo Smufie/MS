@@ -7,8 +7,12 @@ export default class FetchObserver {
     }
 
     requestArrived(requestId, requestParam) {
-        const request = this.fetches.get(requestId);
+        const request = this.getRequest(requestId);
         request(requestParam);
+    }
+
+    getRequest(requestId) {
+        return this.fetches.get(requestId);
     }
 }
 

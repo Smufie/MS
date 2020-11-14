@@ -1,10 +1,8 @@
 package com.mailsender.personcrud;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,23 +22,22 @@ public class PersonRestController {
 	private PersonService service;
 	
 	@GetMapping("/persons")
-	public List<Person> getAllPersons() {
+	public List<PersonDto> getAllPersons() {
 		return service.getAll();
 	}
 	
 	@GetMapping("/persons/interest/{interests}")
-	public List<Person> findByInterest(@PathVariable Integer[] interests) throws PersonNotFoundException {
-		return service.findByInterests(Arrays.asList(interests));
+	public List<PersonDto> findByInterests(@PathVariable List<Integer> interestIds) throws PersonNotFoundException {
+		return service.findByInterests(interestIds);
 	}
 	
 	@PostMapping("/person/add")
-	public Person addPerson(@RequestBody PersonDto newPerson) throws InvalidMailException {
-		// TODO Response entity
+	public PersonDto addPerson(@RequestBody PersonDto newPerson) throws InvalidMailException {
 		return service.add(newPerson);
 	}
 	
 	@PostMapping("/person/edit")
-	public ResponseEntity<Person> editPerson(@RequestBody PersonDto newPersonData) throws PersonNotFoundException {
+	public PersonDto editPerson(@RequestBody PersonDto newPersonData) throws PersonNotFoundException, InvalidMailException {
 		// TODO Response entity
 		return service.edit(newPersonData);
 	}

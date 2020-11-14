@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "persons")
-public class Person {
+class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -56,6 +56,10 @@ public class Person {
 	public int getId() {
 		return id;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
@@ -76,7 +80,7 @@ public class Person {
 	public Set<Interest> getInterests() {
 		return interests;
 	}
-
+	
 	public void assignInterests(List<Interest> interests) {
 		this.interests.clear();
 		for (Interest interest : interests) {
@@ -86,6 +90,17 @@ public class Person {
 	
 	public void updateDate() {
 		lastMessage = new Date(System.currentTimeMillis());
+	}
+
+	public PersonDto translateToDto() {
+		PersonDto dto = new PersonDto();
+		dto.setName(this.getName());
+		dto.setMail(this.getMail());
+		for (Interest interest : this.interests) {
+			dto.addInterest(interest.translateToDto());
+		}
+		dto.setId(this.getId());
+		return dto;
 	}
 
 }

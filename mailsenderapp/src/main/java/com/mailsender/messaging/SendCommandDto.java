@@ -2,18 +2,20 @@ package com.mailsender.messaging;
 
 import java.util.List;
 
+import com.mailsender.personcrud.InterestDto;
+
 public class SendCommandDto {
 	
-	private List<Integer> interests;
+	private List<InterestDto> interests;
 	private String message;	
 	
 	public SendCommandDto() {}
 
-	public List<Integer> getInterests() {
+	public List<InterestDto> getInterests() {
 		return interests;
 	}
 
-	public void setInterests(List<Integer> interests) {
+	public void setInterests(List<InterestDto> interests) {
 		this.interests = interests;
 	}
 

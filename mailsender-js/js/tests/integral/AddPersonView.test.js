@@ -5,38 +5,66 @@ import FetchObserver from '../../FetchObserver';
 jest.mock('../../FetchObserver');
 
 beforeEach(() => {
-    FetchObserver.mockClear();
+	FetchObserver.mockClear();
 });
 
 describe('add view integral tests', () => {
-    test('should render add person view to target', () => {
-        // given
-        const view = new AddPersonView();
-        // when
-        view.renderTo(document.body);
-        // then
-        expect(document.body.id).toBe('add-input-section');
+	test('should render add person view to target', () => {
+		// given
+		window.fetchObserver = new FetchObserver();
+		const view = new AddPersonView();
+		// when
+		view.renderTo(document.body);
+		// then
+		expect(document.body.id).toBe('add-input-section');
 
-        const contentSpace = document.getElementById('input-content-space');
-        expect(contentSpace.getElementsByTagName('label')[0].innerHTML).toBe(
-            componentData.textFields[0].label
-        );
-        const button = contentSpace.getElementsByTagName('input')[3];
-        expect(button.value).toBe(componentData.buttonValue);
-    });
+		const contentSpace = document.getElementById('input-content-space');
+		expect(contentSpace.getElementsByTagName('label')[0].innerHTML).toBe(
+			componentData.textFields[0].label
+		);
+		const button = document.getElementById('submit-button');
+		expect(button.value).toBe(componentData.buttonValue);
+	});
 
-    test('should clear name input', async () => {
-        // given
-        window.fetchObserver = new FetchObserver();
+	test('should clear name input', async () => {
+		// given
+		window.fetchObserver = new FetchObserver();
 
-        const view = new AddPersonView();
-        view.renderTo(document.body);
-        const button = document.getElementById('submit-button');
-        const nameInput = document.getElementById('name-input');
-        nameInput.value = 'John';
-        // when
-        await button.click();
-        // then
-        expect(nameInput.value).toBe('');
-    });
+		const view = new AddPersonView();
+		view.renderTo(document.body);
+		const button = document.getElementById('submit-button');
+		const nameInput = document.getElementById('name-input');
+		const mailInput = document.getElementById('mail-input');
+		nameInput.value = 'John Test';
+		mailInput.value = 'johntest@test.com';
+		// when
+		await button.click();
+		// then
+		expect(nameInput.value).toBe('');
+		expect(mailInput.value).toBe('');
+	});
+
+	test('should show information about wrong mail format', async () => {
+		// given
+		window.fetchObserver = new FetchObserver();
+
+		const output = document.createElement('article');
+		output.id = 'output';
+
+		const view = new AddPersonView();
+		view.renderTo(document.body);
+
+		document.body.appendChild(output);
+
+		const button = document.getElementById('submit-button');
+		const mailInput = document.getElementById('mail-input');
+		mailInput.value = 'johntest.test.com';
+		// when
+		await button.click();
+		// then
+		const error = document.getElementsByClassName('error-returned');
+
+		expect(error.length).toBe(1);
+		expect(error[0].innerHTML).toMatch('Give a proper e-mail format');
+	});
 });
