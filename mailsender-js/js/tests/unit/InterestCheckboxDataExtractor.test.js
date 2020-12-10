@@ -4,7 +4,7 @@ import InterestCheckboxDataExtractor from '../../components/views/InterestCheckb
 const data = {
 	interests: [
 		{
-			interest_id: 0,
+			interestId: 0,
 			interest: 'test',
 		},
 	],
@@ -26,7 +26,7 @@ describe('intererst checkbox data extractor tests', () => {
 		);
 		// then
 		expect(box.checked).toBe(false);
-		expect(interestIds).toStrictEqual(['0']);
+		expect(interestIds).toEqual([0]);
 	});
 
 	test('should extract data from names', () => {
@@ -39,9 +39,9 @@ describe('intererst checkbox data extractor tests', () => {
 		// when
 		const interestIds = InterestCheckboxDataExtractor.extractDataFromNames(
 			'interest-checkbox-space',
-			['test']
+			['test', 'idontexist']
 		);
 		// then
-		expect(interestIds).toStrictEqual(['0']);
+		expect(interestIds).toEqual([0]);
 	});
 });

@@ -1,4 +1,4 @@
-package com.mailsender.personcrud;
+package com.mailsender.person;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +16,8 @@ import javax.persistence.Table;
 class Interest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int interest_id;
+	@Column(name = "interest_id")
+	private int interestId;
 	
 	@Column(name = "interest")
 	private String interest;
@@ -39,16 +40,16 @@ class Interest {
 		this.persons = persons;
 	}
 
-	public int getInterest_id() {
-		return interest_id;
+	public int getInterestId() {
+		return interestId;
 	}
 	
-	public void setInterest_id(int interest_id) {
-		this.interest_id = interest_id;
+	public void setInterestId(int interestId) {
+		this.interestId = interestId;
 	}
 
 	public InterestDto translateToDto() {
-		InterestDto dto = new InterestDto(this.interest, this.interest_id);
+		InterestDto dto = new InterestDto(this.interest, this.interestId);
 		return dto;
 	}
 }

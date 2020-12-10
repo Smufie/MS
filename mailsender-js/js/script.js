@@ -19,30 +19,30 @@ const fetchObserver = new FetchObserver();
 window.fetchObserver = fetchObserver;
 const menuComponent = new MenuComponent();
 const mainSectionContainer = new MainSectionContainer();
-const tableComponent = new TableComponent('table-space');
+const tableComponent = new TableComponent();
 
 window.addEventListener('DOMContentLoaded', () => {
-    setupStaticView();
+	setupStaticView();
 });
 
 window.addEventListener('load', () => {
-    setupListeners();
-    initializeTable();
+	setupListeners();
+	initializeTable();
 });
 
 function setupStaticView() {
-    menuComponent.inject();
-    mainSectionContainer.inject();
+	menuComponent.inject();
+	mainSectionContainer.inject();
 }
 
 function setupListeners() {
-    personDataObserver.subscribe(tableComponent);
-    const refreshButtonListener = new RefreshButtonListener();
-    refreshButtonListener.listen(personDataObserver);
-    const router = new Router();
-    router.route();
+	personDataObserver.subscribe(tableComponent);
+	const refreshButtonListener = new RefreshButtonListener();
+	refreshButtonListener.listen(personDataObserver);
+	const router = new Router();
+	router.route();
 }
 
 function initializeTable() {
-    window.fetchObserver.requestArrived('getpersons', personDataObserver);
+	window.fetchObserver.requestArrived('getpersons', personDataObserver);
 }

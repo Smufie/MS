@@ -8,7 +8,7 @@ export default class InterestCheckboxDataExtractor {
 		const interestsIds = [];
 		Array.prototype.forEach.call(checkboxes, (checkbox) => {
 			if (checkbox.checked) {
-				interestsIds.push(checkbox.getAttribute('dataInterestId'));
+				interestsIds.push(parseInt(checkbox.getAttribute('dataInterestId'), 10));
 				checkbox.checked = false; // TODO ?
 			}
 		});
@@ -22,7 +22,7 @@ export default class InterestCheckboxDataExtractor {
 		Array.prototype.forEach.call(checkboxes, (checkbox) => {
 			interestsNamesArray.forEach((name) => {
 				if (checkbox.name === name) {
-					interestsIds.push(checkbox.getAttribute('dataInterestId'));
+					interestsIds.push(parseInt(checkbox.getAttribute('dataInterestId'), 10));
 				}
 			});
 		});

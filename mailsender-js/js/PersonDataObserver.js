@@ -1,16 +1,16 @@
 export default class PersonDataObserver {
-    constructor() {
-        this.subscribers = [];
-    }
+	constructor() {
+		this.subscribers = [];
+	}
 
-    subscribe(subscriber) {
-        this.subscribers.push(subscriber);
-    }
+	subscribe(subscriber) {
+		this.subscribers.push(subscriber);
+	}
 
-    dataArrived(personsData) {
-        personsData.json().then((data) => {
-            const wrapper = { persons: data };
-            this.subscribers.forEach((e) => e.render(wrapper));
-        });
-    }
+	dataArrived(personsData) {
+		personsData.json().then((data) => {
+			const wrapper = { persons: data };
+			this.subscribers.forEach((e) => e.render(wrapper));
+		});
+	}
 }

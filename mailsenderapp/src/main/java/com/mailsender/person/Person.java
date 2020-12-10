@@ -1,4 +1,4 @@
-package com.mailsender.personcrud;
+package com.mailsender.person;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -16,35 +16,31 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "persons")
 class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
+	private Integer id;
+
 	@Column(name = "name")
 	private String name;
-	
+
 	@Column(name = "mail")
 	private String mail;
-	
+
 	@Column(name = "last_message")
 	private Date lastMessage;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
-    @JoinTable(
-        name = "person_interest", 
-        joinColumns = { @JoinColumn(name = "person_id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "interest_id") }
-    )
-    Set<Interest> interests = new HashSet<>();
-	
+	@JoinTable(name = "person_interest", joinColumns = { @JoinColumn(name = "person_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "interest_id") })
+	Set<Interest> interests = new HashSet<>();
+
 	public Person() {
 		lastMessage = new Date(System.currentTimeMillis());
 	};
-	
+
 	public Date getLastMessage() {
 		return lastMessage;
 	}
@@ -53,14 +49,14 @@ class Person {
 		this.lastMessage = lastMessage;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -76,18 +72,16 @@ class Person {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	
+
 	public Set<Interest> getInterests() {
 		return interests;
 	}
-	
+
 	public void assignInterests(List<Interest> interests) {
 		this.interests.clear();
-		for (Interest interest : interests) {
-			this.interests.add(interest);
-		}
+		interests.forEach((interest) -> this.interests.add(interest));
 	}
-	
+
 	public void updateDate() {
 		lastMessage = new Date(System.currentTimeMillis());
 	}
@@ -96,13 +90,12 @@ class Person {
 		PersonDto dto = new PersonDto();
 		dto.setName(this.getName());
 		dto.setMail(this.getMail());
-		for (Interest interest : this.interests) {
-			dto.addInterest(interest.translateToDto());
-		}
+		this.interests.forEach((interest) -> dto.addInterest(interest.getInterestId()));
+
+		// dto.setInterests(this.interests.stream().map(Interest::getInterestId).collect(Collectors.toList()));
+
 		dto.setId(this.getId());
 		return dto;
 	}
 
 }
-
-

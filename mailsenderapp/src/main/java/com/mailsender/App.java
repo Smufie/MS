@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan({"com.mailsender"})
-@EntityScan("com.mailsender.personcrud")
+@EntityScan("com.mailsender.person")
 @EnableJpaRepositories("com.mailsender")
 public class App {
 

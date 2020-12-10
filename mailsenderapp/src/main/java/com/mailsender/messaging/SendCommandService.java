@@ -1,46 +1,31 @@
 package com.mailsender.messaging;
 
-import java.util.Properties;
+import java.util.List;
 
-import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.mailsender.personcrud.PersonDto;
-
 @Service
-class SendCommandService implements MessageSender {
-	
-	Properties properties = new Properties();
-	
-	@Value( "${sendcommandservice.mailboxadress}")
-	private String mailboxAdress;
-	@Value( "${sendcommandservice.password}")
-	private String password;
-	private Session session;
+class SendCommandService {
 
-	public void setupSession() {
-		session = Session.getInstance(properties);
+	private MessageSender sender;
+
+	// TODO wzorzec strategii
+
+	public ResponseEntity<Integer> sendMessageToRecipients(SendCommandDto command) throws MessagingException {
+		List<RecipientDto> recipients = command.getRecipients();
+
+		int foundPersonsAmount = recipients.size();
+		while (!recipients.isEmpty()) {
+			RecipientDto recipient = recipients.remove(0);
+			sender.sendMessage(recipient, command.getMessage());
+		}
+		return ResponseEntity.ok(foundPersonsAmount);
 	}
 
-	public SendCommandService() {
-		setupSession();
-	}
-
-	@Override
-	public void sendMessageToRecipients(PersonDto person, String message) throws AddressException, MessagingException {
-		Message mimeMessage = new MimeMessage(session);
-		mimeMessage.setFrom(new InternetAddress(mailboxAdress));
-		mimeMessage.setText(message);
-		mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(person.getMail()));
-		mimeMessage.setSubject("Hello " + person.getName() + "!");
-		Transport.send(mimeMessage, mailboxAdress, password);
+	public void setSender(MessageSender sender) {
+		this.sender = sender;
 	}
 }

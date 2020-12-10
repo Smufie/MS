@@ -3,7 +3,7 @@ import InterestCheckbox from '../../components/views/InterestCheckbox';
 const data = {
 	interests: [
 		{
-			interest_id: 0,
+			interestId: 0,
 			interest: 'test',
 		},
 	],
@@ -21,7 +21,7 @@ describe('interest checkbox tests', () => {
 		// then
 		const box = document.getElementById('checkbox-0');
 
-		expect(box).not.toBe(undefined);
-		expect(box.name).toBe('test');
+		expect(box).not.toBe(null);
+		expect(box.getAttribute('name')).toBe(data.interests[0].interest);
 	});
 });

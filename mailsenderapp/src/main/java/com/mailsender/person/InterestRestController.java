@@ -1,4 +1,4 @@
-package com.mailsender.personcrud;
+package com.mailsender.person;
 
 import java.util.List;
 

@@ -2,21 +2,25 @@ package com.mailsender.messaging;
 
 import java.util.List;
 
-import com.mailsender.personcrud.InterestDto;
-
 public class SendCommandDto {
-	
-	private List<InterestDto> interests;
-	private String message;	
-	
-	public SendCommandDto() {}
 
-	public List<InterestDto> getInterests() {
-		return interests;
+	private List<RecipientDto> recipients;
+	private String message;
+
+	public SendCommandDto(List<RecipientDto> recipients, String message) {
+		this.recipients = recipients;
+		this.message = message;
 	}
 
-	public void setInterests(List<InterestDto> interests) {
-		this.interests = interests;
+	public SendCommandDto() {
+	};
+
+	public List<RecipientDto> getRecipients() {
+		return recipients;
+	}
+
+	public void setRecipients(List<RecipientDto> recipients) {
+		this.recipients = recipients;
 	}
 
 	public String getMessage() {
@@ -26,5 +30,5 @@ public class SendCommandDto {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
 }

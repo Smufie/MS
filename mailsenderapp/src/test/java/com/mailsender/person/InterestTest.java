@@ -1,20 +1,20 @@
-package com.mailsender.personcrud;
+package com.mailsender.person;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 public class InterestTest {
-	
+
 	@Test
 	public void shouldTranslateToDto() {
 		Interest interest = new Interest();
 		interest.setInterest("test");
-		interest.setInterest_id(0);
-		
+		interest.setInterestId(0);
+
 		InterestDto dto = interest.translateToDto();
 		assertEquals(dto.getInterest(), interest.getInterest());
-		assertEquals(dto.getInterest_id(), interest.getInterest_id());
+		assertEquals(dto.getInterestId(), interest.getInterestId());
 	}
 
 }

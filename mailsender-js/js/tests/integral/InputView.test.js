@@ -3,11 +3,8 @@ import FetchObserver from '../../FetchObserver';
 
 jest.mock('../../FetchObserver');
 
-beforeEach(() => {
-	FetchObserver.mockClear();
-});
-
 beforeAll(() => {
+	window.fetchObserver = new FetchObserver();
 	const testArticle = document.createElement('article');
 	testArticle.innerHTML = 'Lorem ipsum';
 	const testDiv = document.createElement('div');
@@ -19,14 +16,32 @@ beforeAll(() => {
 describe('input view integral tests', () => {
 	test('should display add person view', () => {
 		// given
-		const addRoute = {
+		const addPersonRoute = {
 			name: 'Add',
 			url: '/adduser',
 		};
 		const view = new InputView();
-		window.fetchObserver = new FetchObserver();
 		// when
-		const wasRouted = view.routeChanged(addRoute);
+		const wasRouted = view.routeChanged(addPersonRoute);
+		// then
+		const contentSpace = document.getElementById('input-content-space');
+		expect(contentSpace).not.toBe(undefined);
+
+		expect(wasRouted).toBe(true);
+
+		const container = document.getElementById('add-input-section');
+		expect(container).not.toBe(undefined);
+	});
+
+	test('should display add interest view', () => {
+		// given
+		const addInterestRoute = {
+			name: 'Add',
+			url: '/addinterest',
+		};
+		const view = new InputView();
+		// when
+		const wasRouted = view.routeChanged(addInterestRoute);
 		// then
 		const contentSpace = document.getElementById('input-content-space');
 		expect(contentSpace).not.toBe(undefined);
@@ -44,7 +59,6 @@ describe('input view integral tests', () => {
 			url: '/send',
 		};
 		const view = new InputView();
-		window.fetchObserver = new FetchObserver();
 		// when
 		const wasRouted = view.routeChanged(sendRoute);
 		// then
@@ -59,13 +73,32 @@ describe('input view integral tests', () => {
 
 	test('should display delete person view', () => {
 		// given
-		const deleteRoute = {
+		const deletePersonRoute = {
 			name: 'Delete',
 			url: '/deleteuser',
 		};
 		const view = new InputView();
 		// when
-		const wasRouted = view.routeChanged(deleteRoute);
+		const wasRouted = view.routeChanged(deletePersonRoute);
+		// then
+		const contentSpace = document.getElementById('input-content-space');
+		expect(contentSpace).not.toBe(undefined);
+
+		expect(wasRouted).toBe(true);
+
+		const container = document.getElementById('delete-input-section');
+		expect(container).not.toBe(undefined);
+	});
+
+	test('should display delete person view', () => {
+		// given
+		const deleteInterestRoute = {
+			name: 'Delete',
+			url: '/deleteinterest',
+		};
+		const view = new InputView();
+		// when
+		const wasRouted = view.routeChanged(deleteInterestRoute);
 		// then
 		const contentSpace = document.getElementById('input-content-space');
 		expect(contentSpace).not.toBe(undefined);
