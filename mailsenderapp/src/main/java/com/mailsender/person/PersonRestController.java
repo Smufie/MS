@@ -12,14 +12,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mailsender.conversion.PersonMessagingACL;
+import com.mailsender.messaging.SendCommandDto;
+import com.mailsender.messaging.SendCommandRestController;
 import com.mailsender.person.exceptions.InvalidMailException;
 import com.mailsender.person.exceptions.PersonNotFoundException;
-import com.mailsender.personACL.PersonMessagingACL;
 
 @RestController
 public class PersonRestController {
 
 	PersonMessagingACL acl = new PersonMessagingACL();
+
+	@Autowired
+	private SendCommandRestController sendController;
 
 	@Autowired
 	private PersonService service;
@@ -49,7 +54,8 @@ public class PersonRestController {
 	@PostMapping("/person/send")
 	public ResponseEntity<Integer> callMailSending(@RequestBody MessageDto message) throws Exception {
 		List<PersonDto> persons = this.findByInterests(message.getInterestIds()).getBody();
-		return acl.sendMail(persons, message.getMessage());
+		SendCommandDto sendCommand = acl.convertPersonsToSendCommand(persons, message.getMessage());
+		return sendController.sendMailToRecipients(sendCommand);
 	}
 
 	@DeleteMapping("/person/delete/{id}")

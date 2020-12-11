@@ -3,7 +3,7 @@ package com.mailsender.person;
 import java.util.ArrayList;
 import java.util.List;
 
-class TestConst {
+public class TestConst {
 
 	// PERSON TEST
 	private static final Integer PERSON_TEST_PERSON_ID = new Integer(123);
@@ -37,7 +37,7 @@ class TestConst {
 		return testInterests;
 	}
 
-	// TEST CONST
+	// PERSON PACKAGE ARCHITECTURE TEST
 	private static final String ARCHITECTURE_TEST_DTO = ".*Dto";
 	private static final String ARCHITECTURE_TEST_REPOSITORY = ".*Repository";
 	private static final String ARCHITECTURE_TEST_SERVICE = ".*Service";
