@@ -6,4 +6,6 @@ public interface MessageSender {
 
 	void sendMessage(RecipientDto recipient, String message) throws MessagingException;
 
+	SenderStrategy getStrategy();
+
 }

@@ -11,9 +11,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class MailSender implements MessageSender {
 
 	Properties properties = new Properties();
@@ -42,5 +42,10 @@ public class MailSender implements MessageSender {
 		Message mail = this.buildMessage(recipient, message);
 		Transport.send(mail, mailboxAdress, password);
 
+	}
+
+	@Override
+	public SenderStrategy getStrategy() {
+		return SenderStrategy.MAIL;
 	}
 }

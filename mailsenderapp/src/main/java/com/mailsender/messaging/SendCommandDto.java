@@ -6,6 +6,7 @@ public class SendCommandDto {
 
 	private List<RecipientDto> recipients;
 	private String message;
+	private SenderStrategy strategy;
 
 	public SendCommandDto(List<RecipientDto> recipients, String message) {
 		this.recipients = recipients;
@@ -29,6 +30,14 @@ public class SendCommandDto {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public SenderStrategy getStrategy() {
+		return strategy;
+	}
+
+	public void setStrategy(SenderStrategy strategy) {
+		this.strategy = strategy;
 	}
 
 }

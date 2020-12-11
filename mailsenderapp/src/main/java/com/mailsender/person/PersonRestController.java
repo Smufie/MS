@@ -55,7 +55,7 @@ public class PersonRestController {
 	public ResponseEntity<Integer> callMailSending(@RequestBody MessageDto message) throws Exception {
 		List<PersonDto> persons = this.findByInterests(message.getInterestIds()).getBody();
 		SendCommandDto sendCommand = acl.convertPersonsToSendCommand(persons, message.getMessage());
-		return sendController.sendMailToRecipients(sendCommand);
+		return sendController.executeSendCommand(sendCommand);
 	}
 
 	@DeleteMapping("/person/delete/{id}")

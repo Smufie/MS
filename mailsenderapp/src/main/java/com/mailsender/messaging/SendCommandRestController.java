@@ -16,17 +16,8 @@ public class SendCommandRestController {
 	@Autowired
 	private SendCommandService sendCommandService;
 
-	@PostMapping("/sendmail")
-	public ResponseEntity<Integer> sendMailToRecipients(@RequestBody SendCommandDto command) throws Exception {
-		sendCommandService.setSender(new MailSender());
-		return sendCommandService.sendMessageToRecipients(command);
-	}
-
-	@PostMapping("/sendsms")
-	public ResponseEntity<Integer> sendSMSToRecipients(@RequestBody SendCommandDto command) throws Exception {
-		sendCommandService.setSender(new SMSSender());
+	@PostMapping("/send/message")
+	public ResponseEntity<Integer> executeSendCommand(@RequestBody SendCommandDto command) throws Exception {
 		return sendCommandService.sendMessageToRecipients(command);
 	}
 }
-
-//TODO INSTANCJONOWANIE SENDEROW, WYBOR STRATEGII

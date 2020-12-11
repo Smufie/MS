@@ -13,11 +13,11 @@ import com.tngtech.archunit.lang.ArchRule;
 
 public class PersonPackageArchitectureTest {
 
-	private static final String DTO = TestConst.getArchitectureTestDto();
-	private static final String REPOSITORY = TestConst.getArchitectureTestRepository();
-	private static final String SERVICE = TestConst.getArchitectureTestService();
-	private static final String CONTROLLER = TestConst.getArchitectureTestController();
-	private static final String PERSON_PACKAGE = TestConst.getArchitectureTestPersonPackage();
+	private static final String DTO = PersonTestConst.getArchitectureTestDto();
+	private static final String REPOSITORY = PersonTestConst.getArchitectureTestRepository();
+	private static final String SERVICE = PersonTestConst.getArchitectureTestService();
+	private static final String CONTROLLER = PersonTestConst.getArchitectureTestController();
+	private static final String PERSON_PACKAGE = PersonTestConst.getArchitectureTestPersonPackage();
 
 	private JavaClasses classes;
 

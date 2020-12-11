@@ -2,19 +2,21 @@ package com.mailsender.messaging;
 
 import java.util.List;
 
-import javax.mail.MessagingException;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 class SendCommandService {
 
+	@Autowired
+	SenderFactory factory;
+
 	private MessageSender sender;
 
-	// TODO wzorzec strategii
+	public ResponseEntity<Integer> sendMessageToRecipients(SendCommandDto command) throws Exception {
+		sender = factory.getSender(command.getStrategy());
 
-	public ResponseEntity<Integer> sendMessageToRecipients(SendCommandDto command) throws MessagingException {
 		List<RecipientDto> recipients = command.getRecipients();
 
 		int foundPersonsAmount = recipients.size();
@@ -23,9 +25,5 @@ class SendCommandService {
 			sender.sendMessage(recipient, command.getMessage());
 		}
 		return ResponseEntity.ok(foundPersonsAmount);
-	}
-
-	public void setSender(MessageSender sender) {
-		this.sender = sender;
 	}
 }
