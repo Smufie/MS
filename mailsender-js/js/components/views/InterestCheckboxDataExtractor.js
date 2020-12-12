@@ -15,14 +15,12 @@ export default class InterestCheckboxDataExtractor {
 		return interestsIds;
 	}
 
-	static extractDataFromNames(checkboxSpaceId, interestsNamesArray) {
-		const checkboxSpace = document.getElementById(checkboxSpaceId);
-		const checkboxes = checkboxSpace.getElementsByClassName('interest-checkbox');
+	static extractDataFromNames(interestsNamesArray) {
 		const interestsIds = [];
-		Array.prototype.forEach.call(checkboxes, (checkbox) => {
+		window.interests.forEach((interest) => {
 			interestsNamesArray.forEach((name) => {
-				if (checkbox.name === name) {
-					interestsIds.push(parseInt(checkbox.getAttribute('dataInterestId'), 10));
+				if (interest.interest === name) {
+					interestsIds.push(interest.interestId);
 				}
 			});
 		});

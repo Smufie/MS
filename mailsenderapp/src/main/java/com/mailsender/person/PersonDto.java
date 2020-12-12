@@ -7,12 +7,13 @@ public class PersonDto {
 
 	private String name;
 	private String mail;
-	private List<Integer> interests = new ArrayList<Integer>();
-	private Integer id;	
-	
-	public PersonDto() {}
-	
-	public PersonDto(String name, String mail, List<Integer> interests, Integer id) {
+	private List<InterestDto> interests = new ArrayList<InterestDto>();
+	private Integer id;
+
+	public PersonDto() {
+	}
+
+	public PersonDto(String name, String mail, List<InterestDto> interests, Integer id) {
 		this.name = name;
 		this.mail = mail;
 		this.interests = interests;
@@ -22,7 +23,7 @@ public class PersonDto {
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -35,22 +36,30 @@ public class PersonDto {
 		this.mail = mail;
 	}
 
-	public List<Integer> getInterests() {
+	public List<InterestDto> getInterests() {
 		return interests;
 	}
 
-	public void setInterests(List<Integer> interests) {
+	public List<Integer> getInterestsIds() {
+		List<Integer> interestsIds = new ArrayList<Integer>();
+		for (InterestDto interest : this.interests) {
+			interestsIds.add(interest.getInterestId());
+		}
+		return interestsIds;
+	}
+
+	public void setInterests(List<InterestDto> interests) {
 		this.interests = interests;
 	}
 
-	public void addInterest(Integer interest) {
+	public void addInterest(InterestDto interest) {
 		this.interests.add(interest);
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id = id;
 	}

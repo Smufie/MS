@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.mailsender.GlobalTestConst;
 import com.mailsender.messaging.SendCommandDto;
+import com.mailsender.person.InterestDto;
 import com.mailsender.person.PersonDto;
 
 public class PersonMessagingACLTest {
@@ -18,8 +19,8 @@ public class PersonMessagingACLTest {
 	@Test
 	public void shouldConvertPersonsToSendCommand() {
 		// GIVEN
-		List<Integer> interests = new ArrayList<Integer>();
-		interests.add(0);
+		List<InterestDto> interests = new ArrayList<InterestDto>();
+		interests.add(new InterestDto(0));
 
 		List<PersonDto> persons = new ArrayList<PersonDto>();
 		persons.add(new PersonDto(GlobalTestConst.getTestPersonName(), GlobalTestConst.getTestPersonMail(), interests,

@@ -90,10 +90,7 @@ class Person {
 		PersonDto dto = new PersonDto();
 		dto.setName(this.getName());
 		dto.setMail(this.getMail());
-		this.interests.forEach((interest) -> dto.addInterest(interest.getInterestId()));
-
-		// dto.setInterests(this.interests.stream().map(Interest::getInterestId).collect(Collectors.toList()));
-
+		this.interests.forEach((interest) -> dto.addInterest(interest.translateToDto()));
 		dto.setId(this.getId());
 		return dto;
 	}

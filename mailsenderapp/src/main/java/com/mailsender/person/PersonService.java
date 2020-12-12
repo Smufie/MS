@@ -32,7 +32,7 @@ class PersonService {
 	public ResponseEntity<PersonDto> add(PersonDto newPerson) throws InvalidMailException {
 		MailValidator.validate(newPerson.getMail());
 
-		List<Interest> newPersonInterests = interests.findAllById(newPerson.getInterests());
+		List<Interest> newPersonInterests = interests.findAllById(newPerson.getInterestsIds());
 		Person person = new Person();
 
 		person.setName(newPerson.getName());
@@ -52,7 +52,7 @@ class PersonService {
 		Person person = persons.findById(newPersonData.getId()).orElseThrow(
 				() -> new PersonNotFoundException("Person not found for this id: " + newPersonData.getId()));
 
-		List<Interest> newPersonInterests = interests.findAllById(newPersonData.getInterests());
+		List<Interest> newPersonInterests = interests.findAllById(newPersonData.getInterestsIds());
 
 		person.setName(newPersonData.getName());
 		person.setMail(newPersonData.getMail());
