@@ -16,15 +16,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class MailSender implements MessageSender {
 
-	Properties properties = new Properties();
+	Properties properties;
 
-	@Value("${mailhandler.mailboxadress}")
+	@Value("${mailsender.mailboxadress}")
 	private String mailboxAdress;
-	@Value("${mailhandler.password}")
+	@Value("${mailsender.password}")
 	private String password;
+	@Value("${mailsender.host}")
+	private String host;
 	private Session session;
 
 	public MailSender() {
+		properties = System.getProperties();
+
+		properties.put("mail.smtp.host", host);
+		properties.put("mail.smtp.port", "465");
+		properties.put("mail.smtp.ssl.enable", "true");
+		properties.put("mail.smtp.auth", "true");
 		session = Session.getInstance(properties);
 	}
 
@@ -40,7 +48,9 @@ public class MailSender implements MessageSender {
 	@Override
 	public void sendMessage(RecipientDto recipient, String message) throws MessagingException {
 		Message mail = this.buildMessage(recipient, message);
-		Transport.send(mail, mailboxAdress, password);
+		Transport transport = session.getTransport("smtp");
+		transport.connect(host, mailboxAdress, password);
+		transport.sendMessage(mail, mail.getAllRecipients());
 
 	}
 

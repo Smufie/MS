@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +15,6 @@ public class SendCommandRestController {
 	@Autowired
 	private SendCommandService sendCommandService;
 
-	@PostMapping("/send/message")
 	public ResponseEntity<Integer> executeSendCommand(@RequestBody SendCommandDto command) throws Exception {
 		return sendCommandService.sendMessageToRecipients(command);
 	}

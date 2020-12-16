@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mailsender.conversion.PersonMessagingACL;
+import com.mailsender.messaging.MessageDto;
 import com.mailsender.messaging.SendCommandDto;
 import com.mailsender.messaging.SendCommandRestController;
 import com.mailsender.person.exceptions.InvalidMailException;
@@ -35,7 +36,7 @@ public class PersonRestController {
 	}
 
 	@GetMapping("/persons/interest/{interests}")
-	public ResponseEntity<List<PersonDto>> findByInterests(@PathVariable List<Integer> interestIds)
+	public ResponseEntity<List<PersonDto>> findByInterests(@PathVariable(value = "interests") List<Integer> interestIds)
 			throws RuntimeException {
 		return service.findByInterests(interestIds);
 	}
@@ -51,7 +52,7 @@ public class PersonRestController {
 		return service.edit(newPersonData);
 	}
 
-	@PostMapping("/person/send")
+	@PostMapping("/send/message")
 	public ResponseEntity<Integer> callMailSending(@RequestBody MessageDto message) throws Exception {
 		List<PersonDto> persons = this.findByInterests(message.getInterestIds()).getBody();
 		SendCommandDto sendCommand = acl.convertPersonsToSendCommand(persons, message.getMessage());
