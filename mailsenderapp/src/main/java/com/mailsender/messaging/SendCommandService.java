@@ -15,7 +15,7 @@ class SendCommandService {
 	private MessageSender sender;
 
 	public ResponseEntity<Integer> sendMessageToRecipients(SendCommandDto command) throws Exception {
-		sender = factory.getSender(command.getStrategy());
+		sender = factory.getSender(command.getSenderType());
 
 		List<RecipientDto> recipients = command.getRecipients();
 

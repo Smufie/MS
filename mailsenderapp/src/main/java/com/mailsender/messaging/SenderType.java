@@ -1,5 +1,5 @@
 package com.mailsender.messaging;
 
-public enum SenderStrategy {
+public enum SenderType {
 	MAIL, SMS;
 }

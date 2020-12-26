@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable class-methods-use-this */
 
+// TODO instancjonowanie a nie statycznosc
+
 export default class InterestCheckboxesService {
 	static extractDataFromChecked(checkboxSpaceId) {
 		const checkboxSpace = document.getElementById(checkboxSpaceId);

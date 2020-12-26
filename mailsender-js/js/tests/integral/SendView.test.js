@@ -24,4 +24,18 @@ describe('send view tests', () => {
 		expect(contentSpace.getElementsByTagName('textarea').length).toBe(1);
 		expect(contentSpace.getElementsByTagName('input')[0].value).toBe(componentData.buttonValue);
 	});
+
+	test('should clear message input', () => {
+		// given
+		window.fetchObserver = new FetchObserver();
+		const view = new SendView();
+		view.renderTo(document.body);
+		const messageInput = document.getElementById('message-input');
+		messageInput.value = 'test';
+		const sendButton = document.getElementById('send-button');
+		// when
+		sendButton.click();
+		// then
+		expect(messageInput.value).toBe('');
+	});
 });

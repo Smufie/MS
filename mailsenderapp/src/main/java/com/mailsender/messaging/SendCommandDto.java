@@ -6,7 +6,7 @@ public class SendCommandDto {
 
 	private List<RecipientDto> recipients;
 	private String message;
-	private SenderStrategy strategy;
+	private SenderType senderType = SenderType.MAIL;
 
 	public SendCommandDto(List<RecipientDto> recipients, String message) {
 		this.recipients = recipients;
@@ -28,16 +28,16 @@ public class SendCommandDto {
 		return message;
 	}
 
+	public SenderType getSenderType() {
+		return senderType;
+	}
+
+	public void setSenderType(SenderType senderType) {
+		this.senderType = senderType;
+	}
+
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	public SenderStrategy getStrategy() {
-		return strategy;
-	}
-
-	public void setStrategy(SenderStrategy strategy) {
-		this.strategy = strategy;
 	}
 
 }

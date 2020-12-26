@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.mailsender.GlobalTestConst;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest // Czemu tak długo?
+@SpringBootTest
 public class MailSenderTest {
 
 	@Autowired
@@ -39,6 +39,6 @@ public class MailSenderTest {
 	@Test
 	public void shouldBeMailStrategy() {
 		// THEN
-		assertEquals(SenderStrategy.MAIL, sender.getStrategy());
+		assertEquals(SenderType.MAIL, sender.getStrategy());
 	}
 }

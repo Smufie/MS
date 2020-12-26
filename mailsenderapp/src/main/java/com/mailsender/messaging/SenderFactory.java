@@ -12,16 +12,14 @@ class SenderFactory {
 	@Autowired
 	private SMSSender sms;
 
-	MessageSender getSender(SenderStrategy strategy) throws SenderStrategyNotFoundException {
-		switch (strategy) {
+	MessageSender getSender(SenderType senderType) throws SenderStrategyNotFoundException {
+		switch (senderType) {
 		case MAIL:
 			return mail;
 		case SMS:
 			return sms;
 		default:
-			throw new SenderStrategyNotFoundException("Sender not found."); // Czy w aktualnej architekturze jest w
-																			// ogóle możliwe żeby takie coś miało
-																			// miejsce?
+			throw new SenderStrategyNotFoundException("Sender not found.");
 		}
 	}
 }

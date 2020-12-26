@@ -2,6 +2,7 @@ package com.mailsender.messaging;
 
 import java.util.Properties;
 
+import javax.annotation.PostConstruct;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -14,9 +15,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MailSender implements MessageSender {
+class MailSender implements MessageSender {
 
-	Properties properties;
+	Properties properties = System.getProperties();
 
 	@Value("${mailsender.mailboxadress}")
 	private String mailboxAdress;
@@ -27,13 +28,15 @@ public class MailSender implements MessageSender {
 	private Session session;
 
 	public MailSender() {
-		properties = System.getProperties();
+		session = Session.getInstance(properties);
+	}
 
+	@PostConstruct
+	private void initProperties() {
 		properties.put("mail.smtp.host", host);
 		properties.put("mail.smtp.port", "465");
 		properties.put("mail.smtp.ssl.enable", "true");
 		properties.put("mail.smtp.auth", "true");
-		session = Session.getInstance(properties);
 	}
 
 	public Message buildMessage(RecipientDto recipient, String message) throws AddressException, MessagingException {
@@ -51,11 +54,10 @@ public class MailSender implements MessageSender {
 		Transport transport = session.getTransport("smtp");
 		transport.connect(host, mailboxAdress, password);
 		transport.sendMessage(mail, mail.getAllRecipients());
-
 	}
 
 	@Override
-	public SenderStrategy getStrategy() {
-		return SenderStrategy.MAIL;
+	public SenderType getStrategy() {
+		return SenderType.MAIL;
 	}
 }

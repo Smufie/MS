@@ -11,7 +11,7 @@ class SMSSenderTest {
 	@Test
 	public void shouldBeSMSStrategy() {
 		// THEN
-		assertEquals(SenderStrategy.SMS, sender.getStrategy());
+		assertEquals(SenderType.SMS, sender.getStrategy());
 	}
 
 }

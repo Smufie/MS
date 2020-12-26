@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.mailsender.messaging.RecipientDto;
 import com.mailsender.messaging.SendCommandDto;
-import com.mailsender.messaging.SenderStrategy;
 import com.mailsender.person.PersonDto;
 
 public class PersonMessagingACL {
@@ -16,7 +15,6 @@ public class PersonMessagingACL {
 			recipients.add(new RecipientDto(person.getMail(), person.getName()));
 		});
 		SendCommandDto sendCommand = new SendCommandDto(recipients, message);
-		sendCommand.setStrategy(SenderStrategy.MAIL);
 		return sendCommand;
 	}
 }

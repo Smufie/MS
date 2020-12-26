@@ -13,23 +13,24 @@ public class SenderFactoryTest {
 	@Test
 	public void shouldReturnMailSender() throws SenderStrategyNotFoundException {
 		// GIVEN
-		MessageSender sender = factory.getSender(SenderStrategy.MAIL);
+		MessageSender sender = factory.getSender(SenderType.MAIL);
 		// WHEN
-		SenderStrategy strategy = sender.getStrategy();
+		SenderType strategy = sender.getStrategy();
 		// THEN
-		assertEquals(SenderStrategy.MAIL, strategy);
+		assertEquals(SenderType.MAIL, strategy);
 
 	}
 
 	@Test
 	public void shouldReturnSmsSender() throws SenderStrategyNotFoundException {
 		// GIVEN
-		MessageSender sender = factory.getSender(SenderStrategy.SMS);
+		MessageSender sender = factory.getSender(SenderType.SMS);
 		// WHEN
-		SenderStrategy strategy = sender.getStrategy();
+		SenderType strategy = sender.getStrategy();
 		// THEN
-		assertEquals(SenderStrategy.SMS, strategy);
+		assertEquals(SenderType.SMS, strategy);
 
 	}
 
+	// TODO TEST NA DEFAULT W SWITCHU
 }

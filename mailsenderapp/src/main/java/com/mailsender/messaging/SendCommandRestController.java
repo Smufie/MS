@@ -1,15 +1,11 @@
 package com.mailsender.messaging;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
-@ComponentScan(basePackages = { "com.mailsender.person", "com.mailsender.messaging" })
-@Configuration
-@RestController
+@Controller
 public class SendCommandRestController {
 
 	@Autowired

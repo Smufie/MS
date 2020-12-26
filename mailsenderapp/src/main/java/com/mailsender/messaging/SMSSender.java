@@ -13,8 +13,8 @@ public class SMSSender implements MessageSender {
 	}
 
 	@Override
-	public SenderStrategy getStrategy() {
-		return SenderStrategy.SMS;
+	public SenderType getStrategy() {
+		return SenderType.SMS;
 	}
 
 }
