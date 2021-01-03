@@ -18,6 +18,14 @@ public class PersonTestConst {
 		return testInterests;
 	}
 
+	public static List<InterestDto> getPersonTestPersonInterestsDto() {
+		List<InterestDto> interestsDto = new ArrayList<InterestDto>();
+		for (Interest interest : PERSON_TEST_PERSON_INTERESTS) {
+			interestsDto.add(interest.translateToDto());
+		}
+		return interestsDto;
+	}
+
 	public static List<Interest> getPersonTestPersonInterests() {
 		return PERSON_TEST_PERSON_INTERESTS;
 	}
