@@ -2,21 +2,24 @@
 	display: flex;
 	flex-basis: 100%;
 	padding: 0;
+	margin: 0;
 }
 
 #person-table {
+	padding: 0;
+	margin: 0;
 	table-layout: auto;
 	width: 100%;
-	margin: 0;
 	border-collapse: collapse;
+	border-style: hidden;
 	font-size: 0.8em;
 	td,
 	th {
-		padding: 5px;
 		text-align: left;
 		border-width: 1px;
 		border-color: $main-section-blue;
 		border-style: solid;
+		padding: 2px;
 	}
 	tr:nth-child(even) {
 		background-color: $grey-3;

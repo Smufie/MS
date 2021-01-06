@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import InputContainerFactory from '../../../containers/InputContainerFactory';
-import InterestDataObserver from '../../../InterestDataObserver';
 import InterestCheckbox from '../InterestCheckbox';
 import SendButtonListener from './SendButtonListener';
 import SendInputComponent from './SendInputComponent';
@@ -10,8 +9,7 @@ export default class SendView {
 		this.container = InputContainerFactory.getSendContainer();
 		this.input = new SendInputComponent();
 		this.checkbox = new InterestCheckbox();
-		this.observer = new InterestDataObserver();
-		this.observer.subscribe(this.checkbox);
+		window.interestDataObserver.subscribe(this.checkbox);
 	}
 
 	renderTo(target) {
@@ -19,12 +17,8 @@ export default class SendView {
 		target.id = this.container.id;
 		attachInputToContainer(this.input);
 		listenSendButton();
-		this.renderCheckboxToContainer();
+		renderCheckboxToContainer();
 		return target.innerHTML;
-	}
-
-	renderCheckboxToContainer() {
-		window.fetchObserver.requestArrived('getinterests', this.observer);
 	}
 }
 function listenSendButton() {
@@ -36,4 +30,8 @@ function attachInputToContainer(input) {
 	const contentSpace = document.getElementById('input-content-space');
 	contentSpace.innerHTML += input.generatedHTML;
 	return contentSpace.innerHTML;
+}
+
+function renderCheckboxToContainer() {
+	window.fetchObserver.requestArrived('getinterests', window.interestDataObserver);
 }

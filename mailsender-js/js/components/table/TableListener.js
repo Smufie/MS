@@ -1,34 +1,32 @@
 import PersonDTO from '../../PersonDTO';
 
-// TODO Cell/Row class
-
 export default class TableListener {
+	// eslint-disable-next-line class-methods-use-this
 	listen() {
 		const personsTable = document.getElementById('person-table');
 		const { length, ...rows } = personsTable.rows;
-		this.establishTableProperties(length, rows);
+		establishTableProperties(length, rows);
 	}
+}
 
-	establishTableProperties(length, rows) {
-		for (let i = 1; i < length; i += 1) {
-			const nameCellId = rows[i].cells[0].innerHTML;
-			for (let y = 1; y < rows[i].cells.length; y += 1) {
-				const types = ['name', 'mail', 'interests'];
-				let nameCell = rows[i].cells[y];
-				nameCell = this.setCellProperties(nameCell, nameCellId, types[y - 1]);
-				addCellListener(nameCell, nameCellId);
-			}
+function establishTableProperties(length, rows) {
+	for (let i = 1; i < length; i += 1) {
+		const nameCellId = rows[i].cells[0].innerHTML;
+		for (let y = 1; y < rows[i].cells.length; y += 1) {
+			const types = ['name', 'mail', 'interests'];
+			let nameCell = rows[i].cells[y];
+			nameCell = setCellProperties(nameCell, nameCellId, types[y - 1]);
+			addCellListener(nameCell, nameCellId);
 		}
 	}
+}
 
-	// eslint-disable-next-line class-methods-use-this
-	setCellProperties(nameCell, nameCellId, type) {
-		const newNameCell = nameCell;
-		newNameCell.contentEditable = 'true';
-		newNameCell.setAttribute('data-person-id', nameCellId);
-		newNameCell.id = `${type}-${nameCellId}`;
-		return newNameCell;
-	}
+function setCellProperties(nameCell, nameCellId, type) {
+	const newNameCell = nameCell;
+	newNameCell.contentEditable = 'true';
+	newNameCell.setAttribute('data-person-id', nameCellId);
+	newNameCell.id = `${type}-${nameCellId}`;
+	return newNameCell;
 }
 
 function addCellListener(nameCell, nameCellId) {
@@ -44,20 +42,15 @@ function addCellListener(nameCell, nameCellId) {
 function readNewPersonDataFromTable(nameCellId) {
 	const nameCellValue = document.getElementById(`name-${nameCellId}`).innerHTML;
 	const mailCellValue = document.getElementById(`mail-${nameCellId}`).innerHTML;
-	const interestsCellValue = document.getElementById(`interests-${nameCellId}`).innerHTML;
-	const interestsNamesArray = Array.from(interestsCellValue.split(' '));
-	const interestsIdsArray = extractDataFromNames(interestsNamesArray);
+	const interestsIdsArray = getSelectValues(nameCellId);
 	return new PersonDTO(nameCellValue, mailCellValue, interestsIdsArray, nameCellId);
 }
 
-function extractDataFromNames(interestsNamesArray) {
-	const interestsIds = [];
-	window.interests.forEach((interest) => {
-		interestsNamesArray.forEach((name) => {
-			if (interest.interest === name) {
-				interestsIds.push(interest.interestId);
-			}
-		});
+function getSelectValues(nameCellId) {
+	const selected = document.querySelectorAll(`#interest-select-${nameCellId} option:checked`);
+	const values = Array.from(selected).map((el) => {
+		const interest = { interestId: el.value };
+		return interest;
 	});
-	return interestsIds;
+	return values;
 }
