@@ -13,8 +13,8 @@
         },
 
         {
-            "articleId": "persons",
-            "articleHeader": "Persons preview",
+            "articleId": "data",
+            "articleHeader": "Data preview",
             "isPersons": true
         }
     ]

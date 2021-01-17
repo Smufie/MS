@@ -7,7 +7,7 @@ public class PersonDto {
 
 	private String name;
 	private String mail;
-	private List<InterestDto> interests = new ArrayList<InterestDto>();
+	private List<InterestDto> interests = new ArrayList<InterestDto>(); // TODO
 	private Integer id;
 
 	public PersonDto() {
@@ -36,7 +36,7 @@ public class PersonDto {
 		this.mail = mail;
 	}
 
-	public List<InterestDto> getInterests() {
+	public List<InterestDto> allInterestDtos() {
 		return interests;
 	}
 

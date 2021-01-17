@@ -33,7 +33,6 @@ public class PersonTest {
 		// THEN
 		assertEquals(person.getId(), dto.getId());
 		assertEquals(person.getName(), dto.getName());
-		assertEquals(person.getMail(), dto.getMail()); // TODO interests?
-		assertEquals(person.getId(), dto.getId());
+		assertEquals(person.getMail(), dto.getMail());
 	}
 }

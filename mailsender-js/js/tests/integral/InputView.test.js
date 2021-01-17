@@ -1,10 +1,12 @@
 import InputView from '../../InputView';
 import FetchObserver from '../../FetchObserver';
+import CheckboxInterestDataObserver from '../../CheckboxInterestDataObserver';
 
 jest.mock('../../FetchObserver');
 
 beforeAll(() => {
 	window.fetchObserver = new FetchObserver();
+	window.interestDataObserver = new CheckboxInterestDataObserver();
 	const testArticle = document.createElement('article');
 	testArticle.innerHTML = 'Lorem ipsum';
 	const testDiv = document.createElement('div');

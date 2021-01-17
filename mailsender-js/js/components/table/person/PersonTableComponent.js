@@ -1,7 +1,7 @@
-import compiledTemplate from '../../../templates/tableTemplate.hbs';
+import compiledTemplate from '../../../../templates/personTableTemplate.hbs';
 import InterestMultiselectFactory from './InterestMultiselectFactory';
 
-export default class TableComponent {
+export default class PersonTableComponent {
 	constructor() {
 		this.factory = null;
 		this.tableSpace = null;

@@ -1,7 +1,9 @@
 import {
 	handleAddResponse,
+	handleAddInterestResponse,
 	handleEditResponse,
 	handleDeleteResponse,
+	handleDeleteInterestResponse,
 	handleSendResponse,
 } from './responseHandler';
 import ExceptionHandler from './ExceptionHandler';
@@ -70,7 +72,7 @@ export default class FetchEstablisher {
 			});
 	}
 
-	async fetchAdd(newPerson) {
+	async fetchAddPerson(newPerson) {
 		await fetch(`${this.DEFAULT_ADRESS}/person/add`, {
 			method: 'POST',
 			headers: {
@@ -90,7 +92,27 @@ export default class FetchEstablisher {
 			});
 	}
 
-	async fetchDelete(personId) {
+	async fetchAddInterest(newInterest) {
+		await fetch(`${this.DEFAULT_ADRESS}/interest/add`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': this.DEFAULT_HEADER,
+			},
+			body: JSON.stringify(newInterest),
+		})
+			.then((response) => {
+				if (!response.ok) {
+					throw response;
+				} else {
+					handleAddInterestResponse(response);
+				}
+			})
+			.catch((error) => {
+				ExceptionHandler.fetchError(error);
+			});
+	}
+
+	async fetchDeletePerson(personId) {
 		await fetch(`${this.DEFAULT_ADRESS}/person/delete/${personId}`, {
 			method: 'DELETE',
 			headers: {
@@ -102,6 +124,25 @@ export default class FetchEstablisher {
 					throw response;
 				} else {
 					handleDeleteResponse(response);
+				}
+			})
+			.catch((error) => {
+				ExceptionHandler.fetchError(error);
+			});
+	}
+
+	async fetchDeleteInterest(interestId) {
+		await fetch(`${this.DEFAULT_ADRESS}/interest/delete/${interestId}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': this.DEFAULT_HEADER,
+			},
+		})
+			.then((response) => {
+				if (!response.ok) {
+					throw response;
+				} else {
+					handleDeleteInterestResponse(response);
 				}
 			})
 			.catch((error) => {

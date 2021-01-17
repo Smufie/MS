@@ -3,7 +3,7 @@ export function handleEditResponse(fetchResponse) {
 	fetchResponse.json().then((data) => {
 		informationReturned.className = 'information-returned';
 		const { id = null } = data;
-		informationReturned.innerHTML = `Person with id "${id}" successfully updated. \n`;
+		informationReturned.innerHTML = `Person with id ${id} successfully updated. \n`;
 	});
 	document.getElementById('output').appendChild(informationReturned);
 }
@@ -18,11 +18,30 @@ export function handleAddResponse(fetchResponse) {
 	document.getElementById('output').appendChild(informationReturned);
 }
 
+export function handleAddInterestResponse(fetchResponse) {
+	const informationReturned = document.createElement('P');
+	fetchResponse.json().then((data) => {
+		informationReturned.className = 'information-returned';
+		const { interest = '', interestId = null } = data;
+		informationReturned.innerHTML = `Interest "${interest}" successfully created with id ${interestId}. \n`;
+	});
+	document.getElementById('output').appendChild(informationReturned);
+}
+
 export function handleDeleteResponse(fetchResponse) {
 	const informationReturned = document.createElement('P');
 	fetchResponse.json().then((id) => {
 		informationReturned.className = 'information-returned';
 		informationReturned.innerHTML = `Person with id ${id} successfully deleted. \n`;
+	});
+	document.getElementById('output').appendChild(informationReturned);
+}
+
+export function handleDeleteInterestResponse(fetchResponse) {
+	const informationReturned = document.createElement('P');
+	fetchResponse.json().then((id) => {
+		informationReturned.className = 'information-returned';
+		informationReturned.innerHTML = `Interest with id ${id} successfully deleted. \n`;
 	});
 	document.getElementById('output').appendChild(informationReturned);
 }

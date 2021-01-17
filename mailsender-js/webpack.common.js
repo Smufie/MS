@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	entry: ['./src/multiselect-master/multiselect.min.js', './js/script.js'],
+	entry: ['./js/script.js', './src/multiselect-master/multiselect.min.js'],
 
 	plugins: [
 		new CleanWebpackPlugin(),

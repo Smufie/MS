@@ -2,8 +2,15 @@ import SendView from '../../components/views/sendview/SendView';
 import componentData from '../../../templates/template-datas/input-template-datas/send-input-data.json';
 import containerData from '../../../templates/template-datas/input-template-datas/input-containers-data.json';
 import FetchObserver from '../../FetchObserver';
+import CheckboxInterestDataObserver from '../../CheckboxInterestDataObserver';
 
 jest.mock('../../FetchObserver');
+
+beforeAll(() => {
+	// given
+	window.interestDataObserver = new CheckboxInterestDataObserver();
+	window.fetchObserver = new FetchObserver();
+});
 
 beforeEach(() => {
 	FetchObserver.mockClear();
@@ -12,7 +19,6 @@ beforeEach(() => {
 describe('send view tests', () => {
 	test('should render send view to target', () => {
 		// given
-		window.fetchObserver = new FetchObserver();
 		const view = new SendView();
 		// when
 		view.renderTo(document.body);
@@ -27,7 +33,6 @@ describe('send view tests', () => {
 
 	test('should clear message input', () => {
 		// given
-		window.fetchObserver = new FetchObserver();
 		const view = new SendView();
 		view.renderTo(document.body);
 		const messageInput = document.getElementById('message-input');

@@ -4,6 +4,11 @@ import FetchObserver from '../../FetchObserver';
 
 jest.mock('../../FetchObserver');
 
+beforeAll(() => {
+	// given
+	window.fetchObserver = new FetchObserver();
+});
+
 beforeEach(() => {
 	FetchObserver.mockClear();
 });
@@ -29,8 +34,6 @@ describe('delete view tests', () => {
 
 	test('should clear id input', async () => {
 		// given
-		window.fetchObserver = new FetchObserver();
-
 		const view = new DeletePersonView();
 		view.renderTo(document.body);
 		const button = document.getElementById('delete-button');
@@ -40,5 +43,26 @@ describe('delete view tests', () => {
 		await button.click();
 		// then
 		expect(idInput.value).toBe('');
+	});
+
+	test('should inform about wrong id', async () => {
+		// given
+		const output = document.createElement('div');
+		output.id = 'output';
+
+		const view = new DeletePersonView();
+		view.renderTo(document.body);
+
+		document.body.appendChild(output);
+
+		const button = document.getElementById('delete-button');
+		const idInput = document.getElementById('id-input');
+		idInput.value = 'aoiwjd';
+		// when
+		await button.click();
+		// then
+		const errorMessage = document.getElementsByClassName('error-returned')[0];
+		expect(idInput.value).not.toBe('');
+		expect(errorMessage.innerHTML).toBe('ERROR: Typed ID has to be a number.');
 	});
 });

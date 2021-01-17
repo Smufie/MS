@@ -8,37 +8,32 @@ beforeAll(async () => {
 	browser = await puppeteer.launch();
 	page = await browser.newPage();
 	global.page = page;
-	await page.goto('http://localhost:8080/adduser');
+	await page.goto('http://localhost:8080/addinterest');
 });
 
 afterAll(async () => {
 	await browser.close();
 });
 
-describe('add person view tests', () => {
-	test('should add person to table and display it after refresh', async () => {
+describe('add interest view tests', () => {
+	test('should add interest to table and display it after refresh', async () => {
 		// given
-		const randomId = Math.floor(Math.random() * 1000);
+		const random = Math.floor(Math.random() * 1000);
 
-		await page.click('#name-input');
-		await page.type('#name-input', `Johnny${randomId}`);
+		await page.click('#interest-input');
+		await page.type('#interest-input', `test${random}`);
 
-		await page.click('#mail-input');
-		await page.type('#mail-input', `johnny${randomId}@test.com`);
-
-		await page.$eval('#interest-checkbox-space .interest-checkbox-label', (label) =>
-			label.click()
-		);
+		await page.click('#interests-button');
 
 		const tableSizeBefore = await page.$$eval(
-			'#person-table tr',
+			'#interest-table tr',
 			(selectedTable) => selectedTable.length
 		);
 		// when
-		await page.click('#submit-button');
-		await page.waitForTimeout(2000);
-		await page.click('#persons-button');
+		await page.click('#interest-submit-button');
 		await page.waitForTimeout(1000);
+		await page.click('#interests-button');
+		await page.waitForTimeout(500);
 		// then
 
 		const informationReturned = await page.$eval(
@@ -47,11 +42,11 @@ describe('add person view tests', () => {
 		);
 
 		expect(informationReturned).toMatch(
-			`Person "Johnny${randomId}" successfully created with id`
+			`Interest "test${random}" successfully created with id `
 		);
 
 		const tableSizeAfter = await page.$$eval(
-			'#person-table tr',
+			'#interest-table tr',
 			(selectedTable) => selectedTable.length
 		);
 		expect(tableSizeBefore < tableSizeAfter).toBe(true);

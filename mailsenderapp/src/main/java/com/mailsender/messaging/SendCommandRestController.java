@@ -12,6 +12,6 @@ public class SendCommandRestController {
 	private SendCommandService sendCommandService;
 
 	public ResponseEntity<Integer> executeSendCommand(@RequestBody SendCommandDto command) throws Exception {
-		return sendCommandService.sendMessageToRecipients(command);
+		return ResponseEntity.ok(sendCommandService.sendMessageToRecipients(command));
 	}
 }

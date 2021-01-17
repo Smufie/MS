@@ -3,7 +3,10 @@
 
     <h2>
         {{articleHeader}}
-        {{#if isPersons}}<input type="submit" id="refresh-button" class="button" value="Refresh">{{/if}}
+        {{#if isPersons}}
+        <input type="submit" id="persons-button" class="button" value="Persons">
+        <input type="submit" id="interests-button" class="button" value="Interests">
+        {{/if}}
     </h2>
     {{#if isPersons}}
     <div id='table-space'>

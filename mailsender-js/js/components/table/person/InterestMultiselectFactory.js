@@ -1,4 +1,4 @@
-import compiledTemplate from '../../../templates/interestMultiselect.hbs';
+import compiledTemplate from '../../../../templates/interestMultiselect.hbs';
 
 export default class InterestMultiselectFactory {
 	constructor() {

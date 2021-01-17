@@ -1,8 +1,15 @@
 import AddPersonView from '../../components/views/addpersonview/AddPersonView';
 import componentData from '../../../templates/template-datas/input-template-datas/add-person-input-data.json';
 import FetchObserver from '../../FetchObserver';
+import CheckboxInterestDataObserver from '../../CheckboxInterestDataObserver';
 
 jest.mock('../../FetchObserver');
+
+beforeAll(() => {
+	// given
+	window.interestDataObserver = new CheckboxInterestDataObserver();
+	window.fetchObserver = new FetchObserver();
+});
 
 beforeEach(() => {
 	FetchObserver.mockClear();
@@ -11,7 +18,6 @@ beforeEach(() => {
 describe('add view integral tests', () => {
 	test('should render add person view to target', () => {
 		// given
-		window.fetchObserver = new FetchObserver();
 		const view = new AddPersonView();
 		// when
 		view.renderTo(document.body);
@@ -28,8 +34,6 @@ describe('add view integral tests', () => {
 
 	test('should clear name input', async () => {
 		// given
-		window.fetchObserver = new FetchObserver();
-
 		const view = new AddPersonView();
 		view.renderTo(document.body);
 		const button = document.getElementById('submit-button');
@@ -46,8 +50,6 @@ describe('add view integral tests', () => {
 
 	test('should show information about wrong mail format', async () => {
 		// given
-		window.fetchObserver = new FetchObserver();
-
 		const output = document.createElement('article');
 		output.id = 'output';
 

@@ -15,8 +15,8 @@ afterAll(async () => {
 	await browser.close();
 });
 
-describe('add person view tests', () => {
-	test('should add person to table and display it after refresh', async () => {
+describe('add send page tests', () => {
+	test('should send message', async () => {
 		// given
 		await page.click('#message-input');
 		await page.type('#message-input', 'Test message.');

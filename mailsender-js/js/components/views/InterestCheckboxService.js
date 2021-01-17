@@ -21,7 +21,7 @@ export default class InterestCheckboxesService {
 		const checkboxes = checkboxSpace.getElementsByClassName('interest-checkbox');
 		Array.prototype.forEach.call(checkboxes, (checkbox) => {
 			if (checkbox.checked) {
-				checkbox.checked = false; // TODO ?
+				checkbox.checked = false;
 			}
 		});
 	}

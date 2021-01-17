@@ -1,6 +1,7 @@
 @import './scss/colors.scss';
 @import './scss/main-section-style';
 @import './scss/menu-style.scss';
+@import './scss/table-style';
 
 html {
 	font-family: 'Poppins', sans-serif;
@@ -27,5 +28,4 @@ body {
 	justify-content: space-between;
 }
 
-@import './scss/table-style';
 @import './multiselect-master/styles/multiselect.scss';

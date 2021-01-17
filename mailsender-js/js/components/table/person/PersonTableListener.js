@@ -1,6 +1,6 @@
-import PersonDTO from '../../PersonDTO';
+import PersonDTO from '../../../PersonDTO';
 
-export default class TableListener {
+export default class PersonTableListener {
 	// eslint-disable-next-line class-methods-use-this
 	listen() {
 		const personsTable = document.getElementById('person-table');

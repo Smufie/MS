@@ -1,4 +1,4 @@
-export default class InterestDataObserver {
+export default class CheckboxInterestDataObserver {
 	constructor() {
 		this.subscribers = [];
 	}

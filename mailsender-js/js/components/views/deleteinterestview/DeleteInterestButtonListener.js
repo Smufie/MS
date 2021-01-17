@@ -2,25 +2,25 @@
 
 import ExceptionHandler from '../../../ExceptionHandler';
 
-export default class DeleteButtonListener {
+export default class DeleteInterestButtonListener {
 	constructor() {
-		this.deleteButton = document.getElementById('delete-button');
+		this.deleteInterestButton = document.getElementById('interest-delete-button');
 	}
 
 	listen() {
-		this.deleteButton.addEventListener('click', (event) => {
+		this.deleteInterestButton.addEventListener('click', (event) => {
 			deleteButtonClicked(event);
 		});
 	}
 }
 
 function deleteButtonClicked(event) {
-	const inputField = document.getElementById('id-input');
+	const inputField = document.getElementById('interest-id-input');
 	if (isNumeric(inputField.value)) {
 		const inputFieldValue = parseInt(inputField.value, 10);
 		inputField.value = '';
 		event.target.blur();
-		window.fetchObserver.requestArrived('deleteperson', inputFieldValue);
+		window.fetchObserver.requestArrived('deleteinterest', inputFieldValue);
 	} else {
 		ExceptionHandler.error('ERROR: Typed ID has to be a number.');
 		event.target.blur();

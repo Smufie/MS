@@ -32,24 +32,24 @@ public class PersonRestController {
 
 	@GetMapping("/persons")
 	public ResponseEntity<List<PersonDto>> getAllPersons() {
-		return service.getAll();
+		return ResponseEntity.ok(service.getAll());
 	}
 
 	@GetMapping("/persons/interest/{interests}")
 	public ResponseEntity<List<PersonDto>> findByInterests(@PathVariable(value = "interests") List<Integer> interestIds)
 			throws RuntimeException {
-		return service.findByInterests(interestIds);
+		return ResponseEntity.ok(service.findByInterests(interestIds));
 	}
 
 	@PostMapping("/person/add")
 	public ResponseEntity<PersonDto> addPerson(@RequestBody PersonDto newPerson) throws RuntimeException {
-		return service.add(newPerson);
+		return ResponseEntity.ok(service.add(newPerson));
 	}
 
 	@PostMapping("/person/edit")
 	public ResponseEntity<PersonDto> editPerson(@RequestBody PersonDto newPersonData)
 			throws PersonNotFoundException, InvalidMailException {
-		return service.edit(newPersonData);
+		return ResponseEntity.ok(service.edit(newPersonData));
 	}
 
 	@PostMapping("/send/message")
@@ -62,6 +62,6 @@ public class PersonRestController {
 	@DeleteMapping("/person/delete/{id}")
 	@ResponseBody
 	public ResponseEntity<Integer> deletePerson(@PathVariable Integer id) throws RuntimeException {
-		return service.delete(id);
+		return ResponseEntity.ok(service.delete(id));
 	}
 }

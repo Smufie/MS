@@ -30,9 +30,9 @@ describe('delete person view tests', () => {
 		await page.click('#id-input');
 		await page.type('#id-input', `${id}`);
 		await page.click('#delete-button');
-		await page.waitForTimeout(2000);
-		await page.click('#refresh-button');
-		await page.waitForTimeout(2000);
+		await page.waitForTimeout(1000);
+		await page.click('#persons-button');
+		await page.waitForTimeout(500);
 		// then
 		const tableSizeAfter = await page.$$eval(
 			'#person-table tr',
