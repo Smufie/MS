@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mailsender.GlobalTestConst;
-import com.mailsender.messaging.SendCommandRestController;
+import com.mailsender.queue.SendCommandRestController;
 
 @WebMvcTest(PersonRestController.class)
 @AutoConfigureMockMvc

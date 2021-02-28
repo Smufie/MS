@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mailsender.conversion.PersonMessagingACL;
-import com.mailsender.messaging.MessageDto;
-import com.mailsender.messaging.SendCommandDto;
-import com.mailsender.messaging.SendCommandRestController;
 import com.mailsender.person.exceptions.InvalidMailException;
 import com.mailsender.person.exceptions.PersonNotFoundException;
+import com.mailsender.queue.SendCommandDto;
+import com.mailsender.queue.SendCommandRestController;
 
 @RestController
 public class PersonRestController {
@@ -53,7 +52,7 @@ public class PersonRestController {
 	}
 
 	@PostMapping("/send/message")
-	public ResponseEntity<Integer> callMailSending(@RequestBody MessageDto message) throws Exception {
+	public ResponseEntity<Integer> callMailSending(@RequestBody SendingRequestDto message) throws Exception {
 		List<PersonDto> persons = this.findByInterests(message.getInterestIds()).getBody();
 		SendCommandDto sendCommand = acl.convertPersonsToSendCommand(persons, message.getMessage());
 		return sendController.executeSendCommand(sendCommand);

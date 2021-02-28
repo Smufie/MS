@@ -8,9 +8,9 @@ import java.util.List;
 import org.junit.Test;
 
 import com.mailsender.GlobalTestConst;
-import com.mailsender.messaging.SendCommandDto;
 import com.mailsender.person.InterestDto;
 import com.mailsender.person.PersonDto;
+import com.mailsender.queue.SendCommandDto;
 
 public class PersonMessagingACLTest {
 

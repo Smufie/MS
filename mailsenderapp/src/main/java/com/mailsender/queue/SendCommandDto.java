@@ -1,6 +1,9 @@
-package com.mailsender.messaging;
+package com.mailsender.queue;
 
 import java.util.List;
+
+import com.mailsender.messaging.RecipientDto;
+import com.mailsender.messaging.SenderType;
 
 public class SendCommandDto {
 

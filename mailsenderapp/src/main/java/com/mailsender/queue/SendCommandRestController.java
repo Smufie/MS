@@ -1,4 +1,4 @@
-package com.mailsender.messaging;
+package com.mailsender.queue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +12,6 @@ public class SendCommandRestController {
 	private SendCommandService sendCommandService;
 
 	public ResponseEntity<Integer> executeSendCommand(@RequestBody SendCommandDto command) throws Exception {
-		return ResponseEntity.ok(sendCommandService.sendMessageToRecipients(command));
+		return ResponseEntity.ok(sendCommandService.queueRecipients(command));
 	}
 }

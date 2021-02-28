@@ -1,25 +1,19 @@
 package com.mailsender.messaging;
 
-import java.util.List;
-
 public class MessageDto {
-	private List<Integer> interestIds;
+
 	private String message;
+	private RecipientDto recipient;
+	private SenderType type;
 
 	public MessageDto() {
+
 	};
 
-	public MessageDto(List<Integer> interestsIds, String message) {
-		this.interestIds = interestsIds;
+	public MessageDto(String message, RecipientDto recipient, SenderType type) {
 		this.message = message;
-	}
-
-	public List<Integer> getInterestIds() {
-		return interestIds;
-	}
-
-	public void setInterestIds(List<Integer> interestIds) {
-		this.interestIds = interestIds;
+		this.recipient = recipient;
+		this.type = type;
 	}
 
 	public String getMessage() {
@@ -28,5 +22,17 @@ public class MessageDto {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public RecipientDto getRecipient() {
+		return recipient;
+	}
+
+	public void setRecipient(RecipientDto recipient) {
+		this.recipient = recipient;
+	}
+
+	public SenderType getType() {
+		return type;
 	}
 }
